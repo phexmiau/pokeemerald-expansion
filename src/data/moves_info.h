@@ -2010,7 +2010,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Cuts the enemy with leaves.\n"
             "High critical-hit ratio."),
         .effect = EFFECT_HIT,
-        .power = 55,
+        .power = 60,
         .type = TYPE_GRASS,
         .accuracy = 95,
         .criticalHitStage = 1,
