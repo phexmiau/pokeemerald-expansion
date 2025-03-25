@@ -15,6 +15,8 @@
 #include "constants/berry.h"
 #include "constants/maps.h"
 #include "constants/pokemon.h"
+#include "constants/abilities.h"
+#include "constants/moves.h"
 #include "constants/easy_chat.h"
 #include "constants/trainer_hill.h"
 #include "constants/items.h"
