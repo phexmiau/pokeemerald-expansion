@@ -1,4 +1,4 @@
-#include "global.h"
+#include "global_wallclock.h"
 #include "bg.h"
 #include "clock.h"
 #include "decompress.h"
