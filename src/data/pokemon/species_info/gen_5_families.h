@@ -3318,7 +3318,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
         .abilities = { ABILITY_GUTS, ABILITY_INNER_FOCUS, ABILITY_MOLD_BREAKER },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Throh"),
+        .speciesName = _("Tuah"),
         .cryId = CRY_THROH,
         .natDexNum = NATIONAL_DEX_THROH,
         .categoryName = _("Judo"),
@@ -3326,7 +3326,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .weight = 555,
         .description = COMPOUND_STRING(
             "When it tightens its belt, it becomes\n"
-            "stronger. Wild Throh use vines to weave\n"
+            "stronger. Wild Tuah use vines to weave\n"
             "their own belts. It changes belts as it\n"
             "gets more powerful."),
         .pokemonScale = 272,
@@ -3389,14 +3389,14 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .abilities = { ABILITY_STURDY, ABILITY_INNER_FOCUS, ABILITY_MOLD_BREAKER },
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
-        .speciesName = _("Sawk"),
+        .speciesName = _("Hawk"),
         .cryId = CRY_SAWK,
         .natDexNum = NATIONAL_DEX_SAWK,
         .categoryName = _("Karate"),
         .height = 14,
         .weight = 510,
         .description = COMPOUND_STRING(
-            "The sound of Sawk punching boulders\n"
+            "The sound of Hawk punching boulders\n"
             "and trees can be heard all the way from\n"
             "the mountains where they train.\n"
             "Disturbing their training angers them."),
