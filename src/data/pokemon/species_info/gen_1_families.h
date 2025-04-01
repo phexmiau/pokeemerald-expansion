@@ -9824,10 +9824,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_SLOWPOKE] =
     {
         .baseHP        = 90,
-        .baseAttack    = 65,
+        .baseAttack    = 40,
         .baseDefense   = 65,
         .baseSpeed     = 15,
-        .baseSpAttack  = 40,
+        .baseSpAttack  = 65,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_WATER, TYPE_PSYCHIC),
         .catchRate = 190,
