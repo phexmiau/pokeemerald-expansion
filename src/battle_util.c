@@ -4302,6 +4302,7 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
     enum MoveAbsorbed effect = MOVE_ABSORBED_BY_NO_ABILITY;
     const u8 *battleScript = NULL;
     u32 statId = 0;
+    u32 secondaryStatId = 0;
     u32 statAmount = 1;
 
     switch (abilityDef)
@@ -4332,22 +4333,25 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
     case ABILITY_LIGHTNING_ROD:
         if (B_REDIRECT_ABILITY_IMMUNITY >= GEN_5 && moveType == TYPE_ELECTRIC && GetMoveTarget(move) != MOVE_TARGET_ALL_BATTLERS) // Potential bug in singles (might be solved with simu hp reudction)
         {
-            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_SPATK;
+            effect = MOVE_ABSORBED_BY_TWO_STATS_INCREASE_ABILITY;
+            statId = STAT_ATK;
+            secondaryStatId = STAT_SPATK;
         }
         break;
     case ABILITY_STORM_DRAIN:
         if (B_REDIRECT_ABILITY_IMMUNITY >= GEN_5 && moveType == TYPE_WATER)
         {
-            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_SPATK;
+            effect = MOVE_ABSORBED_BY_TWO_STATS_INCREASE_ABILITY;
+            statId = STAT_ATK;
+            secondaryStatId = STAT_SPATK;
         }
         break;
     case ABILITY_SAP_SIPPER:
         if (moveType == TYPE_GRASS)
         {
-            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
+            effect = MOVE_ABSORBED_BY_TWO_STATS_INCREASE_ABILITY;
             statId = STAT_ATK;
+            secondaryStatId = STAT_SPATK;
         }
         break;
     case ABILITY_WELL_BAKED_BODY:
@@ -4361,8 +4365,9 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
     case ABILITY_WIND_RIDER:
         if (IsWindMove(move) && !(GetBattlerMoveTargetType(battlerAtk, move) & MOVE_TARGET_USER))
         {
-            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
+            effect = MOVE_ABSORBED_BY_TWO_STATS_INCREASE_ABILITY;
             statId = STAT_ATK;
+            secondaryStatId = STAT_SPATK;
         }
         break;
     case ABILITY_FLASH_FIRE:
@@ -4419,6 +4424,45 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
             SET_STATCHANGER(statId, statAmount, FALSE);
             if (B_ABSORBING_ABILITY_STRING < GEN_5)
                 PREPARE_STAT_BUFFER(gBattleTextBuff1, statId);
+        }
+        break;
+    case MOVE_ABSORBED_BY_TWO_STATS_INCREASE_ABILITY:
+        gBattleStruct->pledgeMove = FALSE;
+        if (!CompareStat(battlerDef, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
+        {
+            if ((gProtectStructs[battlerAtk].notFirstStrike))
+                battleScript = BattleScript_MonMadeMoveUseless;
+            else
+                battleScript = BattleScript_MonMadeMoveUseless_PPLoss;
+        }
+        else
+        {
+            if (gProtectStructs[battlerAtk].notFirstStrike)
+                battleScript = BattleScript_MoveStatDrain;
+            else
+                battleScript = BattleScript_MoveStatDrain_PPLoss;
+
+            SET_STATCHANGER(statId, statAmount, FALSE);
+            if (B_ABSORBING_ABILITY_STRING < GEN_5)
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, statId);
+        }
+        if (!CompareStat(battlerDef, secondaryStatId, MAX_STAT_STAGE, CMP_LESS_THAN))
+        {
+            if ((gProtectStructs[battlerAtk].notFirstStrike))
+                battleScript = BattleScript_MonMadeMoveUseless;
+            else
+                battleScript = BattleScript_MonMadeMoveUseless_PPLoss;
+        }
+        else
+        {
+            if (gProtectStructs[battlerAtk].notFirstStrike)
+                battleScript = BattleScript_MoveStatDrain;
+            else
+                battleScript = BattleScript_MoveStatDrain_PPLoss;
+
+            SET_STATCHANGER(secondaryStatId, statAmount, FALSE);
+            if (B_ABSORBING_ABILITY_STRING < GEN_5)
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, secondaryStatId);
         }
         break;
     case MOVE_ABSORBED_BY_BOOST_FLASH_FIRE:
