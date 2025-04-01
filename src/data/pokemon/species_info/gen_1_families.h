@@ -6785,10 +6785,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PERSIAN] =
     {
         .baseHP        = 65,
-        .baseAttack    = 70,
+        .baseAttack    = 85,
         .baseDefense   = 60,
         .baseSpeed     = 115,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = 50,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 90,
@@ -6925,10 +6925,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PERSIAN_ALOLA] =
     {
         .baseHP        = 65,
-        .baseAttack    = 60,
+        .baseAttack    = 50,
         .baseDefense   = 60,
         .baseSpeed     = 115,
-        .baseSpAttack  = 75,
+        .baseSpAttack  = 85,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 90,
