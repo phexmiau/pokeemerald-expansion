@@ -6787,6 +6787,7 @@ static const struct LevelUpMove sLarvitarLevelUpLearnset[] = {
 
 static const struct LevelUpMove sPupitarLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_IRON_DEFENSE),
+    LEVEL_UP_MOVE( 0, MOVE_IRON_HEAD),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_PAYBACK),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
