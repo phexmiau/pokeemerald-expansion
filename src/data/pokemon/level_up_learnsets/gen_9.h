@@ -6195,6 +6195,7 @@ static const struct LevelUpMove sTeddiursaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUrsaringLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_HEADLONG_RUSH),
     LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 1, MOVE_LICK),
@@ -6217,7 +6218,7 @@ static const struct LevelUpMove sUrsaringLevelUpLearnset[] = {
 
 #if P_GEN_8_CROSS_EVOS
 static const struct LevelUpMove sUrsalunaLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_HEADLONG_RUSH),
+    LEVEL_UP_MOVE( 1, MOVE_HEADLONG_RUSH),
     LEVEL_UP_MOVE( 1, MOVE_FAKE_TEARS),
     LEVEL_UP_MOVE( 1, MOVE_COVET),
     LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
