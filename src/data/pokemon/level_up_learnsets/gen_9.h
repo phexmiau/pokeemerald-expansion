@@ -6366,9 +6366,10 @@ static const struct LevelUpMove sMamoswineLevelUpLearnset[] = {
 static const struct LevelUpMove sCorsolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_HARDEN),
+    LEVEL_UP_MOVE( 1, MOVE_COUNTER),
     LEVEL_UP_MOVE( 5, MOVE_WATER_GUN),
     LEVEL_UP_MOVE(10, MOVE_AQUA_RING),
-    LEVEL_UP_MOVE(15, MOVE_ENDURE),
+    LEVEL_UP_MOVE(15, MOVE_STEALTH_ROCK),
     LEVEL_UP_MOVE(20, MOVE_ANCIENT_POWER),
     LEVEL_UP_MOVE(25, MOVE_BUBBLE_BEAM),
     LEVEL_UP_MOVE(30, MOVE_FLAIL),
@@ -6384,6 +6385,7 @@ static const struct LevelUpMove sCorsolaLevelUpLearnset[] = {
 static const struct LevelUpMove sCorsolaGalarLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_HARDEN),
+    LEVEL_UP_MOVE( 1, MOVE_COUNTER),
     LEVEL_UP_MOVE( 5, MOVE_ASTONISH),
     LEVEL_UP_MOVE(10, MOVE_DISABLE),
     LEVEL_UP_MOVE(15, MOVE_SPITE),
@@ -6402,6 +6404,7 @@ static const struct LevelUpMove sCursolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_PERISH_SONG),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_HARDEN),
+    LEVEL_UP_MOVE( 1, MOVE_COUNTER),
     LEVEL_UP_MOVE( 1, MOVE_ASTONISH),
     LEVEL_UP_MOVE( 1, MOVE_DISABLE),
     LEVEL_UP_MOVE(15, MOVE_SPITE),
