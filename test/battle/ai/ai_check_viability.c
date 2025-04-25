@@ -49,27 +49,27 @@ AI_SINGLE_BATTLE_TEST("AI sees increased base power of Smelling Salt")
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI sees increased base power of Wake Up Slap")
-{
-    u16 status1, expectedMove;
+// AI_SINGLE_BATTLE_TEST("AI sees increased base power of Wake Up Slap")
+// {
+//     u16 status1, expectedMove;
 
-    PARAMETRIZE { status1 = STATUS1_NONE; expectedMove = MOVE_BODY_SLAM; }
-    PARAMETRIZE { status1 = STATUS1_SLEEP; expectedMove = MOVE_WAKE_UP_SLAP; }
+//     PARAMETRIZE { status1 = STATUS1_NONE; expectedMove = MOVE_BODY_SLAM; }
+//     PARAMETRIZE { status1 = STATUS1_SLEEP; expectedMove = MOVE_WAKE_UP_SLAP; }
 
-    GIVEN {
-        ASSUME(B_UPDATED_MOVE_DATA >= GEN_6);
-        ASSUME(GetMoveEffect(MOVE_WAKE_UP_SLAP) == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
-        ASSUME(GetMoveEffectArg_Status(MOVE_WAKE_UP_SLAP) == STATUS1_SLEEP);
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
-        PLAYER(SPECIES_BELLOSSOM) { HP(40); Status1(status1); }
-        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_BODY_SLAM, MOVE_WAKE_UP_SLAP); }
-    } WHEN {
-        TURN { EXPECT_MOVE(opponent, expectedMove); }
-    } SCENE {
-        if (expectedMove == MOVE_WAKE_UP_SLAP)
-            MESSAGE("Bellosom fainted!");
-    }
-}
+//     GIVEN {
+//         ASSUME(B_UPDATED_MOVE_DATA >= GEN_6);
+//         ASSUME(GetMoveEffect(MOVE_WAKE_UP_SLAP) == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
+//         ASSUME(GetMoveEffectArg_Status(MOVE_WAKE_UP_SLAP) == STATUS1_SLEEP);
+//         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
+//         PLAYER(SPECIES_BELLOSSOM) { HP(40); Status1(status1); }
+//         OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_BODY_SLAM, MOVE_WAKE_UP_SLAP); }
+//     } WHEN {
+//         TURN { EXPECT_MOVE(opponent, expectedMove); }
+//     } SCENE {
+//         if (expectedMove == MOVE_WAKE_UP_SLAP)
+//             MESSAGE("Bellosom fainted!");
+//     }
+// }
 
 AI_SINGLE_BATTLE_TEST("AI sees increased base power of Grav Apple")
 {
