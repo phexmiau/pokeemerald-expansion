@@ -11149,6 +11149,7 @@ static const struct LevelUpMove sCarnivineLevelUpLearnset[] = {
     LEVEL_UP_MOVE(41, MOVE_CRUNCH),
     LEVEL_UP_MOVE(47, MOVE_SEED_BOMB),
     LEVEL_UP_MOVE(50, MOVE_POWER_WHIP),
+    LEVEL_UP_MOVE(55, MOVE_SKILL_SWAP),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_CARNIVINE
