@@ -11114,6 +11114,7 @@ static const struct LevelUpMove sCroagunkLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sToxicroakLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_DRAIN_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_POISON_STING),
     LEVEL_UP_MOVE( 1, MOVE_MUD_SLAP),
     LEVEL_UP_MOVE( 1, MOVE_TAUNT),
@@ -11123,8 +11124,8 @@ static const struct LevelUpMove sToxicroakLevelUpLearnset[] = {
     LEVEL_UP_MOVE(20, MOVE_VENOSHOCK),
     LEVEL_UP_MOVE(24, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE(28, MOVE_SWAGGER),
-    LEVEL_UP_MOVE(32, MOVE_POISON_JAB),
-    LEVEL_UP_MOVE(36, MOVE_TOXIC),
+    LEVEL_UP_MOVE(33, MOVE_POISON_JAB),
+    LEVEL_UP_MOVE(37, MOVE_TOXIC),
     LEVEL_UP_MOVE(42, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(48, MOVE_SLUDGE_BOMB),
     LEVEL_UP_MOVE(54, MOVE_BELCH),
