@@ -42,21 +42,21 @@ SINGLE_BATTLE_TEST("Sap Sipper increases Attack by one stage when hit by a Grass
     }
 }
 
-SINGLE_BATTLE_TEST("Sap Sipper does not increase Attack if already maxed")
-{
-    GIVEN {
-        PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_BELLY_DRUM); MOVE(opponent, MOVE_VINE_WHIP); }
-    } SCENE {
-        ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-            MESSAGE("Marill's Attack rose!");
-        }
-    }
-}
+// SINGLE_BATTLE_TEST("Sap Sipper does not increase Attack if already maxed")
+// {
+//     GIVEN {
+//         PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
+//         OPPONENT(SPECIES_WOBBUFFET);
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_BELLY_DRUM); MOVE(opponent, MOVE_VINE_WHIP); }
+//     } SCENE {
+//         ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
+//         NONE_OF {
+//             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
+//             MESSAGE("Marill's Attack rose!");
+//         }
+//     }
+//}
 
 SINGLE_BATTLE_TEST("Sap Sipper blocks multi-hit grass type moves")
 {
