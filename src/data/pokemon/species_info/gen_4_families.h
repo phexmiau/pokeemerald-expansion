@@ -5557,11 +5557,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_ROTOM] =
     {
         .baseHP        = 50,
-        .baseAttack    = 50,
-        .baseDefense   = 77,
-        .baseSpeed     = 91,
-        .baseSpAttack  = 95,
-        .baseSpDefense = 77,
+        .baseAttack    = 65,
+        .baseDefense   = 107,
+        .baseSpeed     = 86,
+        .baseSpAttack  = 105,
+        .baseSpDefense = 107,
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_GHOST),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 154 : 132,
