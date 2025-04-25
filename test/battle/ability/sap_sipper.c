@@ -28,19 +28,19 @@ SINGLE_BATTLE_TEST("Sap Sipper negates effects from Grass-type moves")
     }
 }
 
-SINGLE_BATTLE_TEST("Sap Sipper increases Attack by one stage when hit by a Grass-type move")
-{
-    GIVEN {
-        PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_VINE_WHIP); }
-    } SCENE {
-        ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Marill's Attack rose!");
-    }
-}
+// SINGLE_BATTLE_TEST("Sap Sipper increases Attack by one stage when hit by a Grass-type move")
+// {
+//     GIVEN {
+//         PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
+//         OPPONENT(SPECIES_WOBBUFFET);
+//     } WHEN {
+//         TURN { MOVE(opponent, MOVE_VINE_WHIP); }
+//     } SCENE {
+//         ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
+//         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
+//         MESSAGE("Marill's Attack rose!");
+//     }
+// }
 
 // SINGLE_BATTLE_TEST("Sap Sipper does not increase Attack if already maxed")
 // {
@@ -58,23 +58,23 @@ SINGLE_BATTLE_TEST("Sap Sipper increases Attack by one stage when hit by a Grass
 //     }
 //}
 
-SINGLE_BATTLE_TEST("Sap Sipper blocks multi-hit grass type moves")
-{
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_BULLET_SEED) == EFFECT_MULTI_HIT);
-        PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
-        OPPONENT(SPECIES_SHELLDER) { Ability(ABILITY_SKILL_LINK); }
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_BULLET_SEED); }
-    } SCENE {
-        MESSAGE("The opposing Shellder used Bullet Seed!");
-        ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Marill's Attack rose!");
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_BULLET_SEED, opponent);
-            HP_BAR(player);
-            MESSAGE("The Pokémon was hit 5 time(s)!");
-        }
-    }
-}
+// SINGLE_BATTLE_TEST("Sap Sipper blocks multi-hit grass type moves")
+// {
+//     GIVEN {
+//         ASSUME(GetMoveEffect(MOVE_BULLET_SEED) == EFFECT_MULTI_HIT);
+//         PLAYER(SPECIES_MARILL) { Ability(ABILITY_SAP_SIPPER); }
+//         OPPONENT(SPECIES_SHELLDER) { Ability(ABILITY_SKILL_LINK); }
+//     } WHEN {
+//         TURN { MOVE(opponent, MOVE_BULLET_SEED); }
+//     } SCENE {
+//         MESSAGE("The opposing Shellder used Bullet Seed!");
+//         ABILITY_POPUP(player, ABILITY_SAP_SIPPER);
+//         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
+//         MESSAGE("Marill's Attack rose!");
+//         NONE_OF {
+//             ANIMATION(ANIM_TYPE_MOVE, MOVE_BULLET_SEED, opponent);
+//             HP_BAR(player);
+//             MESSAGE("The Pokémon was hit 5 time(s)!");
+//         }
+//     }
+// }

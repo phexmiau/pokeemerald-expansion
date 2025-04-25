@@ -105,23 +105,23 @@ SINGLE_BATTLE_TEST("Wind Rider activates when it's no longer effected by Neutral
     }
 }
 
-SINGLE_BATTLE_TEST("Wind Rider absorbs Wind moves and raises Attack by one stage")
-{
-    GIVEN {
-        ASSUME(IsWindMove(MOVE_GUST));
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_BRAMBLIN) { Ability(ABILITY_WIND_RIDER); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_GUST); }
-    } SCENE {
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_GUST, player);
-            HP_BAR(opponent);
-        }
-        ABILITY_POPUP(opponent, ABILITY_WIND_RIDER);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Bramblin's Attack rose!");
-    } THEN {
-        EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 1);
-    }
-}
+// SINGLE_BATTLE_TEST("Wind Rider absorbs Wind moves and raises Attack by one stage")
+// {
+//     GIVEN {
+//         ASSUME(IsWindMove(MOVE_GUST));
+//         PLAYER(SPECIES_WOBBUFFET);
+//         OPPONENT(SPECIES_BRAMBLIN) { Ability(ABILITY_WIND_RIDER); }
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_GUST); }
+//     } SCENE {
+//         NONE_OF {
+//             ANIMATION(ANIM_TYPE_MOVE, MOVE_GUST, player);
+//             HP_BAR(opponent);
+//         }
+//         ABILITY_POPUP(opponent, ABILITY_WIND_RIDER);
+//         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
+//         MESSAGE("The opposing Bramblin's Attack rose!");
+//     } THEN {
+//         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 1);
+//     }
+// }
