@@ -5639,7 +5639,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
             }
         }
 
-        if (targetSpecies != SPECIES_NONE)
+        if (targetSpecies != SPECIES_NONE && targetSpecies != SPECIES_DIGGERSBY)
         {
             RemoveBagItem(gSpecialVar_ItemId, 1);
             FreePartyPointers();
