@@ -10742,7 +10742,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sGolettLevelUpLearnset,
         .teachableLearnset = sGolettTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 43, SPECIES_GOLURK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_GOLURK}),
     },
 
     [SPECIES_GOLURK] =
