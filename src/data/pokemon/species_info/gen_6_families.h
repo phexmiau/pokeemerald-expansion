@@ -749,7 +749,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .baseSpeed     = 57,
         .baseSpAttack  = 32,
         .baseSpDefense = 36,
-        .types = MON_TYPES(TYPE_NORMAL),
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_GROUND),
         .catchRate = 255,
         .expYield = 47,
         .evYield_Speed = 1,
@@ -5676,7 +5676,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sNoibatLevelUpLearnset,
         .teachableLearnset = sNoibatTeachableLearnset,
         .eggMoveLearnset = sNoibatEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 48, SPECIES_NOIVERN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_NOIVERN}),
     },
 
     [SPECIES_NOIVERN] =
