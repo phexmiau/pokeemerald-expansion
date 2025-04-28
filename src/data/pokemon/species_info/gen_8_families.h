@@ -4487,7 +4487,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sImpidimpLevelUpLearnset,
         .teachableLearnset = sImpidimpTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_MORGREM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_MORGREM}),
     },
 
     [SPECIES_MORGREM] =
@@ -4550,7 +4550,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sMorgremLevelUpLearnset,
         .teachableLearnset = sMorgremTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_GRIMMSNARL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_GRIMMSNARL}),
     },
 
 
