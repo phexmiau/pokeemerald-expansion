@@ -11902,8 +11902,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Dark Void"),
         .description = COMPOUND_STRING(
-            "Drags the foe into total\n"
-            "darkness, inducing Sleep."),
+            "Puts foes to sleep. Higher\n"
+            "Accuracy with Bad Dreams."),
         .effect = EFFECT_DARK_VOID,
         .power = 0,
         .type = TYPE_DARK,

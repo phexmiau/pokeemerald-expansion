@@ -929,7 +929,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_BAD_DREAMS] =
     {
         .name = _("Bad Dreams"),
-        .description = COMPOUND_STRING("Damages sleeping Pokémon and increases Dark Void accuracy"),
+        .description = COMPOUND_STRING("Damages sleeping Pokémon."),
         .aiRating = 4,
     },
 
