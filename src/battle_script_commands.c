@@ -1519,6 +1519,10 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     // Check Wonder Skin.
     if (defAbility == ABILITY_WONDER_SKIN && IsBattleMoveStatus(move) && moveAcc > 50)
         moveAcc = 50;
+    // Check Darkrai for Dark Void
+    if (GetMoveEffect(move) == EFFECT_DARK_VOID && atkAbility == ABILITY_BAD_DREAMS)
+        moveAcc = 80;
+    
 
     calc = gAccuracyStageRatios[buff].dividend * moveAcc;
     calc /= gAccuracyStageRatios[buff].divisor;
