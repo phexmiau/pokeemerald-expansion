@@ -52,6 +52,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	clearflag FLAG_LITTLEROOT_TOWN_DUSCLOPS
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1022,7 +1023,16 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 `
 
 script LittlerootTown_EventScript_Dusclops {
-    lockall
-    setflag(FLAG_LITTLEROOT_TOWN_DUSCLOPS)
-    playmoncry(SPECIES_DUSCLOPS)
+	lockall
+	setflag(FLAG_LITTLEROOT_TOWN_DUSCLOPS)
+	playmoncry(SPECIES_DUSCLOPS, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setwildbattle(SPECIES_DUSCLOPS, 5, ITEM_NONE)
+	dowildbattle
+	fadescreen(FADE_TO_BLACK)
+	removeobject(9)
+	fadescreen(FADE_FROM_BLACK)
+	waitmessage
+	releaseall
 }
