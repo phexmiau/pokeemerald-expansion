@@ -4671,22 +4671,3 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower = {
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Caterpie = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_CATERPIE,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = 0,
-    .shadowSize = SHADOW_SIZE_S,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BUG,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = gObjectPicTable_Caterpie,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
