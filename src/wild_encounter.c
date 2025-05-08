@@ -626,6 +626,9 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
 
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
+    
+    if (FlagGet(FLAG_SYS_POKEMON_GET) == FALSE)
+        return FALSE;
 
     headerId = GetCurrentMapWildMonHeaderId();
     if (headerId == HEADER_NONE)
