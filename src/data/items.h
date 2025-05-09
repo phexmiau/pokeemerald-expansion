@@ -14099,4 +14099,20 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    [ITEM_INFINICANDY] =
+    {
+        .name = _("Infinicandy"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A special version\n"
+            "of Rare Candy that\n"
+            "never runs out."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
+    },
 };
