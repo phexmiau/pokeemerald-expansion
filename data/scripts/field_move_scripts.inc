@@ -286,6 +286,7 @@ Text_StrengthActivated:
 
 EventScript_UseWaterfall::
 	lockall
+	goto_if_unset FLAG_BADGE08_GET, EventScript_CantWaterfall
 	checkpartymove MOVE_WATERFALL
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
@@ -319,6 +320,7 @@ Text_MonUsedWaterfall:
 
 EventScript_UseDive::
 	lockall
+	goto_if_unset FLAG_BADGE07_GET, EventScript_CantDive
 	checkpartymove MOVE_DIVE
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
