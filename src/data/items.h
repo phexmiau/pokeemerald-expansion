@@ -14110,9 +14110,10 @@ const struct Item gItemsInfo[] =
             "never runs out."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
-        .iconPic = gItemIcon_RareCandy,
-        .iconPalette = gItemIconPalette_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .iconPic = gItemIcon_Infinicandy,
+        .iconPalette = gItemIconPalette_Infinicandy,
     },
 };
