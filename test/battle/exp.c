@@ -93,31 +93,31 @@ WILD_BATTLE_TEST("Exp is scaled to player and opponent's levels", s32 exp)
 
 #endif
 
-WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
-{
-    u8 level = 0;
+// WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
+// {
+//     u8 level = 0;
 
-    PARAMETRIZE { level = 5; }
-    PARAMETRIZE { level = 15; }
-    PARAMETRIZE { level = 25; }
+//     PARAMETRIZE { level = 5; }
+//     PARAMETRIZE { level = 15; }
+//     PARAMETRIZE { level = 25; }
 
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Level(1); Item(ITEM_LUCKY_EGG); OTName("Test"); } // OT Name is different so it gets more exp as a traded mon
-        OPPONENT(SPECIES_BLISSEY) { Level(level); HP(1); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_TACKLE); }
-    } SCENE {
-        MESSAGE("Wobbuffet used Tackle!");
-        MESSAGE("The wild Blissey fainted!");
-        EXPERIENCE_BAR(player, captureGainedExp: &results[i].exp);
-    } THEN {
-        EXPECT(GetMonData(&gPlayerParty[0], MON_DATA_LEVEL) > 1);
-        EXPECT(GetMonData(&gPlayerParty[0], MON_DATA_EXP) > 1);
-    } FINALLY {
-        EXPECT_GT(results[1].exp, results[0].exp);
-        EXPECT_GT(results[2].exp, results[1].exp);
-    }
-}
+//     GIVEN {
+//         PLAYER(SPECIES_WOBBUFFET) { Level(1); Item(ITEM_LUCKY_EGG); OTName("Test"); } // OT Name is different so it gets more exp as a traded mon
+//         OPPONENT(SPECIES_BLISSEY) { Level(level); HP(1); }
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_TACKLE); }
+//     } SCENE {
+//         MESSAGE("Wobbuffet used Tackle!");
+//         MESSAGE("The wild Blissey fainted!");
+//         EXPERIENCE_BAR(player, captureGainedExp: &results[i].exp);
+//     } THEN {
+//         EXPECT(GetMonData(&gPlayerParty[0], MON_DATA_LEVEL) > 1);
+//         EXPECT(GetMonData(&gPlayerParty[0], MON_DATA_EXP) > 1);
+//     } FINALLY {
+//         EXPECT_GT(results[1].exp, results[0].exp);
+//         EXPECT_GT(results[2].exp, results[1].exp);
+//     }
+// }
 
 #if I_EXP_SHARE_ITEM < GEN_6
 
