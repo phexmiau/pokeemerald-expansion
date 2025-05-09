@@ -1025,8 +1025,8 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 `
 
 script LittlerootTown_EventScript_Caterpie {
+	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		lockall
 		setflag(FLAG_LITTLEROOT_TOWN_CATERPIE)
 		playmoncry(SPECIES_CATERPIE, CRY_MODE_ENCOUNTER)
 		delay(40)
@@ -1037,13 +1037,16 @@ script LittlerootTown_EventScript_Caterpie {
 		removeobject(9)
 		fadescreen(FADE_FROM_BLACK)
 		waitmessage
-		releaseall
+	} else {
+		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
+		waitmessage
 	}
+	releaseall
 }
 
 script LittlerootTown_EventScript_Pidove {
+	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		lockall
 		setflag(FLAG_LITTLEROOT_TOWN_PIDOVE)
 		playmoncry(SPECIES_PIDOVE, CRY_MODE_ENCOUNTER)
 		delay(40)
@@ -1055,12 +1058,16 @@ script LittlerootTown_EventScript_Pidove {
 		fadescreen(FADE_FROM_BLACK)
 		waitmessage
 		releaseall
+	} else {
+		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
+		waitmessage
 	}
+	releaseall
 }
 
 script LittlerootTown_EventScript_Tympole {
+	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		lockall
 		setflag(FLAG_LITTLEROOT_TOWN_TYMPOLE)
 		playmoncry(SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER)
 		delay(40)
@@ -1070,7 +1077,9 @@ script LittlerootTown_EventScript_Tympole {
 		fadescreen(FADE_TO_BLACK)
 		removeobject(11)
 		fadescreen(FADE_FROM_BLACK)
+	} else {
+		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
 		waitmessage
-		releaseall
 	}
+	releaseall
 }

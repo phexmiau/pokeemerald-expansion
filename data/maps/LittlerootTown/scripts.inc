@@ -2049,12 +2049,19 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 
 LittlerootTown_EventScript_Caterpie::
 # 1028 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Caterpie_1
+	lockall
+# 1029 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Caterpie_2
+# 1041 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_Caterpie_Text_0
+# 1042 "data/maps/LittlerootTown/scripts.pory"
+	waitmessage
+LittlerootTown_EventScript_Caterpie_1:
+# 1044 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
 	return
 
-LittlerootTown_EventScript_Caterpie_1:
-# 1029 "data/maps/LittlerootTown/scripts.pory"
-	lockall
+LittlerootTown_EventScript_Caterpie_2:
 # 1030 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_LITTLEROOT_TOWN_CATERPIE
 # 1031 "data/maps/LittlerootTown/scripts.pory"
@@ -2075,73 +2082,86 @@ LittlerootTown_EventScript_Caterpie_1:
 	fadescreen FADE_FROM_BLACK
 # 1039 "data/maps/LittlerootTown/scripts.pory"
 	waitmessage
-# 1040 "data/maps/LittlerootTown/scripts.pory"
-	releaseall
-	return
+	goto LittlerootTown_EventScript_Caterpie_1
 
 
 LittlerootTown_EventScript_Pidove::
-# 1045 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Pidove_1
-	return
-
-LittlerootTown_EventScript_Pidove_1:
-# 1046 "data/maps/LittlerootTown/scripts.pory"
-	lockall
-# 1047 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_LITTLEROOT_TOWN_PIDOVE
 # 1048 "data/maps/LittlerootTown/scripts.pory"
-	playmoncry SPECIES_PIDOVE, CRY_MODE_ENCOUNTER
+	lockall
 # 1049 "data/maps/LittlerootTown/scripts.pory"
-	delay 40
-# 1050 "data/maps/LittlerootTown/scripts.pory"
-	waitmoncry
-# 1051 "data/maps/LittlerootTown/scripts.pory"
-	setwildbattle SPECIES_PIDOVE, 3, ITEM_NONE
-# 1052 "data/maps/LittlerootTown/scripts.pory"
-	dowildbattle
-# 1053 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 1054 "data/maps/LittlerootTown/scripts.pory"
-	removeobject 10
-# 1055 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_FROM_BLACK
-# 1056 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Pidove_2
+# 1062 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_Caterpie_Text_0
+# 1063 "data/maps/LittlerootTown/scripts.pory"
 	waitmessage
-# 1057 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_Pidove_1:
+# 1065 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
+
+LittlerootTown_EventScript_Pidove_2:
+# 1050 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_LITTLEROOT_TOWN_PIDOVE
+# 1051 "data/maps/LittlerootTown/scripts.pory"
+	playmoncry SPECIES_PIDOVE, CRY_MODE_ENCOUNTER
+# 1052 "data/maps/LittlerootTown/scripts.pory"
+	delay 40
+# 1053 "data/maps/LittlerootTown/scripts.pory"
+	waitmoncry
+# 1054 "data/maps/LittlerootTown/scripts.pory"
+	setwildbattle SPECIES_PIDOVE, 3, ITEM_NONE
+# 1055 "data/maps/LittlerootTown/scripts.pory"
+	dowildbattle
+# 1056 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	removeobject 10
+# 1058 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 1059 "data/maps/LittlerootTown/scripts.pory"
+	waitmessage
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	goto LittlerootTown_EventScript_Pidove_1
 
 
 LittlerootTown_EventScript_Tympole::
-# 1062 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Tympole_1
-	return
-
-LittlerootTown_EventScript_Tympole_1:
-# 1063 "data/maps/LittlerootTown/scripts.pory"
-	lockall
-# 1064 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_LITTLEROOT_TOWN_TYMPOLE
-# 1065 "data/maps/LittlerootTown/scripts.pory"
-	playmoncry SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER
-# 1066 "data/maps/LittlerootTown/scripts.pory"
-	delay 40
-# 1067 "data/maps/LittlerootTown/scripts.pory"
-	waitmoncry
-# 1068 "data/maps/LittlerootTown/scripts.pory"
-	setwildbattle SPECIES_TYMPOLE, 3, ITEM_NONE
 # 1069 "data/maps/LittlerootTown/scripts.pory"
-	dowildbattle
+	lockall
 # 1070 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 1071 "data/maps/LittlerootTown/scripts.pory"
-	removeobject 11
-# 1072 "data/maps/LittlerootTown/scripts.pory"
-	fadescreen FADE_FROM_BLACK
-# 1073 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Tympole_2
+# 1081 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_Caterpie_Text_0
+# 1082 "data/maps/LittlerootTown/scripts.pory"
 	waitmessage
-# 1074 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_Tympole_1:
+# 1084 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
+LittlerootTown_EventScript_Tympole_2:
+# 1071 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_LITTLEROOT_TOWN_TYMPOLE
+# 1072 "data/maps/LittlerootTown/scripts.pory"
+	playmoncry SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER
+# 1073 "data/maps/LittlerootTown/scripts.pory"
+	delay 40
+# 1074 "data/maps/LittlerootTown/scripts.pory"
+	waitmoncry
+# 1075 "data/maps/LittlerootTown/scripts.pory"
+	setwildbattle SPECIES_TYMPOLE, 3, ITEM_NONE
+# 1076 "data/maps/LittlerootTown/scripts.pory"
+	dowildbattle
+# 1077 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 1078 "data/maps/LittlerootTown/scripts.pory"
+	removeobject 11
+# 1079 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+	goto LittlerootTown_EventScript_Tympole_1
+
+
+LittlerootTown_EventScript_Caterpie_Text_0:
+# 1041 "data/maps/LittlerootTown/scripts.pory"
+	.string "You shouldn't challenge a wild Pokemon\n"
+	.string "without having one of your own!$"
