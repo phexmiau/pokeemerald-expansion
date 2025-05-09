@@ -52,7 +52,9 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	clearflag FLAG_LITTLEROOT_TOWN_DUSCLOPS
+	clearflag FLAG_LITTLEROOT_TOWN_CATERPIE
+	clearflag FLAG_LITTLEROOT_TOWN_PIDOVE
+	clearflag FLAG_LITTLEROOT_TOWN_TYMPOLE
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1022,17 +1024,53 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Let's go to my LAB.$"
 `
 
-script LittlerootTown_EventScript_Dusclops {
-	lockall
-	setflag(FLAG_LITTLEROOT_TOWN_DUSCLOPS)
-	playmoncry(SPECIES_DUSCLOPS, CRY_MODE_ENCOUNTER)
-	delay(40)
-	waitmoncry
-	setwildbattle(SPECIES_DUSCLOPS, 5, ITEM_NONE)
-	dowildbattle
-	fadescreen(FADE_TO_BLACK)
-	removeobject(9)
-	fadescreen(FADE_FROM_BLACK)
-	waitmessage
-	releaseall
+script LittlerootTown_EventScript_Caterpie {
+	if (flag(FLAG_SYS_POKEMON_GET)) {
+		lockall
+		setflag(FLAG_LITTLEROOT_TOWN_CATERPIE)
+		playmoncry(SPECIES_CATERPIE, CRY_MODE_ENCOUNTER)
+		delay(40)
+		waitmoncry
+		setwildbattle(SPECIES_CATERPIE, 3, ITEM_NONE)
+		dowildbattle
+		fadescreen(FADE_TO_BLACK)
+		removeobject(9)
+		fadescreen(FADE_FROM_BLACK)
+		waitmessage
+		releaseall
+	}
+}
+
+script LittlerootTown_EventScript_Pidove {
+	if (flag(FLAG_SYS_POKEMON_GET)) {
+		lockall
+		setflag(FLAG_LITTLEROOT_TOWN_PIDOVE)
+		playmoncry(SPECIES_PIDOVE, CRY_MODE_ENCOUNTER)
+		delay(40)
+		waitmoncry
+		setwildbattle(SPECIES_PIDOVE, 3, ITEM_NONE)
+		dowildbattle
+		fadescreen(FADE_TO_BLACK)
+		removeobject(10)
+		fadescreen(FADE_FROM_BLACK)
+		waitmessage
+		releaseall
+	}
+}
+
+script LittlerootTown_EventScript_Tympole {
+	if (flag(FLAG_SYS_POKEMON_GET)) {
+		lockall
+		setflag(FLAG_LITTLEROOT_TOWN_TYMPOLE)
+		playmoncry(SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER)
+		delay(40)
+		waitmoncry
+		setwildbattle(SPECIES_TYMPOLE, 3, ITEM_NONE)
+		dowildbattle
+		fadescreen(FADE_TO_BLACK)
+		removeobject(11)
+		fadescreen(FADE_FROM_BLACK)
+		waitmessage
+		releaseall
+	}
 }

@@ -11506,32 +11506,42 @@
               {
                 "min_level": 2,
                 "max_level": 3,
+                "species": "SPECIES_CATERPIE"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_PIDOVE"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_YAMPER"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_SNUBBULL"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_TYMPOLE"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
                 "species": "SPECIES_GLAMEOW"
               },
               {
                 "min_level": 2,
                 "max_level": 3,
-                "species": "SPECIES_PIDOVE"
-              },
-              {
-                "min_level": 2,
-                "max_level": 3,
-                "species": "SPECIES_PIDOVE"
-              },
-              {
-                "min_level": 2,
-                "max_level": 3,
                 "species": "SPECIES_CATERPIE"
               },
               {
                 "min_level": 2,
                 "max_level": 3,
-                "species": "SPECIES_CATERPIE"
-              },
-              {
-                "min_level": 2,
-                "max_level": 3,
-                "species": "SPECIES_CATERPIE"
+                "species": "SPECIES_SNUBBULL"
               },
               {
                 "min_level": 2,
@@ -11541,17 +11551,7 @@
               {
                 "min_level": 2,
                 "max_level": 3,
-                "species": "SPECIES_TYMPOLE"
-              },
-              {
-                "min_level": 2,
-                "max_level": 3,
-                "species": "SPECIES_YAMPER"
-              },
-              {
-                "min_level": 2,
-                "max_level": 3,
-                "species": "SPECIES_YAMPER"
+                "species": "SPECIES_PIDOVE"
               },
               {
                 "min_level": 2,
