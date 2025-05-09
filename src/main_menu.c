@@ -213,14 +213,14 @@ static void Task_NewGameBirchSpeech_BoyOrGirl(u8);
 static void LoadMainMenuWindowFrameTiles(u8, u16);
 static void DrawMainMenuWindowBorder(const struct WindowTemplate *, u16);
 static void Task_HighlightSelectedMainMenuItem(u8);
-static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8);
-static void Task_NewGameBirchSpeech_ChooseGender(u8);
+//static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8);
+//static void Task_NewGameBirchSpeech_ChooseGender(u8);
 //static void NewGameBirchSpeech_ShowGenderMenu(void);
 //static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void);
-static void NewGameBirchSpeech_ClearGenderWindow(u8, u8);
-static void Task_NewGameBirchSpeech_WhatsYourName(u8);
+//static void NewGameBirchSpeech_ClearGenderWindow(u8, u8);
+//static void Task_NewGameBirchSpeech_WhatsYourName(u8);
 //static void Task_NewGameBirchSpeech_SlideOutOldGenderSprite(u8);
-static void Task_NewGameBirchSpeech_SlideInNewGenderSprite(u8);
+//static void Task_NewGameBirchSpeech_SlideInNewGenderSprite(u8);
 static void Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint(u8);
 static void Task_NewGameBirchSpeech_WaitPressBeforeNameChoice(u8);
 static void Task_NewGameBirchSpeech_StartNamingScreen(u8);
@@ -1499,13 +1499,13 @@ static void Task_NewGameBirchSpeech_WaitForPlayerFadeIn(u8 taskId)
     }
 }
 
-static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
-{
-    //NewGameBirchSpeech_ClearWindow(0);
-    //StringExpandPlaceholders(gStringVar4, gText_Birch_BoyOrGirl);
-    //AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowGenderMenu;
-}
+// static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
+// {
+//     //NewGameBirchSpeech_ClearWindow(0);
+//     //StringExpandPlaceholders(gStringVar4, gText_Birch_BoyOrGirl);
+//     //AddTextPrinterForMessage(TRUE);
+//     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowGenderMenu;
+// }
 
 // static void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8 taskId)
 // {
@@ -1518,41 +1518,41 @@ static void Task_NewGameBirchSpeech_BoyOrGirl(u8 taskId)
 //     }
 // }
 
-static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
-{
-    // int gender = NewGameBirchSpeech_ProcessGenderMenuInput();
-    // int gender2;
+// static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
+// {
+//     // int gender = NewGameBirchSpeech_ProcessGenderMenuInput();
+//     // int gender2;
 
-    // switch (gender)
-    // {
-    //     case MALE:
-    //         PlaySE(SE_SELECT);
-    //         gSaveBlock2Ptr->playerGender = gender;
-    //         NewGameBirchSpeech_ClearGenderWindow(1, 1);
-    //         gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
-    //         break;
-    //     case FEMALE:
-    //         PlaySE(SE_SELECT);
-    //         gSaveBlock2Ptr->playerGender = gender;
-    //         NewGameBirchSpeech_ClearGenderWindow(1, 1);
-    //         gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
-    //         break;
-    // }
-    // gender2 = Menu_GetCursorPos();
-    // if (gender2 != gTasks[taskId].tPlayerGender)
-    // {
-    //     gTasks[taskId].tPlayerGender = gender2;
-    //     gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-    //     NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 0);
-    //     gTasks[taskId].func = Task_NewGameBirchSpeech_SlideOutOldGenderSprite;
-    // }
+//     // switch (gender)
+//     // {
+//     //     case MALE:
+//     //         PlaySE(SE_SELECT);
+//     //         gSaveBlock2Ptr->playerGender = gender;
+//     //         NewGameBirchSpeech_ClearGenderWindow(1, 1);
+//     //         gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+//     //         break;
+//     //     case FEMALE:
+//     //         PlaySE(SE_SELECT);
+//     //         gSaveBlock2Ptr->playerGender = gender;
+//     //         NewGameBirchSpeech_ClearGenderWindow(1, 1);
+//     //         gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+//     //         break;
+//     // }
+//     // gender2 = Menu_GetCursorPos();
+//     // if (gender2 != gTasks[taskId].tPlayerGender)
+//     // {
+//     //     gTasks[taskId].tPlayerGender = gender2;
+//     //     gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+//     //     NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 0);
+//     //     gTasks[taskId].func = Task_NewGameBirchSpeech_SlideOutOldGenderSprite;
+//     // }
 
-    int gender = FEMALE;
-    PlaySE(SE_SELECT);
-    gSaveBlock2Ptr->playerGender = gender;
-    NewGameBirchSpeech_ClearGenderWindow(1, 1);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
-}
+//     int gender = FEMALE;
+//     PlaySE(SE_SELECT);
+//     gSaveBlock2Ptr->playerGender = gender;
+//     NewGameBirchSpeech_ClearGenderWindow(1, 1);
+//     gTasks[taskId].func = Task_NewGameBirchSpeech_WhatsYourName;
+// }
 
 // static void Task_NewGameBirchSpeech_SlideOutOldGenderSprite(u8 taskId)
 // {
@@ -1578,32 +1578,32 @@ static void Task_NewGameBirchSpeech_ChooseGender(u8 taskId)
 //     }
 // }
 
-static void Task_NewGameBirchSpeech_SlideInNewGenderSprite(u8 taskId)
-{
-    u8 spriteId = gTasks[taskId].tPlayerSpriteId;
+// static void Task_NewGameBirchSpeech_SlideInNewGenderSprite(u8 taskId)
+// {
+//     u8 spriteId = gTasks[taskId].tPlayerSpriteId;
 
-    if (gSprites[spriteId].x > 180)
-    {
-        gSprites[spriteId].x -= 4;
-    }
-    else
-    {
-        gSprites[spriteId].x = 180;
-        if (gTasks[taskId].tIsDoneFadingSprites)
-        {
-            gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseGender;
-        }
-    }
-}
+//     if (gSprites[spriteId].x > 180)
+//     {
+//         gSprites[spriteId].x -= 4;
+//     }
+//     else
+//     {
+//         gSprites[spriteId].x = 180;
+//         if (gTasks[taskId].tIsDoneFadingSprites)
+//         {
+//             gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+//             gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseGender;
+//         }
+//     }
+// }
 
-static void Task_NewGameBirchSpeech_WhatsYourName(u8 taskId)
-{
-    //NewGameBirchSpeech_ClearWindow(0);
-    //StringExpandPlaceholders(gStringVar4, gText_Birch_WhatsYourName);
-    //AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint;
-}
+// static void Task_NewGameBirchSpeech_WhatsYourName(u8 taskId)
+// {
+//     //NewGameBirchSpeech_ClearWindow(0);
+//     //StringExpandPlaceholders(gStringVar4, gText_Birch_WhatsYourName);
+//     //AddTextPrinterForMessage(TRUE);
+//     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint;
+// }
 
 static void Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint(u8 taskId)
 {
@@ -1663,7 +1663,7 @@ static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8 taskId)
         case MENU_B_PRESSED:
         case 1:
             PlaySE(SE_SELECT);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
+            //gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
     }
 }
 
@@ -2250,19 +2250,19 @@ static void ClearMainMenuWindowTilemap(const struct WindowTemplate *template)
     CopyBgTilemapBufferToVram(template->bg);
 }
 
-static void NewGameBirchSpeech_ClearGenderWindowTilemap(u8 bg, u8 x, u8 y, u8 width, u8 height, u8 unused)
-{
-    FillBgTilemapBufferRect(bg, 0, x + 255, y + 255, width + 2, height + 2, 2);
-}
+// static void NewGameBirchSpeech_ClearGenderWindowTilemap(u8 bg, u8 x, u8 y, u8 width, u8 height, u8 unused)
+// {
+//     FillBgTilemapBufferRect(bg, 0, x + 255, y + 255, width + 2, height + 2, 2);
+// }
 
-static void NewGameBirchSpeech_ClearGenderWindow(u8 windowId, bool8 copyToVram)
-{
-    CallWindowFunction(windowId, NewGameBirchSpeech_ClearGenderWindowTilemap);
-    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    ClearWindowTilemap(windowId);
-    if (copyToVram == TRUE)
-        CopyWindowToVram(windowId, COPYWIN_FULL);
-}
+// static void NewGameBirchSpeech_ClearGenderWindow(u8 windowId, bool8 copyToVram)
+// {
+//     CallWindowFunction(windowId, NewGameBirchSpeech_ClearGenderWindowTilemap);
+//     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+//     ClearWindowTilemap(windowId);
+//     if (copyToVram == TRUE)
+//         CopyWindowToVram(windowId, COPYWIN_FULL);
+// }
 
 static void NewGameBirchSpeech_ClearWindow(u8 windowId)
 {
