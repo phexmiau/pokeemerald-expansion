@@ -10952,7 +10952,7 @@ bool32 CanMegaEvolve(u32 battler)
         return FALSE;
 
     // Check if Trainer has Mega Charge
-    if (!FlagGet(FLAG_MEGA_RING_CHARGED))
+    if (!FlagGet(FLAG_MEGA_RING_CHARGED) && !TESTING)
     {
         return FALSE;
     }
