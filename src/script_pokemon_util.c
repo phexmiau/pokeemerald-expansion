@@ -40,9 +40,11 @@ void HealPlayerParty(void)
     if (OW_PC_HEAL >= GEN_8)
         HealPlayerBoxes();
 
-    // Recharge Tera Orb, if possible.
+    // Recharge Tera Orb and Mega Ring, if possible.
     if (B_FLAG_TERA_ORB_CHARGED != 0 && CheckBagHasItem(ITEM_TERA_ORB, 1))
         FlagSet(B_FLAG_TERA_ORB_CHARGED);
+    if (CheckBagHasItem(ITEM_MEGA_RING, 1))
+        FlagSet(FLAG_MEGA_RING_CHARGED);
 }
 
 static void HealPlayerBoxes(void)

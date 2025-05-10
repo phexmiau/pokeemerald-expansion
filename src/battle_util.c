@@ -10951,6 +10951,12 @@ bool32 CanMegaEvolve(u32 battler)
         && !CheckBagHasItem(ITEM_MEGA_RING, 1))
         return FALSE;
 
+    // Check if Trainer has Mega Charge
+    if (!FlagGet(FLAG_MEGA_RING_CHARGED))
+    {
+        return FALSE;
+    }
+
     // Check if Trainer has already Mega Evolved.
     if (HasTrainerUsedGimmick(battler, GIMMICK_MEGA))
         return FALSE;
@@ -11013,6 +11019,7 @@ void ActivateMegaEvolution(u32 battler)
 {
     gLastUsedItem = gBattleMons[battler].item;
     SetActiveGimmick(battler, GIMMICK_MEGA);
+    FlagClear(FLAG_MEGA_RING_CHARGED);
     if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE) != gBattleMons[battler].species)
         BattleScriptExecute(BattleScript_WishMegaEvolution);
     else
