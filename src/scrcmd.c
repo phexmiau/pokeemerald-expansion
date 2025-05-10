@@ -2250,7 +2250,7 @@ bool8 ScrCmd_setmonmove(struct ScriptContext *ctx)
 bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
 {
     u8 i;
-    //u16 moveId = ScriptReadHalfword(ctx);
+    ScriptReadHalfword(ctx);
 
     Script_RequestEffects(SCREFF_V1);
 
