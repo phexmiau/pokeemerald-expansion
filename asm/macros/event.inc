@@ -2279,6 +2279,13 @@
 	callnative GetFollowerAction
 	.endm
 
+	@ Executes Object Love
+	.macro doobjectemotion localId:req emotion:req
+	callnative DoObjectEmotion
+	.2byte \localId
+	.2byte \emotion
+	.endm
+
 	@ Checks if Field move is being used by the current follower.
 	.macro isfollowerfieldmoveuser var:req
 	callnative IsFollowerFieldMoveUser, requests_effects=1

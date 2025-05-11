@@ -2384,6 +2384,12 @@ bool32 CheckMsgInfo(const struct FollowerMsgInfoExtended *info, struct Pokemon *
     }
 }
 
+void DoObjectEmotion(struct ScriptContext *ctx) {
+    u32 objId = GetObjectEventIdByLocalId(VarGet(ScriptReadHalfword(ctx)));
+    u32 emotion = VarGet(ScriptReadHalfword(ctx));
+    ObjectEventEmote(&gObjectEvents[objId], emotion);
+}
+
 // Call an applicable follower message script
 void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch for follower messages
 {
