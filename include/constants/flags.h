@@ -43,11 +43,12 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
+// My Story related flags
+#define FLAG_HIDE_BUNEARY_INTRO         0x20
+#define FLAG_HIDE_SHROODLE_INTRO        0x21
+#define FLAG_HIDE_SHROODLE_ARMY_INTRO   0x22
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_INTRO_SHROODLE_BATTLE      0x24
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
@@ -1227,7 +1228,7 @@
 #define FLAG_XPALL_ACTIVE                                           0x494 
 #define FLAG_FOLLOWERS_ACTIVE                                       0x495
 #define FLAG_NO_ENCOUNTERS                                          0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
+#define FLAG_NO_RUNNING                                             0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag

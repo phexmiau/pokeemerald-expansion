@@ -401,7 +401,7 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
         release = 225;
         pitch = 15600;
         chorus = 20;
-        volume = 90;
+        volume = 120;
         break;
     case CRY_MODE_HIGH_PITCH:
         length = 50;

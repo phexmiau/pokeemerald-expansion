@@ -593,6 +593,12 @@ static void CB2_EndScriptedWildBattle(void)
 
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
+        if(FlagGet(FLAG_INTRO_SHROODLE_BATTLE)) {
+            ZeroPlayerPartyMons();
+            FlagClear(FLAG_INTRO_SHROODLE_BATTLE);
+            FlagClear(FLAG_NO_RUNNING);
+            SetMainCallback2(CB2_WhiteOut);
+        }
         if (InBattlePyramid())
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
