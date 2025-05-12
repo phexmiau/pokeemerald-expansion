@@ -2151,6 +2151,28 @@ LittlerootTown_EventScript_Tympole_2:
 	goto LittlerootTown_EventScript_Tympole_1
 
 
+LittlerootTown_EventScript_NoClearingTrigger::
+# 1085 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1086 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_NoClearingTrigger_Text_0, MSGBOX_AUTOCLOSE
+# 1087 "data/maps/LittlerootTown/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_EventScript_NoClearingTrigger_Movement_0
+# 1088 "data/maps/LittlerootTown/scripts.pory"
+	waitmovement 0
+# 1089 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+# 1087 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_NoClearingTrigger_Movement_0:
+# 1087 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1087 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+	step_end
+
 LittlerootTown_EventScript_GroveSign_Text_0:
 # 1019 "data/maps/LittlerootTown/scripts.pory"
 	.string "Path through Littleroot Grove ->$"
@@ -2159,3 +2181,8 @@ LittlerootTown_EventScript_Caterpie_Text_0:
 # 1038 "data/maps/LittlerootTown/scripts.pory"
 	.string "You shouldn't challenge a wild Pokemon\n"
 	.string "without having one of your own!$"
+
+LittlerootTown_EventScript_NoClearingTrigger_Text_0:
+# 1086 "data/maps/LittlerootTown/scripts.pory"
+	.string "Going further without a POKEMON seems\n"
+	.string "dangerous...$"

@@ -228,6 +228,24 @@
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "1",
       "script": "LittlerootTown_EventScript_GoSaveBirchTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "0",
+      "script": "LittlerootTown_EventScript_NoClearingTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "1",
+      "script": "LittlerootTown_EventScript_NoClearingTrigger"
     }
   ],
   "bg_events": [
