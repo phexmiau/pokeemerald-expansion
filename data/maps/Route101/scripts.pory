@@ -382,8 +382,17 @@ script Route101_EventScript_BunearyIntroHelpBuneary {
 	applymovement(LOCALID_BUNEARY, moves( walk_in_place_right * 5 ))
 	doobjectemotion(LOCALID_BUNEARY, FOLLOWER_EMOTION_LOVE)
 	waitmovement(0)
+	bufferleadmonspeciesname(STR_VAR_1)
 	msgbox(format("It looks like BUNEARY wants to stay with you!"))
-	closemessage
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(format("{STR_VAR_1} joined {PLAYER}!"))
+	waitfanfare()
+	msgbox(format("Do you want to give a nickname to BUNEARY?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		setvar(VAR_0x8004, 0)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	closemessage()
 	applymovement(LOCALID_BUNEARY, moves (walk_in_place_fast_right * 6))
 	waitmovement(0)
 	playmoncry(SPECIES_SHROODLE, CRY_MODE_ENCOUNTER)
@@ -502,12 +511,15 @@ script Route101_EventScript_BunearyIntroHelpBuneary {
 	waitmovement(0)
 	fadescreen(FADE_TO_BLACK)
 	setflag(FLAG_RESCUED_BIRCH)
+	clearflag(FLAG_BIRCH_NOT_IN_LAB)
+	clearflag(FLAG_KATE_NOT_IN_LAB)
 	removeobject(LOCALID_KATE)
 	removeobject(LOCALID_SPRIGATITO)
 	removeobject(LOCALID_PROF_BIRCH)
 	removeobject(LOCALID_BUNEARY)
 	fadescreen(FADE_FROM_BLACK)
 	setvar(VAR_ROUTE101_STATE, 2)
+	setvar(VAR_BIRCH_LAB_STATE, 2)
 	releaseall
 }
 
