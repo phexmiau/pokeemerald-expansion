@@ -54,7 +54,6 @@ LittlerootTown_BrendansHouse_1F_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_BrendansHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_BrendansHouse_1F_EventScript_GoUpstairsToSetClock
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_PetalburgGymReport
-	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_MAY, 1, LittlerootTown_BrendansHouse_1F_EventScript_YoureNewNeighbor
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_MAY, 3, PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	.2byte 0
 
@@ -168,7 +167,6 @@ LittlerootTown_BrendansHouse_1F_EventScript_MeetRival::
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	delay 30
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 3
-	setvar VAR_LITTLEROOT_TOWN_STATE, 1
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -297,7 +295,7 @@ PlayersHouse_1F_Text_MoversPokemonGoSetClock:
 	.string "This is so convenient!\p"
 	.string "{PLAYER}, your room is upstairs.\n"
 	.string "Go check it out, dear!\p"
-	.string "DAD bought you a new clock to mark\n"
+	.string "I bought you a new clock to mark\n"
 	.string "our move here.\l"
 	.string "Don't forget to set it!$"
 
@@ -316,18 +314,21 @@ PlayersHouse_1F_Text_OhComeQuickly:
 
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
 	.string "MOM: Look! It's PETALBURG GYM!\n"
-	.string "Maybe DAD will be on!$"
+	.string "The gym leader is said to show a form\l"
+	.string "of POKEMON battle new to this region!$"
 
 PlayersHouse_1F_Text_ItsOverWeMissedHim:
 	.string "MOM: Oh… It's over.\p"
-	.string "I think DAD was on, but we missed him.\n"
+	.string "I just caught them talking about\n"
+	.string "something called... MEGA EVOLUTION?\l"
 	.string "Too bad.$"
 
 PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
 	.string "Oh, yes.\n"
-	.string "One of DAD's friends lives in town.\p"
+	.string "The POKEMON Professor living in\l"
+	.string "this town wanted to see you!\p"
 	.string "PROF. BIRCH is his name.\p"
-	.string "He lives right next door, so you should\n"
+	.string "His lab is to the south-west of the town,\n"
 	.string "go over and introduce yourself.$"
 
 PlayersHouse_1F_Text_SeeYouHoney:
@@ -346,7 +347,7 @@ PlayersHouse_1F_Text_TakeCareHoney:
 	.string "MOM: Take care, honey!$"
 
 PlayersHouse_1F_Text_GotDadsBadgeHeresSomethingFromMom:
-	.string "MOM: Oh? Did DAD give you that BADGE?\p"
+	.string "MOM: Oh? You got the PETALBURG GYM BADGE?\p"
 	.string "Then here's something from your MOM!$"
 
 PlayersHouse_1F_Text_DontPushYourselfTooHard:

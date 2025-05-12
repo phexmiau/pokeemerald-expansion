@@ -1341,6 +1341,8 @@ Route101_EventScript_BunearyIntroHelpBuneary_Movement_18:
 # 436 "data/maps/Route101/scripts.pory"
 	walk_fast_down
 # 436 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 436 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
 # 436 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
@@ -1424,8 +1426,6 @@ Route101_EventScript_BunearyIntroHelpBuneary_Movement_24:
 
 # 457 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_25:
-# 457 "data/maps/Route101/scripts.pory"
-	walk_fast_down
 # 457 "data/maps/Route101/scripts.pory"
 	walk_fast_down
 # 457 "data/maps/Route101/scripts.pory"
