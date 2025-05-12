@@ -1017,20 +1017,26 @@ Route101_EventScript_BunearyIntroHelpBuneary_5:
 # 515 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_KATE_NOT_IN_LAB
 # 516 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_KATE
+	clearflag FLAG_STARTER_TREECKO
 # 517 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SPRIGATITO
+	clearflag FLAG_STARTER_SCORBUNNY
 # 518 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_PROF_BIRCH
+	clearflag FLAG_STARTER_POPPLIO
 # 519 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_BUNEARY
+	removeobject LOCALID_KATE
 # 520 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	removeobject LOCALID_SPRIGATITO
 # 521 "data/maps/Route101/scripts.pory"
-	setvar VAR_ROUTE101_STATE, 2
+	removeobject LOCALID_PROF_BIRCH
 # 522 "data/maps/Route101/scripts.pory"
-	setvar VAR_BIRCH_LAB_STATE, 2
+	removeobject LOCALID_BUNEARY
 # 523 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 524 "data/maps/Route101/scripts.pory"
+	setvar VAR_ROUTE101_STATE, 2
+# 525 "data/maps/Route101/scripts.pory"
+	setvar VAR_BIRCH_LAB_STATE, 2
+# 526 "data/maps/Route101/scripts.pory"
 	releaseall
 	return
 
@@ -1047,79 +1053,79 @@ Route101_EventScript_BunearyIntroHelpBuneary_8:
 	goto Route101_EventScript_BunearyIntroHelpBuneary_2
 
 
-# 526 "data/maps/Route101/scripts.pory"
-Route101_Movement_PlayerRunToCryRight:
-# 527 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 528 "data/maps/Route101/scripts.pory"
-	walk_fast_left
 # 529 "data/maps/Route101/scripts.pory"
+Route101_Movement_PlayerRunToCryRight:
+# 530 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 531 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 532 "data/maps/Route101/scripts.pory"
 	face_up
 	step_end
 
-# 532 "data/maps/Route101/scripts.pory"
+# 535 "data/maps/Route101/scripts.pory"
 Route101_Movement_PlayerRunToCryLeft:
-# 533 "data/maps/Route101/scripts.pory"
+# 536 "data/maps/Route101/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 536 "data/maps/Route101/scripts.pory"
+# 539 "data/maps/Route101/scripts.pory"
 Route101_Movement_BunearyRunAwayDown:
-# 537 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 537 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 537 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-	step_end
-
 # 540 "data/maps/Route101/scripts.pory"
-Route101_Movement_BunearyTurnLeftRight:
-# 541 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
-# 542 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+	walk_fast_down
+# 540 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 540 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+	step_end
+
 # 543 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+Route101_Movement_BunearyTurnLeftRight:
 # 544 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+	walk_in_place_fast_left
 # 545 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+	walk_in_place_fast_right
 # 546 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
-# 547 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 548 "data/maps/Route101/scripts.pory"
+# 547 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
+# 548 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_left
 # 549 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_right
+# 550 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_left
+# 551 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_right
+# 552 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 552 "data/maps/Route101/scripts.pory"
+# 555 "data/maps/Route101/scripts.pory"
 Route101_Movement_BunearyRunAwayRight:
-# 553 "data/maps/Route101/scripts.pory"
+# 556 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 553 "data/maps/Route101/scripts.pory"
+# 556 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 553 "data/maps/Route101/scripts.pory"
+# 556 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 553 "data/maps/Route101/scripts.pory"
+# 556 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 554 "data/maps/Route101/scripts.pory"
+# 557 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 557 "data/maps/Route101/scripts.pory"
+# 560 "data/maps/Route101/scripts.pory"
 Route101_Movement_ShroodleRunAway:
-# 558 "data/maps/Route101/scripts.pory"
+# 561 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 558 "data/maps/Route101/scripts.pory"
+# 561 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 558 "data/maps/Route101/scripts.pory"
+# 561 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 558 "data/maps/Route101/scripts.pory"
+# 561 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 559 "data/maps/Route101/scripts.pory"
+# 562 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
