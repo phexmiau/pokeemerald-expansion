@@ -47,16 +47,16 @@
 #define FLAG_HIDE_BUNEARY_INTRO         0x20
 #define FLAG_HIDE_SHROODLE_INTRO        0x21
 #define FLAG_HIDE_SHROODLE_ARMY_INTRO   0x22
-#define FLAG_INTRO_SHROODLE_BATTLE    0x23 // Unused Flag
-#define FLAG_BIRCH_NOT_IN_LAB      0x24
-#define FLAG_KATE_NOT_IN_LAB    0x25 // Unused Flag
-#define FLAG_STARTER_TREECKO    0x26 // Unused Flag
-#define FLAG_STARTER_SCORBUNNY 0x27 // Unused Flag
-#define FLAG_STARTER_POPPLIO    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
+#define FLAG_INTRO_SHROODLE_BATTLE      0x23
+#define FLAG_BIRCH_NOT_IN_LAB           0x24
+#define FLAG_KATE_NOT_IN_LAB            0x25
+#define FLAG_STARTER_TREECKO            0x26
+#define FLAG_STARTER_SCORBUNNY          0x27
+#define FLAG_STARTER_POPPLIO            0x28
+#define FLAG_OUT_OF_BALL_TREECKO_LAB        0x29
+#define FLAG_OUT_OF_BALL_SCORBUNNY_LAB      0x2A
+#define FLAG_OUT_OF_BALL_POPPLIO_LAB        0x2B
+#define FLAG_OUT_OF_BALL_BUNEARY_LAB        0x2C
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
