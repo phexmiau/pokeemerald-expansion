@@ -2318,7 +2318,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_0:
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_1:
 # 1057 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved TREECKO$"
+	.string "You got TREECKO!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_2:
 # 1065 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -2330,7 +2330,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Scorbunny_Text_0:
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Scorbunny_Text_1:
 # 1080 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved SCORBUNNY$"
+	.string "You got SCORBUNNY!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Popplio_Text_0:
 # 1099 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -2338,7 +2338,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Popplio_Text_0:
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Popplio_Text_1:
 # 1103 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved POPPLIO$"
+	.string "You got POPPLIO!$"
 
 NicknamePartyMon_Text_0:
 # 1119 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"

@@ -171,15 +171,15 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ESPURR)",
       "x": 2,
-      "y": 4,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
-      "movement_range_y": 2,
+      "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route101_EventScript_Espurr",
+      "flag": "FLAG_ROUTE101_ESPURR_PRE_SHROODLE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SHROODLE)",
@@ -191,8 +191,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route101_EventScript_Shroodle",
+      "flag": "FLAG_ROUTE101_SHROODLE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KARRABLAST)",
@@ -204,8 +204,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route101_EventScript_Karrablast",
+      "flag": "FLAG_ROUTE101_KARRABLAST"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(POOCHYENA)",
@@ -217,8 +217,21 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route101_EventScript_Poochyena",
+      "flag": "FLAG_ROUTE101_POOCHYENA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ESPURR)",
+      "x": 10,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route101_EventScript_Espurr_Post_Shroodle",
+      "flag": "FLAG_ROUTE101_ESPURR_POST_SHROODLE"
     }
   ],
   "warp_events": [
