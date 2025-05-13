@@ -2039,7 +2039,7 @@ LittlerootTown_EventScript_GroveSign::
 
 LittlerootTown_EventScript_Caterpie::
 # 1025 "data/maps/LittlerootTown/scripts.pory"
-	lockall
+	lock
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Caterpie_2
 # 1039 "data/maps/LittlerootTown/scripts.pory"
@@ -2048,7 +2048,7 @@ LittlerootTown_EventScript_Caterpie::
 	waitmessage
 LittlerootTown_EventScript_Caterpie_1:
 # 1042 "data/maps/LittlerootTown/scripts.pory"
-	releaseall
+	release
 	return
 
 LittlerootTown_EventScript_Caterpie_2:
@@ -2079,7 +2079,7 @@ LittlerootTown_EventScript_Caterpie_2:
 
 LittlerootTown_EventScript_Pidove::
 # 1046 "data/maps/LittlerootTown/scripts.pory"
-	lockall
+	lock
 # 1047 "data/maps/LittlerootTown/scripts.pory"
 	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Pidove_2
 # 1061 "data/maps/LittlerootTown/scripts.pory"
@@ -2088,7 +2088,7 @@ LittlerootTown_EventScript_Pidove::
 	waitmessage
 LittlerootTown_EventScript_Pidove_1:
 # 1064 "data/maps/LittlerootTown/scripts.pory"
-	releaseall
+	release
 	return
 
 LittlerootTown_EventScript_Pidove_2:
@@ -2121,7 +2121,7 @@ LittlerootTown_EventScript_Pidove_2:
 
 LittlerootTown_EventScript_Tympole::
 # 1068 "data/maps/LittlerootTown/scripts.pory"
-	lockall
+	lock
 # 1069 "data/maps/LittlerootTown/scripts.pory"
 	goto_if_set FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_Tympole_2
 # 1081 "data/maps/LittlerootTown/scripts.pory"
@@ -2130,7 +2130,7 @@ LittlerootTown_EventScript_Tympole::
 	waitmessage
 LittlerootTown_EventScript_Tympole_1:
 # 1084 "data/maps/LittlerootTown/scripts.pory"
-	releaseall
+	release
 	return
 
 LittlerootTown_EventScript_Tympole_2:
