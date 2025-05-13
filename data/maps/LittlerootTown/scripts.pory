@@ -1024,9 +1024,10 @@ script LittlerootTown_EventScript_GroveSign {
 script LittlerootTown_EventScript_Caterpie {
 	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
+		faceplayer()
 		setflag(FLAG_LITTLEROOT_TOWN_CATERPIE)
+		doobjectemotion(9, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_CATERPIE, CRY_MODE_ENCOUNTER)
-		delay(40)
 		waitmoncry
 		setwildbattle(SPECIES_CATERPIE, 3, ITEM_NONE)
 		dowildbattle
@@ -1044,9 +1045,10 @@ script LittlerootTown_EventScript_Caterpie {
 script LittlerootTown_EventScript_Pidove {
 	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
+		faceplayer()
 		setflag(FLAG_LITTLEROOT_TOWN_PIDOVE)
+		doobjectemotion(10, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_PIDOVE, CRY_MODE_ENCOUNTER)
-		delay(40)
 		waitmoncry
 		setwildbattle(SPECIES_PIDOVE, 3, ITEM_NONE)
 		dowildbattle
@@ -1065,9 +1067,10 @@ script LittlerootTown_EventScript_Pidove {
 script LittlerootTown_EventScript_Tympole {
 	lockall
 	if (flag(FLAG_SYS_POKEMON_GET)) {
+		faceplayer()
 		setflag(FLAG_LITTLEROOT_TOWN_TYMPOLE)
+		doobjectemotion(11, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER)
-		delay(40)
 		waitmoncry
 		setwildbattle(SPECIES_TYMPOLE, 3, ITEM_NONE)
 		dowildbattle

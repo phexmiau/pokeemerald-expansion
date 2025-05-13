@@ -661,11 +661,11 @@
 #define FLAG_LITTLEROOT_TOWN_CATERPIE       0x264 
 #define FLAG_LITTLEROOT_TOWN_PIDOVE         0x265
 #define FLAG_LITTLEROOT_TOWN_TYMPOLE        0x266 
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_ROUTE101_KARRABLAST            0x267
+#define FLAG_ROUTE101_POOCHYENA             0x268
+#define FLAG_ROUTE101_SHROODLE              0x269
+#define FLAG_ROUTE101_ESPURR_PRE_SHROODLE   0x26A
+#define FLAG_ROUTE101_ESPURR_POST_SHROODLE  0x26B
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
