@@ -664,9 +664,9 @@
 #define FLAG_ROUTE101_KARRABLAST            0x267
 #define FLAG_ROUTE101_POOCHYENA             0x268
 #define FLAG_ROUTE101_SHROODLE              0x269
-#define FLAG_ROUTE101_ESPURR_PRE_SHROODLE   0x26A
+#define FLAG_ROUTE101_ESPURR   0x26A
 #define FLAG_ROUTE101_ESPURR_POST_SHROODLE  0x26B
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_UNUSED_0x26C        0x26C
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
@@ -1227,9 +1227,9 @@
 #define FLAG_MEGA_RING_CHARGED                                      0x493 
 #define FLAG_XPALL_ACTIVE                                           0x494 
 #define FLAG_FOLLOWERS_ACTIVE                                       0x495
-#define FLAG_NO_ENCOUNTERS                                          0x496 // Unused Flag
-#define FLAG_NO_RUNNING                                             0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
+#define FLAG_NO_ENCOUNTERS                                          0x496
+#define FLAG_NO_RUNNING                                             0x497
+#define FLAG_FORCE_LOAD_OFFSCREEN_OBJEV                             0x498
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag

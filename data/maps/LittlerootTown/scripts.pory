@@ -1022,9 +1022,9 @@ script LittlerootTown_EventScript_GroveSign {
 }
 
 script LittlerootTown_EventScript_Caterpie {
-	lockall
+	lock
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		faceplayer()
+		faceplayer
 		setflag(FLAG_LITTLEROOT_TOWN_CATERPIE)
 		doobjectemotion(9, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_CATERPIE, CRY_MODE_ENCOUNTER)
@@ -1039,13 +1039,13 @@ script LittlerootTown_EventScript_Caterpie {
 		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
 		waitmessage
 	}
-	releaseall
+	release
 }
 
 script LittlerootTown_EventScript_Pidove {
-	lockall
+	lock
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		faceplayer()
+		faceplayer
 		setflag(FLAG_LITTLEROOT_TOWN_PIDOVE)
 		doobjectemotion(10, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_PIDOVE, CRY_MODE_ENCOUNTER)
@@ -1061,13 +1061,13 @@ script LittlerootTown_EventScript_Pidove {
 		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
 		waitmessage
 	}
-	releaseall
+	release
 }
 
 script LittlerootTown_EventScript_Tympole {
-	lockall
+	lock
 	if (flag(FLAG_SYS_POKEMON_GET)) {
-		faceplayer()
+		faceplayer
 		setflag(FLAG_LITTLEROOT_TOWN_TYMPOLE)
 		doobjectemotion(11, FOLLOWER_EMOTION_UPSET)
 		playmoncry(SPECIES_TYMPOLE, CRY_MODE_ENCOUNTER)
@@ -1081,7 +1081,7 @@ script LittlerootTown_EventScript_Tympole {
 		msgbox(format("You shouldn't challenge a wild Pokemon without having one of your own!"))
 		waitmessage
 	}
-	releaseall
+	release
 }
 
 script LittlerootTown_EventScript_NoClearingTrigger {

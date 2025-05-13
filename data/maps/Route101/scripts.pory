@@ -21,14 +21,17 @@ Route101_OnTransition:
 	clearflag FLAG_ROUTE101_KARRABLAST
 	clearflag FLAG_ROUTE101_POOCHYENA
 	clearflag FLAG_ROUTE101_SHROODLE
-	clearflag FLAG_ROUTE101_ESPURR_PRE_SHROODLE
+	clearflag FLAG_ROUTE101_ESPURR
 	clearflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
-	removeobject 16
+	setobjectmovementtype 12 MOVEMENT_TYPE_WALK_UP_AND_DOWN
 	end
 
 Route101_OnFrame:
 	map_script_2 VAR_ROUTE101_STATE, 0, Route101_EventScript_HideMapNamePopup
 	.2byte 0
+
+Route101_Transition_Espurr_Support::
+	end
 
 Route101_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
@@ -569,8 +572,8 @@ movement Route101_Movement_ShroodleRunAway {
 }
 
 script Route101_EventScript_Karrablast {
-	lockall
-	faceplayer()
+	lock
+	faceplayer
 	setflag(FLAG_ROUTE101_KARRABLAST)
 	doobjectemotion(14, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_KARRABLAST, CRY_MODE_ENCOUNTER)
@@ -581,12 +584,12 @@ script Route101_EventScript_Karrablast {
 	removeobject(14)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
-	releaseall
+	release
 }
 
 script Route101_EventScript_Poochyena {
-	lockall
-	faceplayer()
+	lock
+	faceplayer
 	setflag(FLAG_ROUTE101_POOCHYENA)
 	doobjectemotion(15, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER)
@@ -597,42 +600,34 @@ script Route101_EventScript_Poochyena {
 	removeobject(15)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
-	releaseall
+	release
 }
 
 script Route101_EventScript_Espurr {
-	lockall
-	faceplayer()
-	setflag(FLAG_ROUTE101_ESPURR_PRE_SHROODLE)
-	doobjectemotion(12, FOLLOWER_EMOTION_UPSET)
-	playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
-	waitmoncry
-	setwildbattle(SPECIES_ESPURR, 3, ITEM_NONE)
-	dowildbattle
+	lock
+	faceplayer
+	setflag(FLAG_ROUTE101_ESPURR)
+	if(flag(FLAG_ROUTE101_ESPURR_POST_SHROODLE)) {
+		doobjectemotion(12, FOLLOWER_EMOTION_HAPPY)
+		playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
+		msgbox(format("It seems like ESPURR wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
+	} else {
+		doobjectemotion(12, FOLLOWER_EMOTION_UPSET)
+		playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
+		waitmoncry
+		setwildbattle(SPECIES_ESPURR, 3, ITEM_NONE)
+		dowildbattle
+	}
 	fadescreen(FADE_TO_BLACK)
 	removeobject(12)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
-	releaseall
-}
-
-script Route101_EventScript_Espurr_Post_Shroodle {
-	lockall
-	faceplayer()
-	doobjectemotion(16, FOLLOWER_EMOTION_HAPPY)
-	playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
-	msgbox(format("It seems like ESPURR wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
-	setflag(FLAG_ROUTE101_ESPURR_POST_SHROODLE)
-	fadescreen(FADE_TO_BLACK)
-	removeobject(16)
-	fadescreen(FADE_FROM_BLACK)
-	waitmessage
-	releaseall
+	release
 }
 
 script Route101_EventScript_Shroodle {
-	lockall
-	faceplayer()
+	lock
+	faceplayer
 	setflag(FLAG_ROUTE101_SHROODLE)
 	doobjectemotion(13, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_SHROODLE, CRY_MODE_ENCOUNTER)
@@ -640,12 +635,13 @@ script Route101_EventScript_Shroodle {
 	setwildbattle(SPECIES_SHROODLE, 4, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
-	if(!flag(FLAG_ROUTE101_ESPURR_PRE_SHROODLE)) {
-		removeobject(12)
-		setobjectxy(16, 2, 4)
+	if(!flag(FLAG_ROUTE101_ESPURR)) {
+		setobjectmovementtype(12, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_LEFT_DOWN_UP)
+		setobjectxy(12, 2, 4)
+		setflag(FLAG_ROUTE101_ESPURR_POST_SHROODLE)
 	}
 	removeobject(13)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
-	releaseall
+	release
 }

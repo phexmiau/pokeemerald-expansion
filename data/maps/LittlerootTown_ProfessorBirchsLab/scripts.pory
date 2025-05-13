@@ -1051,7 +1051,7 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_SprigatitoPlaying {
 
 script LittlerootTown_ProfessorBirchsLab_EventScript_KateYap {
     lockall
-    faceplayer()
+    faceplayer
     msgbox(format("KATE: Hey {PLAYER}! SPRIGATITO is so adorable playing with these flowers.\pI'd invite you to keep watching with me, but I think my dad wants to speak to you as well!"), MSGBOX_AUTOCLOSE)
     releaseall
 }

@@ -45,11 +45,11 @@ Route101_OnTransition:
 # 23 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_ROUTE101_SHROODLE
 # 24 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_ROUTE101_ESPURR_PRE_SHROODLE
+	clearflag FLAG_ROUTE101_ESPURR
 # 25 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
 # 26 "data/maps/Route101/scripts.pory"
-	removeobject 16
+	setobjectmovementtype 12 MOVEMENT_TYPE_WALK_UP_AND_DOWN
 # 27 "data/maps/Route101/scripts.pory"
 	end
 # 28 "data/maps/Route101/scripts.pory"
@@ -63,1810 +63,1804 @@ Route101_OnFrame:
 # 32 "data/maps/Route101/scripts.pory"
 
 # 33 "data/maps/Route101/scripts.pory"
-Route101_EventScript_HideMapNamePopup::
+Route101_Transition_Espurr_Support::
 # 34 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-# 35 "data/maps/Route101/scripts.pory"
-	setvar VAR_ROUTE101_STATE, 1
-# 36 "data/maps/Route101/scripts.pory"
 	end
-# 37 "data/maps/Route101/scripts.pory"
+# 35 "data/maps/Route101/scripts.pory"
 
+# 36 "data/maps/Route101/scripts.pory"
+Route101_EventScript_HideMapNamePopup::
+# 37 "data/maps/Route101/scripts.pory"
+	setflag FLAG_HIDE_MAP_NAME_POPUP
 # 38 "data/maps/Route101/scripts.pory"
-Route101_EventScript_StartBirchRescue::
+	setvar VAR_ROUTE101_STATE, 1
 # 39 "data/maps/Route101/scripts.pory"
-	lockall
+	end
 # 40 "data/maps/Route101/scripts.pory"
-	playbgm MUS_HELP, TRUE
+
 # 41 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
+Route101_EventScript_StartBirchRescue::
 # 42 "data/maps/Route101/scripts.pory"
-	closemessage
+	lockall
 # 43 "data/maps/Route101/scripts.pory"
-	setobjectxy LOCALID_BIRCH, 0, 15
+	playbgm MUS_HELP, TRUE
 # 44 "data/maps/Route101/scripts.pory"
-	setobjectxy LOCALID_ZIGZAGOON, 0, 16
+	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 # 45 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
+	closemessage
 # 46 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
+	setobjectxy LOCALID_BIRCH, 0, 15
 # 47 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
+	setobjectxy LOCALID_ZIGZAGOON, 0, 16
 # 48 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
 # 49 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChaseInCircles
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
 # 50 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunInCircles
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
 # 51 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 52 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChaseInCircles
 # 53 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunInCircles
 # 54 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonFaceBirch
+	waitmovement 0
 # 55 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchFaceZigzagoon
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
 # 56 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 57 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonFaceBirch
 # 58 "data/maps/Route101/scripts.pory"
-	closemessage
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchFaceZigzagoon
 # 59 "data/maps/Route101/scripts.pory"
-	setvar VAR_ROUTE101_STATE, 2
+	waitmovement 0
 # 60 "data/maps/Route101/scripts.pory"
-	releaseall
+	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
 # 61 "data/maps/Route101/scripts.pory"
-	end
+	closemessage
 # 62 "data/maps/Route101/scripts.pory"
-
+	setvar VAR_ROUTE101_STATE, 2
 # 63 "data/maps/Route101/scripts.pory"
-Route101_EventScript_PreventExitSouth::
+	releaseall
 # 64 "data/maps/Route101/scripts.pory"
-	lockall
+	end
 # 65 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+
 # 66 "data/maps/Route101/scripts.pory"
-	closemessage
+Route101_EventScript_PreventExitSouth::
 # 67 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitSouth
+	lockall
 # 68 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
 # 69 "data/maps/Route101/scripts.pory"
-	releaseall
+	closemessage
 # 70 "data/maps/Route101/scripts.pory"
-	end
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitSouth
 # 71 "data/maps/Route101/scripts.pory"
-
+	waitmovement 0
 # 72 "data/maps/Route101/scripts.pory"
-Route101_EventScript_PreventExitWest::
+	releaseall
 # 73 "data/maps/Route101/scripts.pory"
-	lockall
+	end
 # 74 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+
 # 75 "data/maps/Route101/scripts.pory"
-	closemessage
+Route101_EventScript_PreventExitWest::
 # 76 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitWest
-# 77 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 78 "data/maps/Route101/scripts.pory"
-	releaseall
-# 79 "data/maps/Route101/scripts.pory"
-	end
-# 80 "data/maps/Route101/scripts.pory"
-
-# 81 "data/maps/Route101/scripts.pory"
-Route101_EventScript_PreventExitNorth::
-# 82 "data/maps/Route101/scripts.pory"
 	lockall
-# 83 "data/maps/Route101/scripts.pory"
+# 77 "data/maps/Route101/scripts.pory"
 	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
-# 84 "data/maps/Route101/scripts.pory"
+# 78 "data/maps/Route101/scripts.pory"
 	closemessage
-# 85 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitNorth
-# 86 "data/maps/Route101/scripts.pory"
+# 79 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitWest
+# 80 "data/maps/Route101/scripts.pory"
 	waitmovement 0
-# 87 "data/maps/Route101/scripts.pory"
+# 81 "data/maps/Route101/scripts.pory"
 	releaseall
-# 88 "data/maps/Route101/scripts.pory"
+# 82 "data/maps/Route101/scripts.pory"
 	end
+# 83 "data/maps/Route101/scripts.pory"
+
+# 84 "data/maps/Route101/scripts.pory"
+Route101_EventScript_PreventExitNorth::
+# 85 "data/maps/Route101/scripts.pory"
+	lockall
+# 86 "data/maps/Route101/scripts.pory"
+	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+# 87 "data/maps/Route101/scripts.pory"
+	closemessage
+# 88 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitNorth
 # 89 "data/maps/Route101/scripts.pory"
-
+	waitmovement 0
 # 90 "data/maps/Route101/scripts.pory"
-Route101_Movement_PreventExitSouth:
+	releaseall
 # 91 "data/maps/Route101/scripts.pory"
-	walk_up
+	end
 # 92 "data/maps/Route101/scripts.pory"
-	step_end
+
 # 93 "data/maps/Route101/scripts.pory"
-
+Route101_Movement_PreventExitSouth:
 # 94 "data/maps/Route101/scripts.pory"
-Route101_Movement_PreventExitWest:
+	walk_up
 # 95 "data/maps/Route101/scripts.pory"
-	walk_right
+	step_end
 # 96 "data/maps/Route101/scripts.pory"
-	step_end
+
 # 97 "data/maps/Route101/scripts.pory"
-
+Route101_Movement_PreventExitWest:
 # 98 "data/maps/Route101/scripts.pory"
-Route101_Movement_PreventExitNorth:
+	walk_right
 # 99 "data/maps/Route101/scripts.pory"
-	walk_down
+	step_end
 # 100 "data/maps/Route101/scripts.pory"
-	step_end
+
 # 101 "data/maps/Route101/scripts.pory"
-
+Route101_Movement_PreventExitNorth:
 # 102 "data/maps/Route101/scripts.pory"
-Route101_Movement_ZigzagoonChaseInCircles:
+	walk_down
 # 103 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 104 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 105 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 106 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 107 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 108 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 109 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 110 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 111 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 112 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 113 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 114 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 115 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 116 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 117 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 118 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 119 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 120 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 121 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 122 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 123 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 124 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 125 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 126 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 127 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 128 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 129 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 130 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 131 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 132 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 133 "data/maps/Route101/scripts.pory"
 	step_end
-# 134 "data/maps/Route101/scripts.pory"
+# 104 "data/maps/Route101/scripts.pory"
 
-# 135 "data/maps/Route101/scripts.pory"
-Route101_Movement_ZigzagoonChase1:
-# 136 "data/maps/Route101/scripts.pory"
+# 105 "data/maps/Route101/scripts.pory"
+Route101_Movement_ZigzagoonChaseInCircles:
+# 106 "data/maps/Route101/scripts.pory"
 	walk_fast_up
+# 107 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 108 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 109 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 110 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 111 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 112 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 113 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 114 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 115 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 116 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 117 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 118 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 119 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 120 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 121 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 122 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 123 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 124 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 125 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 126 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 127 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 128 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 129 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 130 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 131 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 132 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 133 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 134 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 135 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 136 "data/maps/Route101/scripts.pory"
+	step_end
 # 137 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+
 # 138 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+Route101_Movement_ZigzagoonChase1:
 # 139 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+	walk_fast_up
 # 140 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 # 141 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+	walk_fast_right
 # 142 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_fast_right
 # 143 "data/maps/Route101/scripts.pory"
-
+	walk_fast_right
 # 144 "data/maps/Route101/scripts.pory"
-@ Leftover data? This command is unused.
+	walk_fast_up
 # 145 "data/maps/Route101/scripts.pory"
 	step_end
 # 146 "data/maps/Route101/scripts.pory"
 
 # 147 "data/maps/Route101/scripts.pory"
-Route101_Movement_ZigzagoonFaceBirch:
+@ Leftover data? This command is unused.
 # 148 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+	step_end
 # 149 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+
 # 150 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+Route101_Movement_ZigzagoonFaceBirch:
 # 151 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
 # 152 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_in_place_fast_left
 # 153 "data/maps/Route101/scripts.pory"
-
+	walk_in_place_fast_left
 # 154 "data/maps/Route101/scripts.pory"
-Route101_Movement_EnterScene:
+	walk_in_place_fast_left
 # 155 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+	step_end
 # 156 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+
 # 157 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+Route101_Movement_EnterScene:
 # 158 "data/maps/Route101/scripts.pory"
 	walk_fast_up
 # 159 "data/maps/Route101/scripts.pory"
-	walk_in_place_faster_left
+	walk_fast_up
 # 160 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_fast_up
 # 161 "data/maps/Route101/scripts.pory"
-
+	walk_fast_up
 # 162 "data/maps/Route101/scripts.pory"
-Route101_Movement_BirchRunInCircles:
+	walk_in_place_faster_left
 # 163 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 164 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 165 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 166 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 167 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 168 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 169 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 170 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 171 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 172 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 173 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 174 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 175 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 176 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 177 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 178 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 179 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 180 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 181 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 182 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 183 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 184 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 185 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 186 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 187 "data/maps/Route101/scripts.pory"
-	walk_fast_right
-# 188 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 189 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 190 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 191 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 192 "data/maps/Route101/scripts.pory"
-	walk_fast_left
-# 193 "data/maps/Route101/scripts.pory"
 	step_end
-# 194 "data/maps/Route101/scripts.pory"
+# 164 "data/maps/Route101/scripts.pory"
 
+# 165 "data/maps/Route101/scripts.pory"
+Route101_Movement_BirchRunInCircles:
+# 166 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 167 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 168 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 169 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 170 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 171 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 172 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 173 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 174 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 175 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 176 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 177 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 178 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 179 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 180 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 181 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 182 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 183 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 184 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 185 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 186 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 187 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 188 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 189 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 190 "data/maps/Route101/scripts.pory"
+	walk_fast_right
+# 191 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 192 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 193 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 194 "data/maps/Route101/scripts.pory"
+	walk_fast_left
 # 195 "data/maps/Route101/scripts.pory"
-Route101_Movement_BirchRunAway1:
+	walk_fast_left
 # 196 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+	step_end
 # 197 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+
 # 198 "data/maps/Route101/scripts.pory"
-	walk_fast_right
+Route101_Movement_BirchRunAway1:
 # 199 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 # 200 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+	walk_fast_right
 # 201 "data/maps/Route101/scripts.pory"
-	walk_fast_up
+	walk_fast_right
 # 202 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_fast_right
 # 203 "data/maps/Route101/scripts.pory"
-
+	walk_fast_up
 # 204 "data/maps/Route101/scripts.pory"
-@ Leftover data? This command is unused.
+	walk_fast_up
 # 205 "data/maps/Route101/scripts.pory"
 	step_end
 # 206 "data/maps/Route101/scripts.pory"
 
 # 207 "data/maps/Route101/scripts.pory"
-Route101_Movement_BirchFaceZigzagoon:
+@ Leftover data? This command is unused.
 # 208 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+	step_end
 # 209 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+
 # 210 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+Route101_Movement_BirchFaceZigzagoon:
 # 211 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
 # 212 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_in_place_fast_right
 # 213 "data/maps/Route101/scripts.pory"
-
+	walk_in_place_fast_right
 # 214 "data/maps/Route101/scripts.pory"
-Route101_Movement_Unused1:
+	walk_in_place_fast_right
 # 215 "data/maps/Route101/scripts.pory"
-	walk_up
+	step_end
 # 216 "data/maps/Route101/scripts.pory"
-	walk_up
+
 # 217 "data/maps/Route101/scripts.pory"
-	step_end
+Route101_Movement_Unused1:
 # 218 "data/maps/Route101/scripts.pory"
-
+	walk_up
 # 219 "data/maps/Route101/scripts.pory"
-Route101_Movement_Unused2:
+	walk_up
 # 220 "data/maps/Route101/scripts.pory"
-	walk_up
+	step_end
 # 221 "data/maps/Route101/scripts.pory"
-	walk_left
+
 # 222 "data/maps/Route101/scripts.pory"
-	walk_up
+Route101_Movement_Unused2:
 # 223 "data/maps/Route101/scripts.pory"
-	step_end
+	walk_up
 # 224 "data/maps/Route101/scripts.pory"
-
+	walk_left
 # 225 "data/maps/Route101/scripts.pory"
-Route101_EventScript_Youngster::
+	walk_up
 # 226 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
-# 227 "data/maps/Route101/scripts.pory"
-	end
-# 228 "data/maps/Route101/scripts.pory"
-
-# 229 "data/maps/Route101/scripts.pory"
-Route101_EventScript_Boy::
-# 230 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
-# 231 "data/maps/Route101/scripts.pory"
-	end
-# 232 "data/maps/Route101/scripts.pory"
-
-# 233 "data/maps/Route101/scripts.pory"
-Route101_EventScript_RouteSign::
-# 234 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
-# 235 "data/maps/Route101/scripts.pory"
-	end
-# 236 "data/maps/Route101/scripts.pory"
-
-# 237 "data/maps/Route101/scripts.pory"
-Route101_EventScript_BirchsBag::
-# 238 "data/maps/Route101/scripts.pory"
-	lock
-# 239 "data/maps/Route101/scripts.pory"
-	faceplayer
-# 240 "data/maps/Route101/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
-# 241 "data/maps/Route101/scripts.pory"
-	setflag FLAG_RESCUED_BIRCH
-# 242 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 243 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_ZIGZAGOON
-# 244 "data/maps/Route101/scripts.pory"
-	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
-# 245 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-# 246 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 247 "data/maps/Route101/scripts.pory"
-	special ChooseStarter
-# 248 "data/maps/Route101/scripts.pory"
-	waitstate
-# 249 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
-# 250 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 251 "data/maps/Route101/scripts.pory"
-	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
-# 252 "data/maps/Route101/scripts.pory"
-	special HealPlayerParty
-# 253 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-# 254 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-# 255 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-# 256 "data/maps/Route101/scripts.pory"
-	setvar VAR_BIRCH_LAB_STATE, 2
-# 257 "data/maps/Route101/scripts.pory"
-	setvar VAR_ROUTE101_STATE, 3
-# 258 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 259 "data/maps/Route101/scripts.pory"
-	checkplayergender
-# 260 "data/maps/Route101/scripts.pory"
-	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-# 261 "data/maps/Route101/scripts.pory"
-	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
-# 262 "data/maps/Route101/scripts.pory"
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
-# 263 "data/maps/Route101/scripts.pory"
-	waitstate
-# 264 "data/maps/Route101/scripts.pory"
-	release
-# 265 "data/maps/Route101/scripts.pory"
-	end
-# 266 "data/maps/Route101/scripts.pory"
-
-# 267 "data/maps/Route101/scripts.pory"
-Route101_EventScript_HideMayInBedroom::
-# 268 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
-# 269 "data/maps/Route101/scripts.pory"
-	return
-# 270 "data/maps/Route101/scripts.pory"
-
-# 271 "data/maps/Route101/scripts.pory"
-Route101_EventScript_HideBrendanInBedroom::
-# 272 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
-# 273 "data/maps/Route101/scripts.pory"
-	return
-# 274 "data/maps/Route101/scripts.pory"
-
-# 275 "data/maps/Route101/scripts.pory"
-Route101_Movement_BirchApproachPlayer:
-# 276 "data/maps/Route101/scripts.pory"
-	walk_right
-# 277 "data/maps/Route101/scripts.pory"
 	step_end
-# 278 "data/maps/Route101/scripts.pory"
+# 227 "data/maps/Route101/scripts.pory"
 
+# 228 "data/maps/Route101/scripts.pory"
+Route101_EventScript_Youngster::
+# 229 "data/maps/Route101/scripts.pory"
+	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
+# 230 "data/maps/Route101/scripts.pory"
+	end
+# 231 "data/maps/Route101/scripts.pory"
+
+# 232 "data/maps/Route101/scripts.pory"
+Route101_EventScript_Boy::
+# 233 "data/maps/Route101/scripts.pory"
+	msgbox Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
+# 234 "data/maps/Route101/scripts.pory"
+	end
+# 235 "data/maps/Route101/scripts.pory"
+
+# 236 "data/maps/Route101/scripts.pory"
+Route101_EventScript_RouteSign::
+# 237 "data/maps/Route101/scripts.pory"
+	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
+# 238 "data/maps/Route101/scripts.pory"
+	end
+# 239 "data/maps/Route101/scripts.pory"
+
+# 240 "data/maps/Route101/scripts.pory"
+Route101_EventScript_BirchsBag::
+# 241 "data/maps/Route101/scripts.pory"
+	lock
+# 242 "data/maps/Route101/scripts.pory"
+	faceplayer
+# 243 "data/maps/Route101/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 244 "data/maps/Route101/scripts.pory"
+	setflag FLAG_RESCUED_BIRCH
+# 245 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 246 "data/maps/Route101/scripts.pory"
+	removeobject LOCALID_ZIGZAGOON
+# 247 "data/maps/Route101/scripts.pory"
+	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
+# 248 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+# 249 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 250 "data/maps/Route101/scripts.pory"
+	special ChooseStarter
+# 251 "data/maps/Route101/scripts.pory"
+	waitstate
+# 252 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
+# 253 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 254 "data/maps/Route101/scripts.pory"
+	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
+# 255 "data/maps/Route101/scripts.pory"
+	special HealPlayerParty
+# 256 "data/maps/Route101/scripts.pory"
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
+# 257 "data/maps/Route101/scripts.pory"
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
+# 258 "data/maps/Route101/scripts.pory"
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
+# 259 "data/maps/Route101/scripts.pory"
+	setvar VAR_BIRCH_LAB_STATE, 2
+# 260 "data/maps/Route101/scripts.pory"
+	setvar VAR_ROUTE101_STATE, 3
+# 261 "data/maps/Route101/scripts.pory"
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+# 262 "data/maps/Route101/scripts.pory"
+	checkplayergender
+# 263 "data/maps/Route101/scripts.pory"
+	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
+# 264 "data/maps/Route101/scripts.pory"
+	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
+# 265 "data/maps/Route101/scripts.pory"
+	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
+# 266 "data/maps/Route101/scripts.pory"
+	waitstate
+# 267 "data/maps/Route101/scripts.pory"
+	release
+# 268 "data/maps/Route101/scripts.pory"
+	end
+# 269 "data/maps/Route101/scripts.pory"
+
+# 270 "data/maps/Route101/scripts.pory"
+Route101_EventScript_HideMayInBedroom::
+# 271 "data/maps/Route101/scripts.pory"
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+# 272 "data/maps/Route101/scripts.pory"
+	return
+# 273 "data/maps/Route101/scripts.pory"
+
+# 274 "data/maps/Route101/scripts.pory"
+Route101_EventScript_HideBrendanInBedroom::
+# 275 "data/maps/Route101/scripts.pory"
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
+# 276 "data/maps/Route101/scripts.pory"
+	return
+# 277 "data/maps/Route101/scripts.pory"
+
+# 278 "data/maps/Route101/scripts.pory"
+Route101_Movement_BirchApproachPlayer:
 # 279 "data/maps/Route101/scripts.pory"
-Route101_Text_HelpMe:
+	walk_right
 # 280 "data/maps/Route101/scripts.pory"
-	.string "H-help me!$"
+	step_end
 # 281 "data/maps/Route101/scripts.pory"
 
 # 282 "data/maps/Route101/scripts.pory"
-Route101_Text_PleaseHelp:
+Route101_Text_HelpMe:
 # 283 "data/maps/Route101/scripts.pory"
-	.string "Hello! You over there!\n"
+	.string "H-help me!$"
 # 284 "data/maps/Route101/scripts.pory"
-	.string "Please! Help!\p"
-# 285 "data/maps/Route101/scripts.pory"
-	.string "In my BAG!\n"
-# 286 "data/maps/Route101/scripts.pory"
-	.string "There's a POKé BALL!$"
-# 287 "data/maps/Route101/scripts.pory"
 
+# 285 "data/maps/Route101/scripts.pory"
+Route101_Text_PleaseHelp:
+# 286 "data/maps/Route101/scripts.pory"
+	.string "Hello! You over there!\n"
+# 287 "data/maps/Route101/scripts.pory"
+	.string "Please! Help!\p"
 # 288 "data/maps/Route101/scripts.pory"
-Route101_Text_DontLeaveMe:
+	.string "In my BAG!\n"
 # 289 "data/maps/Route101/scripts.pory"
-	.string "You can't just leave the BUNEARY...$"
+	.string "There's a POKé BALL!$"
 # 290 "data/maps/Route101/scripts.pory"
 
 # 291 "data/maps/Route101/scripts.pory"
-Route101_Text_YouSavedMe:
+Route101_Text_DontLeaveMe:
 # 292 "data/maps/Route101/scripts.pory"
-	.string "PROF. BIRCH: Whew…\p"
+	.string "You can't just leave the BUNEARY...$"
 # 293 "data/maps/Route101/scripts.pory"
-	.string "I was in the tall grass studying wild\n"
+
 # 294 "data/maps/Route101/scripts.pory"
-	.string "POKéMON when I was jumped.\p"
+Route101_Text_YouSavedMe:
 # 295 "data/maps/Route101/scripts.pory"
-	.string "You saved me.\n"
+	.string "PROF. BIRCH: Whew…\p"
 # 296 "data/maps/Route101/scripts.pory"
-	.string "Thanks a lot!\p"
+	.string "I was in the tall grass studying wild\n"
 # 297 "data/maps/Route101/scripts.pory"
-	.string "Oh?\p"
+	.string "POKéMON when I was jumped.\p"
 # 298 "data/maps/Route101/scripts.pory"
-	.string "Hi, you're {PLAYER}{KUN}!\p"
+	.string "You saved me.\n"
 # 299 "data/maps/Route101/scripts.pory"
-	.string "This is not the place to chat, so come\n"
+	.string "Thanks a lot!\p"
 # 300 "data/maps/Route101/scripts.pory"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "Oh?\p"
 # 301 "data/maps/Route101/scripts.pory"
-
+	.string "Hi, you're {PLAYER}{KUN}!\p"
 # 302 "data/maps/Route101/scripts.pory"
-Route101_Text_TakeTiredPokemonToPokeCenter:
+	.string "This is not the place to chat, so come\n"
 # 303 "data/maps/Route101/scripts.pory"
-	.string "If POKéMON get tired, take them to\n"
+	.string "by my POKéMON LAB later, okay?$"
 # 304 "data/maps/Route101/scripts.pory"
-	.string "a POKéMON CENTER.\p"
+
 # 305 "data/maps/Route101/scripts.pory"
-	.string "There's a POKéMON CENTER in OLDALE\n"
+Route101_Text_TakeTiredPokemonToPokeCenter:
 # 306 "data/maps/Route101/scripts.pory"
-	.string "TOWN right close by.$"
+	.string "If POKéMON get tired, take them to\n"
 # 307 "data/maps/Route101/scripts.pory"
-
+	.string "a POKéMON CENTER.\p"
 # 308 "data/maps/Route101/scripts.pory"
-Route101_Text_WildPokemonInTallGrass:
+	.string "There's a POKéMON CENTER in OLDALE\n"
 # 309 "data/maps/Route101/scripts.pory"
-	.string "Wild POKéMON will jump out at you in\n"
+	.string "TOWN right close by.$"
 # 310 "data/maps/Route101/scripts.pory"
-	.string "tall grass.\p"
-# 311 "data/maps/Route101/scripts.pory"
-	.string "If you want to catch POKéMON, you have\n"
-# 312 "data/maps/Route101/scripts.pory"
-	.string "to go into the tall grass and search.$"
-# 313 "data/maps/Route101/scripts.pory"
 
+# 311 "data/maps/Route101/scripts.pory"
+Route101_Text_WildPokemonInTallGrass:
+# 312 "data/maps/Route101/scripts.pory"
+	.string "Wild POKéMON will jump out at you in\n"
+# 313 "data/maps/Route101/scripts.pory"
+	.string "tall grass.\p"
 # 314 "data/maps/Route101/scripts.pory"
-Route101_Text_RouteSign:
+	.string "If you want to catch POKéMON, you have\n"
 # 315 "data/maps/Route101/scripts.pory"
-	.string "ROUTE 101\n"
+	.string "to go into the tall grass and search.$"
 # 316 "data/maps/Route101/scripts.pory"
+
+# 317 "data/maps/Route101/scripts.pory"
+Route101_Text_RouteSign:
+# 318 "data/maps/Route101/scripts.pory"
+	.string "ROUTE 101\n"
+# 319 "data/maps/Route101/scripts.pory"
 	.string "{UP_ARROW} OLDALE TOWN$"
 
 Route101_EventScript_BunearyIntroMoveToCryRight::
-# 319 "data/maps/Route101/scripts.pory"
-	lock
-# 320 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
-# 321 "data/maps/Route101/scripts.pory"
-	waitmoncry
 # 322 "data/maps/Route101/scripts.pory"
-	playbgm MUS_HELP, TRUE
+	lock
 # 323 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryRight
+	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
 # 324 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	waitmoncry
 # 325 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+	playbgm MUS_HELP, TRUE
 # 326 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryRight
+# 327 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 328 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+# 329 "data/maps/Route101/scripts.pory"
 	goto Route101_EventScript_BunearyIntroHelpBuneary
 	return
 
 
 Route101_EventScript_BunearyIntroMoveToCryLeft::
-# 330 "data/maps/Route101/scripts.pory"
-	lock
-# 331 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
-# 332 "data/maps/Route101/scripts.pory"
-	waitmoncry
 # 333 "data/maps/Route101/scripts.pory"
-	playbgm MUS_HELP, TRUE
+	lock
 # 334 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
 # 335 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	waitmoncry
 # 336 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+	playbgm MUS_HELP, TRUE
 # 337 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+# 338 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 339 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PlayerRunToCryLeft
+# 340 "data/maps/Route101/scripts.pory"
 	goto Route101_EventScript_BunearyIntroHelpBuneary
 	return
 
 
 Route101_EventScript_BunearyIntroHelpBuneary::
-# 341 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_POISONED
-# 342 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyRunAwayDown
-# 343 "data/maps/Route101/scripts.pory"
-	waitmovement 0
 # 344 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyTurnLeftRight
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_POISONED
 # 345 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyRunAwayDown
 # 346 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyRunAwayRight
+	waitmovement 0
 # 347 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLE, Route101_Movement_ShroodleRunAway
+	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyTurnLeftRight
 # 348 "data/maps/Route101/scripts.pory"
 	waitmovement 0
-Route101_EventScript_BunearyIntroHelpBuneary_3:
+# 349 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyRunAwayRight
 # 350 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_0, MSGBOX_YESNO
+	applymovement LOCALID_SHROODLE, Route101_Movement_ShroodleRunAway
 # 351 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+Route101_EventScript_BunearyIntroHelpBuneary_3:
+# 353 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_0, MSGBOX_YESNO
+# 354 "data/maps/Route101/scripts.pory"
 	compare VAR_RESULT, NO
 	goto_if_eq Route101_EventScript_BunearyIntroHelpBuneary_8
 Route101_EventScript_BunearyIntroHelpBuneary_2:
-# 354 "data/maps/Route101/scripts.pory"
+# 357 "data/maps/Route101/scripts.pory"
 	compare VAR_RESULT, NO
 	goto_if_eq Route101_EventScript_BunearyIntroHelpBuneary_3
-# 355 "data/maps/Route101/scripts.pory"
-	closemessage
-# 356 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_0
-# 357 "data/maps/Route101/scripts.pory"
-	waitmovement 0
 # 358 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SHROODLE, FOLLOWER_EMOTION_UPSET
+	closemessage
 # 359 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_1
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_0
 # 360 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
+	waitmovement 0
 # 361 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	doobjectemotion LOCALID_SHROODLE, FOLLOWER_EMOTION_UPSET
 # 362 "data/maps/Route101/scripts.pory"
-	fadescreenspeed FADE_TO_WHITE, 0
+	applymovement LOCALID_SHROODLE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_1
 # 363 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
 # 364 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_2
+	waitmovement 0
 # 365 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_3
+	fadescreenspeed FADE_TO_WHITE, 0
 # 366 "data/maps/Route101/scripts.pory"
-	fadescreenspeed FADE_FROM_WHITE, 0
+	playmoncry SPECIES_BUNEARY, CRY_MODE_ENCOUNTER
 # 367 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_2
 # 368 "data/maps/Route101/scripts.pory"
-	givemon SPECIES_BUNEARY, 5, item = ITEM_ORAN_BERRY, abilityNum = 1, gender = MON_FEMALE, isShiny = TRUE
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_3
 # 369 "data/maps/Route101/scripts.pory"
-	setstatus1 STATUS1_POISON, PARTY_SIZE
+	fadescreenspeed FADE_FROM_WHITE, 0
 # 370 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_SHROODLE, 3
+	waitmovement 0
 # 371 "data/maps/Route101/scripts.pory"
-	setflag FLAG_NO_RUNNING
+	givemon SPECIES_BUNEARY, 5, item = ITEM_ORAN_BERRY, abilityNum = 1, gender = MON_FEMALE, isShiny = TRUE
 # 372 "data/maps/Route101/scripts.pory"
-	setflag FLAG_INTRO_SHROODLE_BATTLE
+	setstatus1 STATUS1_POISON, PARTY_SIZE
 # 373 "data/maps/Route101/scripts.pory"
-	dowildbattle
+	setwildbattle SPECIES_SHROODLE, 3
 # 374 "data/maps/Route101/scripts.pory"
-	fadedefaultbgm
+	setflag FLAG_NO_RUNNING
 # 375 "data/maps/Route101/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_INTRO_SHROODLE_BATTLE
 # 376 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_NO_RUNNING
+	dowildbattle
 # 377 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_INTRO_SHROODLE_BATTLE
+	fadedefaultbgm
 # 378 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_SHROODLE_INTRO
+	setflag FLAG_SYS_POKEMON_GET
 # 379 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_4
+	clearflag FLAG_NO_RUNNING
 # 380 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	clearflag FLAG_INTRO_SHROODLE_BATTLE
 # 381 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SHROODLE
+	setflag FLAG_HIDE_SHROODLE_INTRO
 # 382 "data/maps/Route101/scripts.pory"
-	special HealPlayerParty
+	applymovement LOCALID_SHROODLE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_4
 # 383 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_5
-# 384 "data/maps/Route101/scripts.pory"
 	waitmovement 0
+# 384 "data/maps/Route101/scripts.pory"
+	removeobject LOCALID_SHROODLE
 # 385 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_6
+	special HealPlayerParty
 # 386 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_CURIOUS
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_5
 # 387 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 388 "data/maps/Route101/scripts.pory"
 	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_6
 # 389 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_LOVE
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_CURIOUS
 # 390 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 391 "data/maps/Route101/scripts.pory"
-	bufferleadmonspeciesname STR_VAR_1
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_6
 # 392 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_2
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_LOVE
 # 393 "data/maps/Route101/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
+	waitmovement 0
 # 394 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_3
+	bufferleadmonspeciesname STR_VAR_1
 # 395 "data/maps/Route101/scripts.pory"
-	waitfanfare
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_2
 # 396 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_4, MSGBOX_YESNO
+	playfanfare MUS_OBTAIN_ITEM
 # 397 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_3
+# 398 "data/maps/Route101/scripts.pory"
+	waitfanfare
+# 399 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_4, MSGBOX_YESNO
+# 400 "data/maps/Route101/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq Route101_EventScript_BunearyIntroHelpBuneary_6
 Route101_EventScript_BunearyIntroHelpBuneary_5:
-# 401 "data/maps/Route101/scripts.pory"
-	closemessage
-# 402 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_7
-# 403 "data/maps/Route101/scripts.pory"
-	waitmovement 0
 # 404 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
+	closemessage
 # 405 "data/maps/Route101/scripts.pory"
-	delay 20
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_7
 # 406 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
+	waitmovement 0
 # 407 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_8
-# 408 "data/maps/Route101/scripts.pory"
-	waitmoncry
-# 409 "data/maps/Route101/scripts.pory"
-	playbgm MUS_HELP, TRUE
-# 410 "data/maps/Route101/scripts.pory"
-	setobjectxy LOCALID_SHROODLEARMYLEAD, 3, 15
-# 411 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
-# 412 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
-# 413 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
-# 414 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SHROODLEARMYLEAD, FOLLOWER_EMOTION_UPSET
-# 415 "data/maps/Route101/scripts.pory"
 	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
+# 408 "data/maps/Route101/scripts.pory"
+	delay 20
+# 409 "data/maps/Route101/scripts.pory"
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
+# 410 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_8
+# 411 "data/maps/Route101/scripts.pory"
+	waitmoncry
+# 412 "data/maps/Route101/scripts.pory"
+	playbgm MUS_HELP, TRUE
+# 413 "data/maps/Route101/scripts.pory"
+	setobjectxy LOCALID_SHROODLEARMYLEAD, 3, 15
+# 414 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
+# 415 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
 # 416 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SAD
+	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_9
 # 417 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_10
+	doobjectemotion LOCALID_SHROODLEARMYLEAD, FOLLOWER_EMOTION_UPSET
 # 418 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_11
+	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
 # 419 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SAD
 # 420 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyTurnLeftRight
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_10
 # 421 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_11
 # 422 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_12
+	waitmovement 0
 # 423 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_BUNEARY, Route101_Movement_BunearyTurnLeftRight
 # 424 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_13
-# 425 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_14
-# 426 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_14
-# 427 "data/maps/Route101/scripts.pory"
 	waitmovement 0
+# 425 "data/maps/Route101/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_12
+# 426 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 427 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_13
 # 428 "data/maps/Route101/scripts.pory"
-	delay 30
+	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_14
 # 429 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_3
+	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_14
 # 430 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 431 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
+	delay 30
 # 432 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_3
 # 433 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
+	waitmovement 0
 # 434 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
 # 435 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_5, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
 # 436 "data/maps/Route101/scripts.pory"
-	doobjectemotion OBJ_EVENT_ID_PLAYER, FOLLOWER_EMOTION_SURPRISE
+	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_15
 # 437 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
+	waitmovement 0
 # 438 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SHROODLEARMYLEAD, FOLLOWER_EMOTION_SURPRISE
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_5, MSGBOX_AUTOCLOSE
 # 439 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SHROODLEARMYGRUNTTOP, FOLLOWER_EMOTION_SURPRISE
+	doobjectemotion OBJ_EVENT_ID_PLAYER, FOLLOWER_EMOTION_SURPRISE
 # 440 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SHROODLEARMYGRUNTBOTTOM, FOLLOWER_EMOTION_SURPRISE
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
 # 441 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_16
+	doobjectemotion LOCALID_SHROODLEARMYLEAD, FOLLOWER_EMOTION_SURPRISE
 # 442 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_SPRIGATITO, CRY_MODE_ENCOUNTER
+	doobjectemotion LOCALID_SHROODLEARMYGRUNTTOP, FOLLOWER_EMOTION_SURPRISE
 # 443 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_17
+	doobjectemotion LOCALID_SHROODLEARMYGRUNTBOTTOM, FOLLOWER_EMOTION_SURPRISE
 # 444 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_16
 # 445 "data/maps/Route101/scripts.pory"
-	delay 70
+	playmoncry SPECIES_SPRIGATITO, CRY_MODE_ENCOUNTER
 # 446 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_6
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_17
 # 447 "data/maps/Route101/scripts.pory"
-	closemessage
-# 448 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_17
-# 449 "data/maps/Route101/scripts.pory"
 	waitmovement 0
+# 448 "data/maps/Route101/scripts.pory"
+	delay 70
+# 449 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_6
 # 450 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_7, MSGBOX_AUTOCLOSE
+	closemessage
 # 451 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_18
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_17
 # 452 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 453 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_19
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_7, MSGBOX_AUTOCLOSE
 # 454 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_WHITE
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_18
 # 455 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_20
+	waitmovement 0
 # 456 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_20
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_19
 # 457 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_21
+	fadescreen FADE_TO_WHITE
 # 458 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_WHITE
+	applymovement LOCALID_SHROODLEARMYGRUNTBOTTOM, Route101_EventScript_BunearyIntroHelpBuneary_Movement_20
 # 459 "data/maps/Route101/scripts.pory"
-	fadedefaultbgm
+	applymovement LOCALID_SHROODLEARMYGRUNTTOP, Route101_EventScript_BunearyIntroHelpBuneary_Movement_20
 # 460 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_SHROODLEARMYLEAD, Route101_EventScript_BunearyIntroHelpBuneary_Movement_21
 # 461 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_SHROODLE_ARMY_INTRO
+	fadescreen FADE_FROM_WHITE
 # 462 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SHROODLEARMYLEAD
+	fadedefaultbgm
 # 463 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SHROODLEARMYGRUNTTOP
+	waitmovement 0
 # 464 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SHROODLEARMYGRUNTBOTTOM
+	setflag FLAG_HIDE_SHROODLE_ARMY_INTRO
 # 465 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_22
+	removeobject LOCALID_SHROODLEARMYLEAD
 # 466 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	removeobject LOCALID_SHROODLEARMYGRUNTTOP
 # 467 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_8
+	removeobject LOCALID_SHROODLEARMYGRUNTBOTTOM
 # 468 "data/maps/Route101/scripts.pory"
-	closemessage
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_22
 # 469 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_23
+	waitmovement 0
 # 470 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_8
 # 471 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_24
+	closemessage
 # 472 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_25
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_23
 # 473 "data/maps/Route101/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_26
-# 474 "data/maps/Route101/scripts.pory"
 	waitmovement 0
+# 474 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_24
 # 475 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_SPRIGATITO, FOLLOWER_EMOTION_HAPPY
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_25
 # 476 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_27
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_EventScript_BunearyIntroHelpBuneary_Movement_26
 # 477 "data/maps/Route101/scripts.pory"
 	waitmovement 0
 # 478 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_HAPPY
+	doobjectemotion LOCALID_SPRIGATITO, FOLLOWER_EMOTION_HAPPY
 # 479 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_7
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_27
 # 480 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_28
+	waitmovement 0
 # 481 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 482 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_9
-# 483 "data/maps/Route101/scripts.pory"
-	closemessage
-# 484 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_29
-# 485 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 486 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_10
-# 487 "data/maps/Route101/scripts.pory"
-	closemessage
-# 488 "data/maps/Route101/scripts.pory"
-	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
-# 489 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_8
-# 490 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_30
-# 491 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 492 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_11
-# 493 "data/maps/Route101/scripts.pory"
-	closemessage
-# 494 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_31
-# 495 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_32
-# 496 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_32
-# 497 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 498 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_33
-# 499 "data/maps/Route101/scripts.pory"
-	waitmovement 0
-# 500 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_12
-# 501 "data/maps/Route101/scripts.pory"
-	closemessage
-# 502 "data/maps/Route101/scripts.pory"
 	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_HAPPY
-# 503 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_34
-# 504 "data/maps/Route101/scripts.pory"
+# 482 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_7
+# 483 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_28
+# 484 "data/maps/Route101/scripts.pory"
 	waitmovement 0
-# 505 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_13
-# 506 "data/maps/Route101/scripts.pory"
+# 485 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_9
+# 486 "data/maps/Route101/scripts.pory"
 	closemessage
+# 487 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_29
+# 488 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 489 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_10
+# 490 "data/maps/Route101/scripts.pory"
+	closemessage
+# 491 "data/maps/Route101/scripts.pory"
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_SURPRISE
+# 492 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_8
+# 493 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_30
+# 494 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 495 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_11
+# 496 "data/maps/Route101/scripts.pory"
+	closemessage
+# 497 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_31
+# 498 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_32
+# 499 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_32
+# 500 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 501 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_33
+# 502 "data/maps/Route101/scripts.pory"
+	waitmovement 0
+# 503 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_12
+# 504 "data/maps/Route101/scripts.pory"
+	closemessage
+# 505 "data/maps/Route101/scripts.pory"
+	doobjectemotion LOCALID_BUNEARY, FOLLOWER_EMOTION_HAPPY
+# 506 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_BUNEARY, Route101_EventScript_BunearyIntroHelpBuneary_Movement_34
 # 507 "data/maps/Route101/scripts.pory"
-	setflag FLAG_HIDE_BUNEARY_INTRO
+	waitmovement 0
 # 508 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_24
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_13
 # 509 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_35
+	closemessage
 # 510 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_36
+	setflag FLAG_HIDE_BUNEARY_INTRO
 # 511 "data/maps/Route101/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_24
 # 512 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_37
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_35
 # 513 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_14, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_36
 # 514 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_38
-# 515 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_39
-# 516 "data/maps/Route101/scripts.pory"
-	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_40
-# 517 "data/maps/Route101/scripts.pory"
 	waitmovement 0
+# 515 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_37
+# 516 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_14, MSGBOX_AUTOCLOSE
+# 517 "data/maps/Route101/scripts.pory"
+	applymovement LOCALID_PROF_BIRCH, Route101_EventScript_BunearyIntroHelpBuneary_Movement_38
 # 518 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	applymovement LOCALID_KATE, Route101_EventScript_BunearyIntroHelpBuneary_Movement_39
 # 519 "data/maps/Route101/scripts.pory"
-	setflag FLAG_RESCUED_BIRCH
+	applymovement LOCALID_SPRIGATITO, Route101_EventScript_BunearyIntroHelpBuneary_Movement_40
 # 520 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_BIRCH_NOT_IN_LAB
+	waitmovement 0
 # 521 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_KATE_NOT_IN_LAB
+	fadescreen FADE_TO_BLACK
 # 522 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_STARTER_TREECKO
+	setflag FLAG_RESCUED_BIRCH
 # 523 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_STARTER_SCORBUNNY
+	clearflag FLAG_BIRCH_NOT_IN_LAB
 # 524 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_STARTER_POPPLIO
+	clearflag FLAG_KATE_NOT_IN_LAB
 # 525 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_KATE
+	clearflag FLAG_STARTER_TREECKO
 # 526 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_SPRIGATITO
+	clearflag FLAG_STARTER_SCORBUNNY
 # 527 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_PROF_BIRCH
+	clearflag FLAG_STARTER_POPPLIO
 # 528 "data/maps/Route101/scripts.pory"
-	removeobject LOCALID_BUNEARY
+	removeobject LOCALID_KATE
 # 529 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	removeobject LOCALID_SPRIGATITO
 # 530 "data/maps/Route101/scripts.pory"
-	setvar VAR_ROUTE101_STATE, 2
+	removeobject LOCALID_PROF_BIRCH
 # 531 "data/maps/Route101/scripts.pory"
-	setvar VAR_BIRCH_LAB_STATE, 2
+	removeobject LOCALID_BUNEARY
 # 532 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 533 "data/maps/Route101/scripts.pory"
+	setvar VAR_ROUTE101_STATE, 2
+# 534 "data/maps/Route101/scripts.pory"
+	setvar VAR_BIRCH_LAB_STATE, 2
+# 535 "data/maps/Route101/scripts.pory"
 	releaseall
 	return
 
 Route101_EventScript_BunearyIntroHelpBuneary_6:
-# 398 "data/maps/Route101/scripts.pory"
+# 401 "data/maps/Route101/scripts.pory"
 	setvar VAR_0x8004, 0
-# 399 "data/maps/Route101/scripts.pory"
+# 402 "data/maps/Route101/scripts.pory"
 	call Common_EventScript_NameReceivedPartyMon
 	goto Route101_EventScript_BunearyIntroHelpBuneary_5
 
 Route101_EventScript_BunearyIntroHelpBuneary_8:
-# 352 "data/maps/Route101/scripts.pory"
+# 355 "data/maps/Route101/scripts.pory"
 	msgbox Route101_EventScript_BunearyIntroHelpBuneary_Text_1
 	goto Route101_EventScript_BunearyIntroHelpBuneary_2
 
 
-# 535 "data/maps/Route101/scripts.pory"
-Route101_Movement_PlayerRunToCryRight:
-# 536 "data/maps/Route101/scripts.pory"
-	walk_fast_up
-# 537 "data/maps/Route101/scripts.pory"
-	walk_fast_left
 # 538 "data/maps/Route101/scripts.pory"
+Route101_Movement_PlayerRunToCryRight:
+# 539 "data/maps/Route101/scripts.pory"
+	walk_fast_up
+# 540 "data/maps/Route101/scripts.pory"
+	walk_fast_left
+# 541 "data/maps/Route101/scripts.pory"
 	face_up
 	step_end
 
-# 541 "data/maps/Route101/scripts.pory"
+# 544 "data/maps/Route101/scripts.pory"
 Route101_Movement_PlayerRunToCryLeft:
-# 542 "data/maps/Route101/scripts.pory"
+# 545 "data/maps/Route101/scripts.pory"
 	walk_fast_up
 	step_end
 
-# 545 "data/maps/Route101/scripts.pory"
+# 548 "data/maps/Route101/scripts.pory"
 Route101_Movement_BunearyRunAwayDown:
-# 546 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 546 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-# 546 "data/maps/Route101/scripts.pory"
-	walk_fast_down
-	step_end
-
 # 549 "data/maps/Route101/scripts.pory"
-Route101_Movement_BunearyTurnLeftRight:
-# 550 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
-# 551 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+	walk_fast_down
+# 549 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+# 549 "data/maps/Route101/scripts.pory"
+	walk_fast_down
+	step_end
+
 # 552 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+Route101_Movement_BunearyTurnLeftRight:
 # 553 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
+	walk_in_place_fast_left
 # 554 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_left
+	walk_in_place_fast_right
 # 555 "data/maps/Route101/scripts.pory"
-	walk_in_place_fast_right
-# 556 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 557 "data/maps/Route101/scripts.pory"
+# 556 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
+# 557 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_left
 # 558 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_right
+# 559 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_left
+# 560 "data/maps/Route101/scripts.pory"
+	walk_in_place_fast_right
+# 561 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 561 "data/maps/Route101/scripts.pory"
+# 564 "data/maps/Route101/scripts.pory"
 Route101_Movement_BunearyRunAwayRight:
-# 562 "data/maps/Route101/scripts.pory"
+# 565 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 562 "data/maps/Route101/scripts.pory"
+# 565 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 562 "data/maps/Route101/scripts.pory"
+# 565 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 562 "data/maps/Route101/scripts.pory"
+# 565 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 563 "data/maps/Route101/scripts.pory"
+# 566 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 566 "data/maps/Route101/scripts.pory"
+# 569 "data/maps/Route101/scripts.pory"
 Route101_Movement_ShroodleRunAway:
-# 567 "data/maps/Route101/scripts.pory"
+# 570 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 567 "data/maps/Route101/scripts.pory"
+# 570 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 567 "data/maps/Route101/scripts.pory"
+# 570 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 567 "data/maps/Route101/scripts.pory"
+# 570 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 568 "data/maps/Route101/scripts.pory"
+# 571 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
 Route101_EventScript_Karrablast::
-# 572 "data/maps/Route101/scripts.pory"
-	lockall
-# 573 "data/maps/Route101/scripts.pory"
-	faceplayer
-# 574 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_KARRABLAST
 # 575 "data/maps/Route101/scripts.pory"
-	doobjectemotion 14, FOLLOWER_EMOTION_UPSET
+	lock
 # 576 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_KARRABLAST, CRY_MODE_ENCOUNTER
+	faceplayer
 # 577 "data/maps/Route101/scripts.pory"
-	waitmoncry
+	setflag FLAG_ROUTE101_KARRABLAST
 # 578 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_KARRABLAST, 4, ITEM_NONE
+	doobjectemotion 14, FOLLOWER_EMOTION_UPSET
 # 579 "data/maps/Route101/scripts.pory"
-	dowildbattle
+	playmoncry SPECIES_KARRABLAST, CRY_MODE_ENCOUNTER
 # 580 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	waitmoncry
 # 581 "data/maps/Route101/scripts.pory"
-	removeobject 14
+	setwildbattle SPECIES_KARRABLAST, 4, ITEM_NONE
 # 582 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	dowildbattle
 # 583 "data/maps/Route101/scripts.pory"
-	waitmessage
+	fadescreen FADE_TO_BLACK
 # 584 "data/maps/Route101/scripts.pory"
-	releaseall
+	removeobject 14
+# 585 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 586 "data/maps/Route101/scripts.pory"
+	waitmessage
+# 587 "data/maps/Route101/scripts.pory"
+	release
 	return
 
 
 Route101_EventScript_Poochyena::
-# 588 "data/maps/Route101/scripts.pory"
-	lockall
-# 589 "data/maps/Route101/scripts.pory"
-	faceplayer
-# 590 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_POOCHYENA
 # 591 "data/maps/Route101/scripts.pory"
-	doobjectemotion 15, FOLLOWER_EMOTION_UPSET
+	lock
 # 592 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER
+	faceplayer
 # 593 "data/maps/Route101/scripts.pory"
-	waitmoncry
+	setflag FLAG_ROUTE101_POOCHYENA
 # 594 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_POOCHYENA, 4, ITEM_NONE
+	doobjectemotion 15, FOLLOWER_EMOTION_UPSET
 # 595 "data/maps/Route101/scripts.pory"
-	dowildbattle
+	playmoncry SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER
 # 596 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	waitmoncry
 # 597 "data/maps/Route101/scripts.pory"
-	removeobject 15
+	setwildbattle SPECIES_POOCHYENA, 4, ITEM_NONE
 # 598 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	dowildbattle
 # 599 "data/maps/Route101/scripts.pory"
-	waitmessage
+	fadescreen FADE_TO_BLACK
 # 600 "data/maps/Route101/scripts.pory"
-	releaseall
+	removeobject 15
+# 601 "data/maps/Route101/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 602 "data/maps/Route101/scripts.pory"
+	waitmessage
+# 603 "data/maps/Route101/scripts.pory"
+	release
 	return
 
 
 Route101_EventScript_Espurr::
-# 604 "data/maps/Route101/scripts.pory"
-	lockall
-# 605 "data/maps/Route101/scripts.pory"
-	faceplayer
-# 606 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_ESPURR_PRE_SHROODLE
 # 607 "data/maps/Route101/scripts.pory"
-	doobjectemotion 12, FOLLOWER_EMOTION_UPSET
+	lock
 # 608 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_ESPURR, CRY_MODE_ENCOUNTER
-# 609 "data/maps/Route101/scripts.pory"
-	waitmoncry
-# 610 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_ESPURR, 3, ITEM_NONE
-# 611 "data/maps/Route101/scripts.pory"
-	dowildbattle
-# 612 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 613 "data/maps/Route101/scripts.pory"
-	removeobject 12
-# 614 "data/maps/Route101/scripts.pory"
-	fadescreen FADE_FROM_BLACK
-# 615 "data/maps/Route101/scripts.pory"
-	waitmessage
-# 616 "data/maps/Route101/scripts.pory"
-	releaseall
-	return
-
-
-Route101_EventScript_Espurr_Post_Shroodle::
-# 620 "data/maps/Route101/scripts.pory"
-	lockall
-# 621 "data/maps/Route101/scripts.pory"
 	faceplayer
-# 622 "data/maps/Route101/scripts.pory"
-	doobjectemotion 16, FOLLOWER_EMOTION_HAPPY
-# 623 "data/maps/Route101/scripts.pory"
+# 609 "data/maps/Route101/scripts.pory"
+	setflag FLAG_ROUTE101_ESPURR
+# 610 "data/maps/Route101/scripts.pory"
+	goto_if_set FLAG_ROUTE101_ESPURR_POST_SHROODLE, Route101_EventScript_Espurr_2
+# 615 "data/maps/Route101/scripts.pory"
+	doobjectemotion 12, FOLLOWER_EMOTION_UPSET
+# 616 "data/maps/Route101/scripts.pory"
 	playmoncry SPECIES_ESPURR, CRY_MODE_ENCOUNTER
-# 624 "data/maps/Route101/scripts.pory"
-	msgbox Route101_EventScript_Espurr_Post_Shroodle_Text_0, MSGBOX_YESNO
-# 625 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
-# 626 "data/maps/Route101/scripts.pory"
+# 617 "data/maps/Route101/scripts.pory"
+	waitmoncry
+# 618 "data/maps/Route101/scripts.pory"
+	setwildbattle SPECIES_ESPURR, 3, ITEM_NONE
+# 619 "data/maps/Route101/scripts.pory"
+	dowildbattle
+Route101_EventScript_Espurr_1:
+# 621 "data/maps/Route101/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 627 "data/maps/Route101/scripts.pory"
-	removeobject 16
-# 628 "data/maps/Route101/scripts.pory"
+# 622 "data/maps/Route101/scripts.pory"
+	removeobject 12
+# 623 "data/maps/Route101/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 629 "data/maps/Route101/scripts.pory"
+# 624 "data/maps/Route101/scripts.pory"
 	waitmessage
-# 630 "data/maps/Route101/scripts.pory"
-	releaseall
+# 625 "data/maps/Route101/scripts.pory"
+	release
 	return
+
+Route101_EventScript_Espurr_2:
+# 611 "data/maps/Route101/scripts.pory"
+	doobjectemotion 12, FOLLOWER_EMOTION_HAPPY
+# 612 "data/maps/Route101/scripts.pory"
+	playmoncry SPECIES_ESPURR, CRY_MODE_ENCOUNTER
+# 613 "data/maps/Route101/scripts.pory"
+	msgbox Route101_EventScript_Espurr_Text_0, MSGBOX_YESNO
+	goto Route101_EventScript_Espurr_1
 
 
 Route101_EventScript_Shroodle::
-# 634 "data/maps/Route101/scripts.pory"
-	lockall
-# 635 "data/maps/Route101/scripts.pory"
+# 629 "data/maps/Route101/scripts.pory"
+	lock
+# 630 "data/maps/Route101/scripts.pory"
 	faceplayer
-# 636 "data/maps/Route101/scripts.pory"
+# 631 "data/maps/Route101/scripts.pory"
 	setflag FLAG_ROUTE101_SHROODLE
-# 637 "data/maps/Route101/scripts.pory"
+# 632 "data/maps/Route101/scripts.pory"
 	doobjectemotion 13, FOLLOWER_EMOTION_UPSET
-# 638 "data/maps/Route101/scripts.pory"
+# 633 "data/maps/Route101/scripts.pory"
 	playmoncry SPECIES_SHROODLE, CRY_MODE_ENCOUNTER
-# 639 "data/maps/Route101/scripts.pory"
+# 634 "data/maps/Route101/scripts.pory"
 	waitmoncry
-# 640 "data/maps/Route101/scripts.pory"
+# 635 "data/maps/Route101/scripts.pory"
 	setwildbattle SPECIES_SHROODLE, 4, ITEM_NONE
-# 641 "data/maps/Route101/scripts.pory"
+# 636 "data/maps/Route101/scripts.pory"
 	dowildbattle
-# 642 "data/maps/Route101/scripts.pory"
+# 637 "data/maps/Route101/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 643 "data/maps/Route101/scripts.pory"
-	goto_if_unset FLAG_ROUTE101_ESPURR_PRE_SHROODLE, Route101_EventScript_Shroodle_2
+# 638 "data/maps/Route101/scripts.pory"
+	goto_if_unset FLAG_ROUTE101_ESPURR, Route101_EventScript_Shroodle_2
 Route101_EventScript_Shroodle_1:
-# 647 "data/maps/Route101/scripts.pory"
+# 643 "data/maps/Route101/scripts.pory"
 	removeobject 13
-# 648 "data/maps/Route101/scripts.pory"
+# 644 "data/maps/Route101/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 649 "data/maps/Route101/scripts.pory"
+# 645 "data/maps/Route101/scripts.pory"
 	waitmessage
-# 650 "data/maps/Route101/scripts.pory"
-	releaseall
+# 646 "data/maps/Route101/scripts.pory"
+	release
 	return
 
 Route101_EventScript_Shroodle_2:
-# 644 "data/maps/Route101/scripts.pory"
-	removeobject 12
-# 645 "data/maps/Route101/scripts.pory"
-	setobjectxy 16, 2, 4
+# 639 "data/maps/Route101/scripts.pory"
+	setobjectmovementtype 12, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_LEFT_DOWN_UP
+# 640 "data/maps/Route101/scripts.pory"
+	setobjectxy 12, 2, 4
+# 641 "data/maps/Route101/scripts.pory"
+	setflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
 	goto Route101_EventScript_Shroodle_1
 
 
-# 356 "data/maps/Route101/scripts.pory"
+# 359 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_0:
-# 356 "data/maps/Route101/scripts.pory"
+# 359 "data/maps/Route101/scripts.pory"
 	walk_fast_up
-# 356 "data/maps/Route101/scripts.pory"
+# 359 "data/maps/Route101/scripts.pory"
 	walk_fast_up
-# 356 "data/maps/Route101/scripts.pory"
+# 359 "data/maps/Route101/scripts.pory"
 	walk_fast_up
-# 356 "data/maps/Route101/scripts.pory"
+# 359 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_1:
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 359 "data/maps/Route101/scripts.pory"
+# 362 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
-# 364 "data/maps/Route101/scripts.pory"
+# 367 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_2:
-# 364 "data/maps/Route101/scripts.pory"
+# 367 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 364 "data/maps/Route101/scripts.pory"
+# 367 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 365 "data/maps/Route101/scripts.pory"
+# 368 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_3:
-# 365 "data/maps/Route101/scripts.pory"
+# 368 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 365 "data/maps/Route101/scripts.pory"
+# 368 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_4:
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 379 "data/maps/Route101/scripts.pory"
+# 382 "data/maps/Route101/scripts.pory"
 	walk_fast_left
 	step_end
 
-# 383 "data/maps/Route101/scripts.pory"
+# 386 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_5:
-# 383 "data/maps/Route101/scripts.pory"
+# 386 "data/maps/Route101/scripts.pory"
 	face_right
 	step_end
 
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_6:
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 	walk_in_place_right
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 	walk_in_place_right
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 	walk_in_place_right
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 	walk_in_place_right
-# 385 "data/maps/Route101/scripts.pory"
+# 388 "data/maps/Route101/scripts.pory"
 	walk_in_place_right
 	step_end
 
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_7:
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 402 "data/maps/Route101/scripts.pory"
+# 405 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 407 "data/maps/Route101/scripts.pory"
+# 410 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_8:
-# 407 "data/maps/Route101/scripts.pory"
+# 410 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 411 "data/maps/Route101/scripts.pory"
+# 414 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_9:
-# 411 "data/maps/Route101/scripts.pory"
+# 414 "data/maps/Route101/scripts.pory"
 	walk_right
-# 411 "data/maps/Route101/scripts.pory"
+# 414 "data/maps/Route101/scripts.pory"
 	walk_right
-# 411 "data/maps/Route101/scripts.pory"
+# 414 "data/maps/Route101/scripts.pory"
 	walk_right
 	step_end
 
-# 417 "data/maps/Route101/scripts.pory"
+# 420 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_10:
-# 417 "data/maps/Route101/scripts.pory"
+# 420 "data/maps/Route101/scripts.pory"
 	walk_fast_left
 	step_end
 
-# 418 "data/maps/Route101/scripts.pory"
+# 421 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_11:
-# 418 "data/maps/Route101/scripts.pory"
+# 421 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
-# 422 "data/maps/Route101/scripts.pory"
+# 425 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_12:
-# 422 "data/maps/Route101/scripts.pory"
+# 425 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 422 "data/maps/Route101/scripts.pory"
+# 425 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 422 "data/maps/Route101/scripts.pory"
+# 425 "data/maps/Route101/scripts.pory"
 	face_left
 	step_end
 
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_13:
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 424 "data/maps/Route101/scripts.pory"
+# 427 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_14:
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 425 "data/maps/Route101/scripts.pory"
+# 428 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_15:
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 431 "data/maps/Route101/scripts.pory"
+# 434 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 441 "data/maps/Route101/scripts.pory"
+# 444 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_16:
-# 441 "data/maps/Route101/scripts.pory"
+# 444 "data/maps/Route101/scripts.pory"
 	face_up
 	step_end
 
-# 443 "data/maps/Route101/scripts.pory"
+# 446 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_17:
-# 443 "data/maps/Route101/scripts.pory"
+# 446 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 443 "data/maps/Route101/scripts.pory"
+# 446 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 443 "data/maps/Route101/scripts.pory"
+# 446 "data/maps/Route101/scripts.pory"
 	walk_fast_down
 	step_end
 
-# 451 "data/maps/Route101/scripts.pory"
+# 454 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_18:
-# 451 "data/maps/Route101/scripts.pory"
+# 454 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 451 "data/maps/Route101/scripts.pory"
+# 454 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 451 "data/maps/Route101/scripts.pory"
+# 454 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 451 "data/maps/Route101/scripts.pory"
+# 454 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
 	step_end
 
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_19:
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
-# 453 "data/maps/Route101/scripts.pory"
+# 456 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_down
 	step_end
 
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_20:
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
-# 455 "data/maps/Route101/scripts.pory"
+# 458 "data/maps/Route101/scripts.pory"
 	walk_fast_left
 	step_end
 
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_21:
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 457 "data/maps/Route101/scripts.pory"
+# 460 "data/maps/Route101/scripts.pory"
 	walk_fast_down
 	step_end
 
-# 465 "data/maps/Route101/scripts.pory"
+# 468 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_22:
-# 465 "data/maps/Route101/scripts.pory"
+# 468 "data/maps/Route101/scripts.pory"
 	walk_down
-# 465 "data/maps/Route101/scripts.pory"
+# 468 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 469 "data/maps/Route101/scripts.pory"
+# 472 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_23:
-# 469 "data/maps/Route101/scripts.pory"
+# 472 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 471 "data/maps/Route101/scripts.pory"
+# 474 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_24:
-# 471 "data/maps/Route101/scripts.pory"
+# 474 "data/maps/Route101/scripts.pory"
 	walk_down
-# 471 "data/maps/Route101/scripts.pory"
+# 474 "data/maps/Route101/scripts.pory"
 	walk_right
 	step_end
 
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_25:
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 	walk_fast_right
-# 472 "data/maps/Route101/scripts.pory"
+# 475 "data/maps/Route101/scripts.pory"
 	walk_fast_right
 	step_end
 
-# 473 "data/maps/Route101/scripts.pory"
+# 476 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_26:
-# 473 "data/maps/Route101/scripts.pory"
+# 476 "data/maps/Route101/scripts.pory"
 	walk_left
 	step_end
 
-# 476 "data/maps/Route101/scripts.pory"
+# 479 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_27:
-# 476 "data/maps/Route101/scripts.pory"
+# 479 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
-# 476 "data/maps/Route101/scripts.pory"
+# 479 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_28:
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 480 "data/maps/Route101/scripts.pory"
+# 483 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 484 "data/maps/Route101/scripts.pory"
+# 487 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_29:
-# 484 "data/maps/Route101/scripts.pory"
+# 487 "data/maps/Route101/scripts.pory"
 	walk_down
-# 484 "data/maps/Route101/scripts.pory"
+# 487 "data/maps/Route101/scripts.pory"
 	walk_down
-# 484 "data/maps/Route101/scripts.pory"
+# 487 "data/maps/Route101/scripts.pory"
 	walk_down
-# 484 "data/maps/Route101/scripts.pory"
+# 487 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_30:
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 	walk_right
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 	walk_right
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 	walk_down
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 	walk_down
-# 490 "data/maps/Route101/scripts.pory"
+# 493 "data/maps/Route101/scripts.pory"
 	face_right
 	step_end
 
-# 494 "data/maps/Route101/scripts.pory"
+# 497 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_31:
-# 494 "data/maps/Route101/scripts.pory"
+# 497 "data/maps/Route101/scripts.pory"
 	walk_fast_down
-# 494 "data/maps/Route101/scripts.pory"
+# 497 "data/maps/Route101/scripts.pory"
 	walk_fast_left
 	step_end
 
-# 495 "data/maps/Route101/scripts.pory"
+# 498 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_32:
-# 495 "data/maps/Route101/scripts.pory"
+# 498 "data/maps/Route101/scripts.pory"
 	walk_down
-# 495 "data/maps/Route101/scripts.pory"
+# 498 "data/maps/Route101/scripts.pory"
 	face_right
 	step_end
 
-# 498 "data/maps/Route101/scripts.pory"
+# 501 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_33:
-# 498 "data/maps/Route101/scripts.pory"
+# 501 "data/maps/Route101/scripts.pory"
 	face_down
 	step_end
 
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_34:
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
-# 503 "data/maps/Route101/scripts.pory"
+# 506 "data/maps/Route101/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 509 "data/maps/Route101/scripts.pory"
+# 512 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_35:
-# 509 "data/maps/Route101/scripts.pory"
+# 512 "data/maps/Route101/scripts.pory"
 	walk_right
-# 509 "data/maps/Route101/scripts.pory"
+# 512 "data/maps/Route101/scripts.pory"
 	walk_right
 	step_end
 
-# 510 "data/maps/Route101/scripts.pory"
+# 513 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_36:
-# 510 "data/maps/Route101/scripts.pory"
+# 513 "data/maps/Route101/scripts.pory"
 	walk_right
-# 510 "data/maps/Route101/scripts.pory"
+# 513 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 512 "data/maps/Route101/scripts.pory"
+# 515 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_37:
-# 512 "data/maps/Route101/scripts.pory"
+# 515 "data/maps/Route101/scripts.pory"
 	FACE_UP
 	step_end
 
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_38:
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_right
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_right
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
-# 514 "data/maps/Route101/scripts.pory"
+# 517 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_39:
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_right
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
-# 515 "data/maps/Route101/scripts.pory"
+# 518 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 Route101_EventScript_BunearyIntroHelpBuneary_Movement_40:
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
-# 516 "data/maps/Route101/scripts.pory"
+# 519 "data/maps/Route101/scripts.pory"
 	walk_down
 	step_end
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_0:
-# 350 "data/maps/Route101/scripts.pory"
+# 353 "data/maps/Route101/scripts.pory"
 	.string "That poor BUNEARY seems to be in\n"
 	.string "trouble! Do you want to step in?$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_1:
-# 352 "data/maps/Route101/scripts.pory"
+# 355 "data/maps/Route101/scripts.pory"
 	.string "You can't really plan on not helping\n"
 	.string "that poor BUNEARY, right...$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_2:
-# 392 "data/maps/Route101/scripts.pory"
+# 395 "data/maps/Route101/scripts.pory"
 	.string "It looks like BUNEARY wants to stay\n"
 	.string "with you!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_3:
-# 394 "data/maps/Route101/scripts.pory"
+# 397 "data/maps/Route101/scripts.pory"
 	.string "{STR_VAR_1} joined {PLAYER}!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_4:
-# 396 "data/maps/Route101/scripts.pory"
+# 399 "data/maps/Route101/scripts.pory"
 	.string "Do you want to give a nickname to\n"
 	.string "BUNEARY?$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_5:
-# 435 "data/maps/Route101/scripts.pory"
+# 438 "data/maps/Route101/scripts.pory"
 	.string "???: Watch out!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_6:
-# 446 "data/maps/Route101/scripts.pory"
+# 449 "data/maps/Route101/scripts.pory"
 	.string "???: SPRIGATITO! Let's go!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_7:
-# 450 "data/maps/Route101/scripts.pory"
+# 453 "data/maps/Route101/scripts.pory"
 	.string "???: LEAFAGE LEAFAGE LEAFAGE LEAFAGE\n"
 	.string "LEAFAGE LEAFAGE LEAFAGE LEAFAGE$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_8:
-# 467 "data/maps/Route101/scripts.pory"
+# 470 "data/maps/Route101/scripts.pory"
 	.string "???: Phew, just in time!\n"
 	.string "Hey, are you okay?$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_9:
-# 482 "data/maps/Route101/scripts.pory"
+# 485 "data/maps/Route101/scripts.pory"
 	.string "???: Well it looks like your BUNEARY is\n"
 	.string "doing better already!\p"
 	.string "I'm glad you are okay!\p"
@@ -1878,17 +1872,17 @@ Route101_EventScript_BunearyIntroHelpBuneary_Text_9:
 	.string "meet like this!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_10:
-# 486 "data/maps/Route101/scripts.pory"
+# 489 "data/maps/Route101/scripts.pory"
 	.string "PROF. BIRCH: So that's where you ran\n"
 	.string "off ahead to KATE...$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_11:
-# 492 "data/maps/Route101/scripts.pory"
+# 495 "data/maps/Route101/scripts.pory"
 	.string "PROF. BIRCH: Oh, and you must be\n"
 	.string "{PLAYER}?$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_12:
-# 500 "data/maps/Route101/scripts.pory"
+# 503 "data/maps/Route101/scripts.pory"
 	.string "PROF. BIRCH: Is that your BUNEARY?\p"
 	.string "I was told you didn't have a POKEMON\n"
 	.string "yet!\p"
@@ -1896,7 +1890,7 @@ Route101_EventScript_BunearyIntroHelpBuneary_Text_12:
 	.string "you your first POKEMON.$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_13:
-# 505 "data/maps/Route101/scripts.pory"
+# 508 "data/maps/Route101/scripts.pory"
 	.string "PROF. BIRCH: So you met this BUNEARY\n"
 	.string "just now while protecting it from a wild\l"
 	.string "SHROODLE?\p"
@@ -1908,10 +1902,10 @@ Route101_EventScript_BunearyIntroHelpBuneary_Text_13:
 	.string "talk more there!$"
 
 Route101_EventScript_BunearyIntroHelpBuneary_Text_14:
-# 513 "data/maps/Route101/scripts.pory"
+# 516 "data/maps/Route101/scripts.pory"
 	.string "KATE: Come on {PLAYER}!$"
 
-Route101_EventScript_Espurr_Post_Shroodle_Text_0:
-# 624 "data/maps/Route101/scripts.pory"
+Route101_EventScript_Espurr_Text_0:
+# 613 "data/maps/Route101/scripts.pory"
 	.string "It seems like ESPURR wants to join you!\p"
 	.string "Do you want to take it with you?$"

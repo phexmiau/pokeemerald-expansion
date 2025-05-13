@@ -2402,8 +2402,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_0:
 	.string "Do you want to choose TREECKO?$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_1:
-# 1057 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved TREECKO$"
+# 1068 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "You got TREECKO!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Treecko_Text_2:
 # 1078 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
@@ -2414,16 +2414,16 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Scorbunny_Text_0:
 	.string "Do you want to choose SCORBUNNY?$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Scorbunny_Text_1:
-# 1080 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved SCORBUNNY$"
+# 1094 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "You got SCORBUNNY!$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Popplio_Text_0:
 # 1115 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
 	.string "Do you want to choose POPPLIO?$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Popplio_Text_1:
-# 1103 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
-	.string "Recieved POPPLIO$"
+# 1120 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
+	.string "You got POPPLIO!$"
 
 NicknamePartyMon_Text_0:
 # 1138 "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.pory"
