@@ -1237,7 +1237,7 @@ Route101_EventScript_Espurr_Post_Shroodle::
 # 621 "data/maps/Route101/scripts.pory"
 	faceplayer
 # 622 "data/maps/Route101/scripts.pory"
-	doobjectemotion 12, FOLLOWER_EMOTION_HAPPY
+	doobjectemotion 16, FOLLOWER_EMOTION_HAPPY
 # 623 "data/maps/Route101/scripts.pory"
 	playmoncry SPECIES_ESPURR, CRY_MODE_ENCOUNTER
 # 624 "data/maps/Route101/scripts.pory"
