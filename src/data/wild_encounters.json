@@ -85,7 +85,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_POOCHYENA"
+                "species": "SPECIES_MEOWTH_ALOLA"
               },
               {
                 "min_level": 3,
@@ -95,7 +95,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_AIPOM"
+                "species": "SPECIES_PIDOVE"
               },
               {
                 "min_level": 3,
@@ -105,12 +105,17 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_ESPURR"
+                "species": "SPECIES_AIPOM"
               },
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_PIDOVE"
+                "species": "SPECIES_AIPOM"
+              },
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_COTTONEE"
               },
               {
                 "min_level": 3,
@@ -120,22 +125,17 @@
               {
                 "min_level": 3,
                 "max_level": 4,
+                "species": "SPECIES_MEOWTH_ALOLA"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
+                "species": "SPECIES_ESPURR"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
                 "species": "SPECIES_MASCHIFF"
-              },
-              {
-                "min_level": 3,
-                "max_level": 4,
-                "species": "SPECIES_PIDOVE"
-              },
-              {
-                "min_level": 3,
-                "max_level": 4,
-                "species": "SPECIES_POOCHYENA"
-              },
-              {
-                "min_level": 3,
-                "max_level": 4,
-                "species": "SPECIES_NIDORAN_M"
               },
               {
                 "min_level": 4,

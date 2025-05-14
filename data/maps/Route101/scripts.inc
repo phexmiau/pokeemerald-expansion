@@ -39,9 +39,9 @@ Route101_OnTransition:
 # 20 "data/maps/Route101/scripts.pory"
 	call ProfBirch_EventScript_UpdateLocation
 # 21 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_ROUTE101_KARRABLAST
+	clearflag FLAG_ROUTE101_COTTONEE
 # 22 "data/maps/Route101/scripts.pory"
-	clearflag FLAG_ROUTE101_POOCHYENA
+	clearflag FLAG_ROUTE101_MEOWTH_ALOLA
 # 23 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_ROUTE101_SHROODLE
 # 24 "data/maps/Route101/scripts.pory"
@@ -1147,21 +1147,21 @@ Route101_Movement_ShroodleRunAway:
 	walk_fast_right
 	step_end
 
-Route101_EventScript_Karrablast::
+Route101_EventScript_Cottonee::
 # 575 "data/maps/Route101/scripts.pory"
 	lock
 # 576 "data/maps/Route101/scripts.pory"
 	faceplayer
 # 577 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_KARRABLAST
+	setflag FLAG_ROUTE101_COTTONEE
 # 578 "data/maps/Route101/scripts.pory"
 	doobjectemotion 14, FOLLOWER_EMOTION_UPSET
 # 579 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_KARRABLAST, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_COTTONEE, CRY_MODE_ENCOUNTER
 # 580 "data/maps/Route101/scripts.pory"
 	waitmoncry
 # 581 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_KARRABLAST, 4, ITEM_NONE
+	setwildbattle SPECIES_COTTONEE, 4, ITEM_NONE
 # 582 "data/maps/Route101/scripts.pory"
 	dowildbattle
 # 583 "data/maps/Route101/scripts.pory"
@@ -1177,21 +1177,21 @@ Route101_EventScript_Karrablast::
 	return
 
 
-Route101_EventScript_Poochyena::
+Route101_EventScript_Meowth_A::
 # 591 "data/maps/Route101/scripts.pory"
 	lock
 # 592 "data/maps/Route101/scripts.pory"
 	faceplayer
 # 593 "data/maps/Route101/scripts.pory"
-	setflag FLAG_ROUTE101_POOCHYENA
+	setflag FLAG_ROUTE101_MEOWTH_ALOLA
 # 594 "data/maps/Route101/scripts.pory"
 	doobjectemotion 15, FOLLOWER_EMOTION_UPSET
 # 595 "data/maps/Route101/scripts.pory"
-	playmoncry SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MEOWTH_ALOLA, CRY_MODE_ENCOUNTER
 # 596 "data/maps/Route101/scripts.pory"
 	waitmoncry
 # 597 "data/maps/Route101/scripts.pory"
-	setwildbattle SPECIES_POOCHYENA, 4, ITEM_NONE
+	setwildbattle SPECIES_MEOWTH_ALOLA, 4, ITEM_NONE
 # 598 "data/maps/Route101/scripts.pory"
 	dowildbattle
 # 599 "data/maps/Route101/scripts.pory"

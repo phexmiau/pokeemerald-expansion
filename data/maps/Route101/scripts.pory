@@ -18,8 +18,8 @@ Route101_MapScripts::
 
 Route101_OnTransition:
 	call ProfBirch_EventScript_UpdateLocation
-	clearflag FLAG_ROUTE101_KARRABLAST
-	clearflag FLAG_ROUTE101_POOCHYENA
+	clearflag FLAG_ROUTE101_COTTONEE
+	clearflag FLAG_ROUTE101_MEOWTH_ALOLA
 	clearflag FLAG_ROUTE101_SHROODLE
 	clearflag FLAG_ROUTE101_ESPURR
 	setflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
@@ -571,14 +571,14 @@ movement Route101_Movement_ShroodleRunAway {
     walk_fast_right
 }
 
-script Route101_EventScript_Karrablast {
+script Route101_EventScript_Cottonee {
 	lock
 	faceplayer
-	setflag(FLAG_ROUTE101_KARRABLAST)
+	setflag(FLAG_ROUTE101_COTTONEE)
 	doobjectemotion(14, FOLLOWER_EMOTION_UPSET)
-	playmoncry(SPECIES_KARRABLAST, CRY_MODE_ENCOUNTER)
+	playmoncry(SPECIES_COTTONEE, CRY_MODE_ENCOUNTER)
 	waitmoncry
-	setwildbattle(SPECIES_KARRABLAST, 4, ITEM_NONE)
+	setwildbattle(SPECIES_COTTONEE, 4, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
 	removeobject(14)
@@ -587,14 +587,14 @@ script Route101_EventScript_Karrablast {
 	release
 }
 
-script Route101_EventScript_Poochyena {
+script Route101_EventScript_Meowth_A {
 	lock
 	faceplayer
-	setflag(FLAG_ROUTE101_POOCHYENA)
+	setflag(FLAG_ROUTE101_MEOWTH_ALOLA)
 	doobjectemotion(15, FOLLOWER_EMOTION_UPSET)
-	playmoncry(SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER)
+	playmoncry(SPECIES_MEOWTH_ALOLA, CRY_MODE_ENCOUNTER)
 	waitmoncry
-	setwildbattle(SPECIES_POOCHYENA, 4, ITEM_NONE)
+	setwildbattle(SPECIES_MEOWTH_ALOLA, 4, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
 	removeobject(15)

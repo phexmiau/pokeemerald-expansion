@@ -195,7 +195,7 @@
       "flag": "FLAG_ROUTE101_SHROODLE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KARRABLAST)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(COTTONEE)",
       "x": 3,
       "y": 14,
       "elevation": 3,
@@ -204,11 +204,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route101_EventScript_Karrablast",
-      "flag": "FLAG_ROUTE101_KARRABLAST"
+      "script": "Route101_EventScript_Cottonee",
+      "flag": "FLAG_ROUTE101_COTTONEE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(POOCHYENA)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MEOWTH_ALOLA)",
       "x": 18,
       "y": 11,
       "elevation": 3,
@@ -217,8 +217,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route101_EventScript_Poochyena",
-      "flag": "FLAG_ROUTE101_POOCHYENA"
+      "script": "Route101_EventScript_Meowth_A",
+      "flag": "FLAG_ROUTE101_MEOWTH_ALOLA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ESPURR)",
