@@ -626,6 +626,27 @@ script Route101_EventScript_Espurr_Post_Shroodle {
 	doobjectemotion(16, FOLLOWER_EMOTION_HAPPY)
 	playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
 	msgbox(format("It seems like ESPURR wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		givemon(SPECIES_ESPURR, 3)
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got ESPURR!")
+			call(NicknamePartyMon)
+		}
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got ESPURR!")
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ESPURR)
+			call(NicknameBoxMon)
+		}
+	} else {
+		closemessage
+		release
+		lock
+		faceawayplayer
+		doobjectemotion(16, FOLLOWER_EMOTION_SAD)
+		delay(30)
+	}
 	fadescreen(FADE_TO_BLACK)
 	removeobject(16)
 	fadescreen(FADE_FROM_BLACK)
