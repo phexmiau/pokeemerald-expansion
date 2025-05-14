@@ -687,6 +687,11 @@
 	.byte SCR_OP_FACEPLAYER
 	.endm
 
+	@ Turns the currently selected object (if there is one) to face away from player.
+	.macro faceawayplayer
+	.byte SCR_OP_FACEAWAYPLAYER
+	.endm
+
 	@ Turns the specified object in the specified direction.
 	.macro turnobject localId:req, direction:req
 	.byte SCR_OP_TURNOBJECT

@@ -1495,6 +1495,15 @@ bool8 ScrCmd_faceplayer(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_faceawayplayer(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    if (gObjectEvents[gSelectedObjectEvent].active)
+        ObjectEventFaceDirection(&gObjectEvents[gSelectedObjectEvent], GetPlayerFacingDirection());
+    return FALSE;
+}
+
 bool8 ScrCmd_turnobject(struct ScriptContext *ctx)
 {
     u16 localId = VarGet(ScriptReadHalfword(ctx));

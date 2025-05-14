@@ -6569,6 +6569,11 @@ bool8 ObjectEventFaceOppositeDirection(struct ObjectEvent *objectEvent, u8 direc
     return ObjectEventSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(GetOppositeDirection(direction)));
 }
 
+bool8 ObjectEventFaceDirection(struct ObjectEvent *objectEvent, u8 direction)
+{
+    return ObjectEventSetHeldMovement(objectEvent, GetFaceDirectionMovementAction((direction)));
+}
+
 dirn_to_anim(GetAcroWheelieFaceDirectionMovementAction, gAcroWheelieFaceDirectionMovementActions);
 dirn_to_anim(GetAcroPopWheelieFaceDirectionMovementAction, gAcroPopWheelieFaceDirectionMovementActions);
 dirn_to_anim(GetAcroEndWheelieFaceDirectionMovementAction, gAcroEndWheelieFaceDirectionMovementActions);

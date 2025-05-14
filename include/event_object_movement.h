@@ -172,6 +172,7 @@ void TryOverrideObjectEventTemplateCoords(u8 localId, u8 mapNum, u8 mapGroup);
 void InitObjectEventPalettes(u8 palSlot);
 void UpdateObjectEventCurrentMovement(struct ObjectEvent *, struct Sprite *, bool8(struct ObjectEvent *, struct Sprite *));
 u8 ObjectEventFaceOppositeDirection(struct ObjectEvent *, u8 direction);
+u8 ObjectEventFaceDirection(struct ObjectEvent *, u8 direction);
 u8 GetOppositeDirection(u8 direction);
 u8 GetWalkInPlaceFasterMovementAction(u32);
 u8 GetWalkInPlaceFastMovementAction(u32);
