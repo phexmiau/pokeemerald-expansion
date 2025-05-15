@@ -2497,6 +2497,17 @@ bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_dostrongwildbattle(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    BattleSetup_StartScriptedWildBattle();
+    
+    ScriptContext_Stop();
+
+    return TRUE;
+}
+
 bool8 ScrCmd_pokemart(struct ScriptContext *ctx)
 {
     const void *ptr = (void *)ScriptReadWord(ctx);

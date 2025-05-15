@@ -71,6 +71,7 @@
 #include "palette.h"
 #include "battle_util.h"
 #include "naming_screen.h"
+#include "pokedex.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -1579,6 +1580,7 @@ u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
+
 
 // Removed for Emerald
 void TryInitBattleTowerAwardManObjectEvent(void)
