@@ -1,0 +1,261 @@
+raw `
+Littleroot_Clearing_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Littleroot_Clearing_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Littleroot_Clearing_OnFrame
+	.byte 0
+
+Littleroot_Clearing_OnTransition:
+    clearflag FLAG_LITTLEROOT_CLEARING_ODDISH
+    clearflag FLAG_LITTLEROOT_CLEARING_VULPIX
+    clearflag FLAG_LITTLEROOT_CLEARING_SEEDOT
+    clearflag FLAG_LITTLEROOT_CLEARING_SURSKIT
+	getcaughtmon SPECIES_WO_CHIEN
+	goto_if_eq VAR_RESULT, FALSE, Littleroot_Clearing_Respawn_Wo_Chien
+	end
+
+Littleroot_Clearing_OnFrame:
+	.2byte 0
+`
+
+script Littleroot_Clearing_EventScript_Oddish {
+	lock
+	faceplayer
+	setflag(FLAG_LITTLEROOT_CLEARING_ODDISH)
+	doobjectemotion(4, FOLLOWER_EMOTION_UPSET)
+	playmoncry(SPECIES_ODDISH, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_ODDISH, 6, ITEM_NONE)
+	dowildbattle
+	fadescreen(FADE_TO_BLACK)
+	removeobject(4)
+	fadescreen(FADE_FROM_BLACK)
+	waitmessage
+	release
+}
+
+script Littleroot_Clearing_EventScript_Vulpix {
+	lock
+	faceplayer
+	setflag(FLAG_LITTLEROOT_CLEARING_VULPIX)
+	doobjectemotion(2, FOLLOWER_EMOTION_UPSET)
+	playmoncry(SPECIES_VULPIX, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_VULPIX, 6, ITEM_NONE)
+	dowildbattle
+	fadescreen(FADE_TO_BLACK)
+	removeobject(2)
+	fadescreen(FADE_FROM_BLACK)
+	waitmessage
+	release
+}
+
+script Littleroot_Clearing_EventScript_Seedot {
+	lock
+	faceplayer
+	setflag(FLAG_LITTLEROOT_CLEARING_SEEDOT)
+	doobjectemotion(1, FOLLOWER_EMOTION_UPSET)
+	playmoncry(SPECIES_SEEDOT, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_SEEDOT, 6, ITEM_NONE)
+	dowildbattle
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	waitmessage
+	release
+}
+
+script Littleroot_Clearing_EventScript_Surskit {
+	lock
+	faceplayer
+	setflag(FLAG_LITTLEROOT_CLEARING_SURSKIT)
+	doobjectemotion(3, FOLLOWER_EMOTION_UPSET)
+	playmoncry(SPECIES_SURSKIT, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_SURSKIT, 6, ITEM_NONE)
+	dowildbattle
+	fadescreen(FADE_TO_BLACK)
+	removeobject(3)
+	fadescreen(FADE_FROM_BLACK)
+	waitmessage
+	release
+}
+
+script Littleroot_Clearing_EventScript_Morgrem {
+	lock
+	playmoncry(SPECIES_GOOMY, CRY_MODE_ENCOUNTER)
+	doobjectemotion(9, FOLLOWER_EMOTION_SAD)
+	applymovement(9, moves( walk_in_place_faster_up * 3 walk_in_place_fast_down * 3 walk_in_place_left ))
+	applymovement(9, moves( walk_in_place_fast_right * 8 ))
+	waitmovement(0)
+	msgbox(format("A MIGHTY MORGREM seems to be preying on the GOOMY.\pDo you want to step in?"))
+	msgbox(format("Note: Sometimes you will run into wild overworld POKEMON - like this MORGREM - that are more MIGHTY than the average POKEMON you'd encounter in that area.\pThey are often on a higher level, can't be caught and don't use random moves!"))
+	msgbox(format("All that said... do you want to step in?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		faceplayer
+		playmoncry(SPECIES_MORGREM, CRY_MODE_ENCOUNTER)
+		doobjectemotion(8, FOLLOWER_EMOTION_UPSET)
+		waitmoncry
+		setflag(FLAG_SMART_WILD_AI)
+		setflag(FLAG_NO_CATCHING)
+		setflag(FLAG_NO_RUNNING)
+		setflag(FLAG_SCARY_BATTLE)
+		setstrongwildbattle(SPECIES_MORGREM, 8, item=ITEM_BIG_ROOT, nature=NATURE_HARDY, abilityNum=0, gender=MON_MALE, hpIv=10, atkIv=10, defIv=10, speedIv=10, spAtkIv=10, spDefIv=10, move1=MOVE_FAKE_OUT, move2=MOVE_TORMENT, move3=MOVE_DRAINING_KISS, move4=MOVE_BITE)
+		dostrongwildbattle
+		clearflag(FLAG_SMART_WILD_AI)
+		clearflag(FLAG_NO_CATCHING)
+		clearflag(FLAG_NO_RUNNING)
+		clearflag(FLAG_SCARY_BATTLE)
+		setflag(FLAG_LITTLEROOT_CLEARING_MORGREM)
+		fadedefaultbgm
+		fadescreen(FADE_TO_BLACK)
+		removeobject(8)
+		fadescreen(FADE_FROM_BLACK)
+		msgbox(format("It seems like the MORGREM left something behind!"))
+		playfanfare(MUS_OBTAIN_ITEM)
+		giveitem(ITEM_BIG_ROOT)
+		closemessage
+		doobjectemotion(9, FOLLOWER_EMOTION_HAPPY)
+		applymovement(9, moves( walk_left * 2 face_up ))
+		waitmovement(0)
+		doobjectemotion(9, FOLLOWER_EMOTION_LOVE)
+		playmoncry(SPECIES_GOOMY, CRY_MODE_ENCOUNTER)
+		msgbox(format("GOOMY wants to join you!\pDo you want to take GOOMY with you?"),MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setflag(FLAG_LITTLEROOT_CLEARING_GOOMY)
+			givemon(SPECIES_GOOMY, 5)
+			if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+				playfanfare(MUS_OBTAIN_ITEM)
+				msgbox("You got GOOMY!")
+				call(NicknamePartyMon)
+			}
+			if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+				playfanfare(MUS_OBTAIN_ITEM)
+				msgbox("You got GOOMY!")
+				setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GOOMY)
+				call(NicknameBoxMon)
+			}
+			fadescreen(FADE_TO_BLACK)
+			removeobject(9)
+			fadescreen(FADE_FROM_BLACK)
+		} else {
+			doobjectemotion(9, FOLLOWER_EMOTION_SAD)
+		}
+	} else {
+		doobjectemotion(9, FOLLOWER_EMOTION_SAD)
+	}
+	release
+}
+
+script Littleroot_Clearing_EventScript_Goomy {
+	lock
+	doobjectemotion(9, FOLLOWER_EMOTION_LOVE)
+		playmoncry(SPECIES_GOOMY, CRY_MODE_ENCOUNTER)
+		msgbox(format("GOOMY wants to join you!\pDo you want to take GOOMY with you?"),MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setflag(FLAG_LITTLEROOT_CLEARING_GOOMY)
+			givemon(SPECIES_GOOMY, 5)
+			if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+				playfanfare(MUS_OBTAIN_ITEM)
+				msgbox("You got GOOMY!")
+				call(NicknamePartyMon)
+			}
+			if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+				playfanfare(MUS_OBTAIN_ITEM)
+				msgbox("You got GOOMY!")
+				setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GOOMY)
+				call(NicknameBoxMon)
+			}
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			removeobject(9)
+			fadescreen(FADE_FROM_BLACK)
+		} else {
+			doobjectemotion(9, FOLLOWER_EMOTION_SAD)
+		}
+	release	
+}
+
+script Littleroot_Clearing_EventScript_Wo_Chien {
+	lock
+	faceplayer
+	playbgm(MUS_ENCOUNTER_SUSPICIOUS, TRUE)
+	applymovement(5, moves( walk_in_place_down * 2 walk_in_place_fast_down * 2 ))
+	waitmovement(0)
+	msgbox(format("You stand face to face with the LEGENDARY WO-CHIEN.\pIt seems you have disturbed its slumber."), MSGBOX_AUTOCLOSE)
+	doobjectemotion(5, FOLLOWER_EMOTION_ANGRY)
+	playmoncry(SPECIES_WO_CHIEN, CRY_MODE_ENCOUNTER)
+	applymovement(5, moves( walk_in_place_fast_down * 10 ))
+	msgbox(format("WO-CHIEN charges at you!"), MSGBOX_AUTOCLOSE)
+	setflag(FLAG_LITTLEROOT_CLEARING_WO_CHIEN)
+	setflag(FLAG_SMART_WILD_AI)
+	setstrongwildbattle(SPECIES_WO_CHIEN, 40,  move1=MOVE_MEGA_DRAIN, move2=MOVE_LEECH_SEED, move3=MOVE_INGRAIN, move4=MOVE_DARK_PULSE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+	fadedefaultbgm
+	clearflag(FLAG_SMART_WILD_AI)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(5)
+	fadescreen(FADE_FROM_BLACK)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
+		msgbox(format("The WO-CHIEN fled deeper into the forest..."), MSGBOX_AUTOCLOSE)
+	}
+	waitmessage
+	release
+}
+
+script Littleroot_Clearing_Respawn_Wo_Chien {
+	clearflag(FLAG_LITTLEROOT_CLEARING_WO_CHIEN)
+}
+
+script Littleroot_Clearing_EventScript_Shroodle {
+	lock
+	faceplayer
+	playbgm(MUS_ENCOUNTER_INTENSE, TRUE)
+	msgbox(format("It's the leader of the SHROODLE that attacked you and BUNEARY!\pDo you want to challenge it?"))
+	msgbox(format("Note: During your journey you will sometimes run into ALPHA POKEMON - like this SHROODLE - that get stat boosts when entering the battle.\pThey are often on a higher level, can't be caught and don't use random moves!\pThe game will warn you when you are about to fight an ALPHA POKEMON, and inform you about its level before engaging in battle."))
+	msgbox(format("The ALPHA SHROODLE is level 10.\pDo you want to challenge it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		doobjectemotion(10, FOLLOWER_EMOTION_UPSET)
+		applymovement(10, moves( walk_in_place_fast_left * 6 ))
+		playmoncry(SPECIES_SHROODLE, CRY_MODE_ENCOUNTER)
+		waitmovement(0)
+		setflag(FLAG_SMART_WILD_AI)
+		setflag(FLAG_NO_CATCHING)
+		setflag(FLAG_NO_RUNNING)
+		setflag(FLAG_SCARY_BATTLE)
+		setstrongwildbattle(SPECIES_SHROODLE, 10, nature=NATURE_HARDY, abilityNum=2, gender=MON_FEMALE, hpIv=10, atkIv=10, defIv=10, speedIv=10, spAtkIv=10, spDefIv=10, move1=MOVE_POISON_FANG, move2=MOVE_FURY_SWIPES, move3=MOVE_SWAGGER, move4=MOVE_POUNCE)
+		settotemboost(B_POSITION_OPPONENT_LEFT, 1, 0, 1)
+		dostrongwildbattle
+		fadedefaultbgm
+		setflag(FLAG_LITTLEROOT_CLEARING_A_SHROODLE)
+		clearflag(FLAG_SMART_WILD_AI)
+		clearflag(FLAG_NO_CATCHING)
+		clearflag(FLAG_NO_RUNNING)
+		clearflag(FLAG_SCARY_BATTLE)
+		fadescreen(FADE_TO_BLACK)
+		removeobject(10)
+		fadescreen(FADE_FROM_BLACK)
+		msgbox(format("It seems like the SHROODLE left something behind!"))
+		playfanfare(MUS_OBTAIN_ITEM)
+		giveitem(ITEM_POISON_GEM)
+		closemessage
+	}
+	fadedefaultbgm
+	release
+}
+
+script Littleroot_Clearing_EventScript_Primus {
+	trainerbattle_single(TRAINER_PRIMUS, Littleroot_Clearing_Text_PrimusIntro, Littleroot_Clearing_Text_PrimusDefeated)
+	msgbox(format("You better make good use of these berries now that you've STOLEN them from me!"))
+	release
+}
+
+text Littleroot_Clearing_Text_PrimusIntro {
+	format("Stop! I saw those berries first so they belong to me.")
+}
+
+text Littleroot_Clearing_Text_PrimusDefeated {
+	format("NOOOOOO! My berries!")
+}

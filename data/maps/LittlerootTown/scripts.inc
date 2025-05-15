@@ -2186,10 +2186,10 @@ LittlerootTown_EventScript_MewTruck_1:
 # 1100 "data/maps/LittlerootTown/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_EventScript_MewTruck_6
-# 1116 "data/maps/LittlerootTown/scripts.pory"
+# 1117 "data/maps/LittlerootTown/scripts.pory"
 	msgbox LittlerootTown_EventScript_MewTruck_Text_3, MSGBOX_AUTOCLOSE
 LittlerootTown_EventScript_MewTruck_5:
-# 1118 "data/maps/LittlerootTown/scripts.pory"
+# 1119 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
@@ -2210,20 +2210,22 @@ LittlerootTown_EventScript_MewTruck_6:
 # 1105 "data/maps/LittlerootTown/scripts.pory"
 	waitmoncry
 # 1106 "data/maps/LittlerootTown/scripts.pory"
-	setwildbattle SPECIES_MEW, 40, ITEM_MIND_PLATE
+	setstrongwildbattle SPECIES_MEW, 40, move1 = MOVE_PSYBEAM, move2 = MOVE_AMNESIA, move3 = MOVE_ANCIENT_POWER, move4 = MOVE_LIFE_DEW
 # 1107 "data/maps/LittlerootTown/scripts.pory"
-	dowildbattle
+	special BattleSetup_StartLegendaryBattle
 # 1108 "data/maps/LittlerootTown/scripts.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
+	waitstate
 # 1109 "data/maps/LittlerootTown/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 1110 "data/maps/LittlerootTown/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_eq LittlerootTown_EventScript_MewTruck_9
-# 1112 "data/maps/LittlerootTown/scripts.pory"
+# 1113 "data/maps/LittlerootTown/scripts.pory"
 	msgbox LittlerootTown_EventScript_MewTruck_Text_2, MSGBOX_AUTOCLOSE
 	goto LittlerootTown_EventScript_MewTruck_5
 
 LittlerootTown_EventScript_MewTruck_9:
-# 1110 "data/maps/LittlerootTown/scripts.pory"
+# 1111 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_MEW_CAUGHT
 	goto LittlerootTown_EventScript_MewTruck_5
 
@@ -2247,8 +2249,8 @@ LittlerootTown_EventScript_Caterpie_Text_0:
 
 LittlerootTown_EventScript_NoClearingTrigger_Text_0:
 # 1089 "data/maps/LittlerootTown/scripts.pory"
-	.string "Going further without a POKEMON seems\n"
-	.string "dangerous...$"
+	.string "Going further without at least a couple\n"
+	.string "POKEMON seems dangerous...$"
 
 LittlerootTown_EventScript_MewTruck_Text_0:
 # 1098 "data/maps/LittlerootTown/scripts.pory"
@@ -2260,9 +2262,9 @@ LittlerootTown_EventScript_MewTruck_Text_1:
 	.string "Do you want to use STRENGTH?$"
 
 LittlerootTown_EventScript_MewTruck_Text_2:
-# 1112 "data/maps/LittlerootTown/scripts.pory"
+# 1113 "data/maps/LittlerootTown/scripts.pory"
 	.string "The MEW vanished back under the truck!$"
 
 LittlerootTown_EventScript_MewTruck_Text_3:
-# 1116 "data/maps/LittlerootTown/scripts.pory"
+# 1117 "data/maps/LittlerootTown/scripts.pory"
 	.string "Better not mess with this!$"

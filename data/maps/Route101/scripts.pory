@@ -18,10 +18,9 @@ Route101_MapScripts::
 
 Route101_OnTransition:
 	call ProfBirch_EventScript_UpdateLocation
+	goto_if_eq VAR_ROUTE101_STATE, 0, Route101_EventScript_DontShowOW
 	clearflag FLAG_ROUTE101_COTTONEE
 	clearflag FLAG_ROUTE101_MEOWTH_ALOLA
-	clearflag FLAG_ROUTE101_SHROODLE
-	clearflag FLAG_ROUTE101_ESPURR
 	setflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
 	removeobject 16
 	end
@@ -30,7 +29,11 @@ Route101_OnFrame:
 	map_script_2 VAR_ROUTE101_STATE, 0, Route101_EventScript_HideMapNamePopup
 	.2byte 0
 
-Route101_Transition_Espurr_Support::
+Route101_EventScript_DontShowOW:
+	setflag FLAG_ROUTE101_COTTONEE
+	setflag FLAG_ROUTE101_MEOWTH_ALOLA
+	setflag FLAG_ROUTE101_SHROODLE_ESPURR
+	setflag FLAG_ROUTE101_ESPURR_POST_SHROODLE
 	end
 
 Route101_EventScript_HideMapNamePopup::
@@ -532,6 +535,8 @@ script Route101_EventScript_BunearyIntroHelpBuneary {
 	fadescreen(FADE_FROM_BLACK)
 	setvar(VAR_ROUTE101_STATE, 2)
 	setvar(VAR_BIRCH_LAB_STATE, 2)
+	clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+	clearflag(FLAG_ROUTE101_SHROODLE_ESPURR)
 	releaseall
 }
 
@@ -606,7 +611,7 @@ script Route101_EventScript_Meowth_A {
 script Route101_EventScript_Espurr {
 	lock
 	faceplayer
-	setflag(FLAG_ROUTE101_ESPURR)
+	setflag(FLAG_ROUTE101_SHROODLE_ESPURR)
 	doobjectemotion(12, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_ESPURR, CRY_MODE_ENCOUNTER)
 	waitmoncry
@@ -615,6 +620,9 @@ script Route101_EventScript_Espurr {
 	fadescreen(FADE_TO_BLACK)
 	removeobject(12)
 	fadescreen(FADE_FROM_BLACK)
+	applymovement(13, moves ( walk_right * 9 ))
+	waitmovement(0)
+	removeobject(13)
 	waitmessage
 	release
 }
@@ -647,6 +655,7 @@ script Route101_EventScript_Espurr_Post_Shroodle {
 		doobjectemotion(16, FOLLOWER_EMOTION_SAD)
 		delay(30)
 	}
+	closemessage
 	fadescreen(FADE_TO_BLACK)
 	removeobject(16)
 	fadescreen(FADE_FROM_BLACK)
@@ -657,7 +666,7 @@ script Route101_EventScript_Espurr_Post_Shroodle {
 script Route101_EventScript_Shroodle {
 	lock
 	faceplayer
-	setflag(FLAG_ROUTE101_SHROODLE)
+	setflag(FLAG_ROUTE101_SHROODLE_ESPURR)
 	clearflag(FLAG_ROUTE101_ESPURR_POST_SHROODLE)
 	doobjectemotion(13, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_SHROODLE, CRY_MODE_ENCOUNTER)
@@ -665,13 +674,11 @@ script Route101_EventScript_Shroodle {
 	setwildbattle(SPECIES_SHROODLE, 4, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
-	if(!flag(FLAG_ROUTE101_ESPURR)) {
-		setflag(FLAG_ROUTE101_ESPURR)
-		removeobject(12)
-		addobject(16)
-	}
+	removeobject(12)
+	addobject(16)
 	removeobject(13)
 	fadescreen(FADE_FROM_BLACK)
+	doobjectemotion(16, FOLLOWER_EMOTION_HAPPY)
 	waitmessage
 	release
 }

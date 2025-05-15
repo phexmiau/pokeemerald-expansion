@@ -1086,7 +1086,7 @@ script LittlerootTown_EventScript_Tympole {
 
 script LittlerootTown_EventScript_NoClearingTrigger {
 	lockall
-	msgbox(format("Going further without a POKEMON seems dangerous..."), MSGBOX_AUTOCLOSE)
+	msgbox(format("Going further without at least a couple POKEMON seems dangerous..."), MSGBOX_AUTOCLOSE)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves ( walk_left * 2 ))
 	waitmovement(0)
 	releaseall
@@ -1103,8 +1103,9 @@ script LittlerootTown_EventScript_MewTruck {
 			waitstate
 			playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
 			waitmoncry
-			setwildbattle(SPECIES_MEW, 40, ITEM_MIND_PLATE)
-			dowildbattle
+			setstrongwildbattle(SPECIES_MEW, 40, move1=MOVE_PSYBEAM, move2=MOVE_AMNESIA, move3=MOVE_ANCIENT_POWER, move4=MOVE_LIFE_DEW)
+			special(BattleSetup_StartLegendaryBattle)
+			waitstate
 			specialvar(VAR_RESULT, GetBattleOutcome)
 			if(var(VAR_RESULT) == B_OUTCOME_CAUGHT) {
 				setflag(FLAG_MEW_CAUGHT)
