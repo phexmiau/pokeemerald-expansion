@@ -2171,6 +2171,63 @@ LittlerootTown_EventScript_NoClearingTrigger::
 	return
 
 
+LittlerootTown_EventScript_MewTruck::
+# 1096 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, LittlerootTown_EventScript_MewTruck_2
+	return
+
+LittlerootTown_EventScript_MewTruck_1:
+# 1097 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1098 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_MewTruck_Text_0
+# 1099 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_MewTruck_Text_1, MSGBOX_YESNO
+# 1100 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_MewTruck_6
+# 1116 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_MewTruck_Text_3, MSGBOX_AUTOCLOSE
+LittlerootTown_EventScript_MewTruck_5:
+# 1118 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+LittlerootTown_EventScript_MewTruck_2:
+# 1096 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_unset FLAG_MEW_CAUGHT, LittlerootTown_EventScript_MewTruck_1
+	return
+
+LittlerootTown_EventScript_MewTruck_6:
+# 1101 "data/maps/LittlerootTown/scripts.pory"
+	setfieldeffectargument 0, 0
+# 1102 "data/maps/LittlerootTown/scripts.pory"
+	dofieldeffect FLDEFF_USE_STRENGTH
+# 1103 "data/maps/LittlerootTown/scripts.pory"
+	waitstate
+# 1104 "data/maps/LittlerootTown/scripts.pory"
+	playmoncry SPECIES_MEW, CRY_MODE_ENCOUNTER
+# 1105 "data/maps/LittlerootTown/scripts.pory"
+	waitmoncry
+# 1106 "data/maps/LittlerootTown/scripts.pory"
+	setwildbattle SPECIES_MEW, 40, ITEM_MIND_PLATE
+# 1107 "data/maps/LittlerootTown/scripts.pory"
+	dowildbattle
+# 1108 "data/maps/LittlerootTown/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 1109 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq LittlerootTown_EventScript_MewTruck_9
+# 1112 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_MewTruck_Text_2, MSGBOX_AUTOCLOSE
+	goto LittlerootTown_EventScript_MewTruck_5
+
+LittlerootTown_EventScript_MewTruck_9:
+# 1110 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_MEW_CAUGHT
+	goto LittlerootTown_EventScript_MewTruck_5
+
+
 # 1090 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_NoClearingTrigger_Movement_0:
 # 1090 "data/maps/LittlerootTown/scripts.pory"
@@ -2192,3 +2249,20 @@ LittlerootTown_EventScript_NoClearingTrigger_Text_0:
 # 1089 "data/maps/LittlerootTown/scripts.pory"
 	.string "Going further without a POKEMON seems\n"
 	.string "dangerous...$"
+
+LittlerootTown_EventScript_MewTruck_Text_0:
+# 1098 "data/maps/LittlerootTown/scripts.pory"
+	.string "You can feel a MYTHICAL presence\n"
+	.string "underneath the truck...$"
+
+LittlerootTown_EventScript_MewTruck_Text_1:
+# 1099 "data/maps/LittlerootTown/scripts.pory"
+	.string "Do you want to use STRENGTH?$"
+
+LittlerootTown_EventScript_MewTruck_Text_2:
+# 1112 "data/maps/LittlerootTown/scripts.pory"
+	.string "The MEW vanished back under the truck!$"
+
+LittlerootTown_EventScript_MewTruck_Text_3:
+# 1116 "data/maps/LittlerootTown/scripts.pory"
+	.string "Better not mess with this!$"

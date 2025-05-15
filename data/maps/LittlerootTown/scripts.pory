@@ -1091,3 +1091,30 @@ script LittlerootTown_EventScript_NoClearingTrigger {
 	waitmovement(0)
 	releaseall
 }
+
+script LittlerootTown_EventScript_MewTruck {
+	if(flag(FLAG_BADGE04_GET) && !flag(FLAG_MEW_CAUGHT)) {
+		lockall
+		msgbox(format("You can feel a MYTHICAL presence underneath the truck..."))
+		msgbox(format("Do you want to use STRENGTH?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			setfieldeffectargument(0, 0)
+			dofieldeffect(FLDEFF_USE_STRENGTH)
+			waitstate
+			playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
+			waitmoncry
+			setwildbattle(SPECIES_MEW, 40, ITEM_MIND_PLATE)
+			dowildbattle
+			specialvar(VAR_RESULT, GetBattleOutcome)
+			if(var(VAR_RESULT) == B_OUTCOME_CAUGHT) {
+				setflag(FLAG_MEW_CAUGHT)
+			} else {
+				msgbox(format("The MEW vanished back under the truck!"), MSGBOX_AUTOCLOSE)
+			}
+
+		} else {
+			msgbox(format("Better not mess with this!"), MSGBOX_AUTOCLOSE)
+		}
+		releaseall
+	}
+}
