@@ -663,16 +663,16 @@
 #define FLAG_LITTLEROOT_TOWN_TYMPOLE        0x266 
 #define FLAG_ROUTE101_COTTONEE              0x267
 #define FLAG_ROUTE101_MEOWTH_ALOLA          0x268
-#define FLAG_ROUTE101_SHROODLE              0x269
-#define FLAG_ROUTE101_ESPURR                0x26A
-#define FLAG_ROUTE101_ESPURR_POST_SHROODLE  0x26B
-#define FLAG_UNUSED_0x26C        0x26C
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
+#define FLAG_ROUTE101_SHROODLE_ESPURR       0x269
+#define FLAG_ROUTE101_ESPURR_POST_SHROODLE  0x26A
+#define FLAG_LITTLEROOT_CLEARING_ODDISH     0x26B
+#define FLAG_LITTLEROOT_CLEARING_VULPIX     0x26C
+#define FLAG_LITTLEROOT_CLEARING_SEEDOT     0x26D
+#define FLAG_LITTLEROOT_CLEARING_SURSKIT    0x26E 
+#define FLAG_LITTLEROOT_CLEARING_MORGREM    0x26F 
+#define FLAG_LITTLEROOT_CLEARING_GOOMY      0x270
+#define FLAG_LITTLEROOT_CLEARING_A_SHROODLE 0x271
+#define FLAG_LITTLEROOT_CLEARING_WO_CHIEN   0x272
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
 #define FLAG_UNUSED_0x274  0x274 // Unused Flag
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
@@ -1230,9 +1230,9 @@
 #define FLAG_NO_ENCOUNTERS                                          0x496
 #define FLAG_NO_RUNNING                                             0x497
 #define FLAG_FORCE_LOAD_OFFSCREEN_OBJEV                             0x498
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_SMART_WILD_AI                                          0x499
+#define FLAG_NO_CATCHING                                            0x49A
+#define FLAG_SCARY_BATTLE                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag

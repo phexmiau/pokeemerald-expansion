@@ -5813,8 +5813,11 @@ u16 GetBattleBGM(void)
             return MUS_VS_TRAINER;
         }
     }
-    else
+    else if (FlagGet(FLAG_SCARY_BATTLE) == TRUE)
     {
+        return MUS_VS_FRONTIER_BRAIN;
+    }
+    else {
         return MUS_VS_WILD;
     }
 }
