@@ -8,7 +8,7 @@ Littleroot_Clearing_OnTransition:
     clearflag FLAG_LITTLEROOT_CLEARING_ODDISH
     clearflag FLAG_LITTLEROOT_CLEARING_VULPIX
     clearflag FLAG_LITTLEROOT_CLEARING_SEEDOT
-    clearflag FLAG_LITTLEROOT_CLEARING_SURSKIT
+    clearflag FLAG_LITTLEROOT_CLEARING_CHESPIN
 	getcaughtmon SPECIES_WO_CHIEN
 	goto_if_eq VAR_RESULT, FALSE, Littleroot_Clearing_Respawn_Wo_Chien
 	end
@@ -53,29 +53,29 @@ script Littleroot_Clearing_EventScript_Seedot {
 	lock
 	faceplayer
 	setflag(FLAG_LITTLEROOT_CLEARING_SEEDOT)
-	doobjectemotion(1, FOLLOWER_EMOTION_UPSET)
+	doobjectemotion(3, FOLLOWER_EMOTION_UPSET)
 	playmoncry(SPECIES_SEEDOT, CRY_MODE_ENCOUNTER)
 	waitmoncry
 	setwildbattle(SPECIES_SEEDOT, 6, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
-	removeobject(1)
+	removeobject(3)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
 	release
 }
 
-script Littleroot_Clearing_EventScript_Surskit {
+script Littleroot_Clearing_EventScript_Chespin {
 	lock
 	faceplayer
-	setflag(FLAG_LITTLEROOT_CLEARING_SURSKIT)
-	doobjectemotion(3, FOLLOWER_EMOTION_UPSET)
-	playmoncry(SPECIES_SURSKIT, CRY_MODE_ENCOUNTER)
+	setflag(FLAG_LITTLEROOT_CLEARING_CHESPIN)
+	doobjectemotion(1, FOLLOWER_EMOTION_UPSET)
+	playmoncry(SPECIES_CHESPIN, CRY_MODE_ENCOUNTER)
 	waitmoncry
-	setwildbattle(SPECIES_SURSKIT, 6, ITEM_NONE)
+	setwildbattle(SPECIES_CHESPIN, 6, ITEM_NONE)
 	dowildbattle
 	fadescreen(FADE_TO_BLACK)
-	removeobject(3)
+	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
 	waitmessage
 	release

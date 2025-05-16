@@ -668,7 +668,7 @@
 #define FLAG_LITTLEROOT_CLEARING_ODDISH     0x26B
 #define FLAG_LITTLEROOT_CLEARING_VULPIX     0x26C
 #define FLAG_LITTLEROOT_CLEARING_SEEDOT     0x26D
-#define FLAG_LITTLEROOT_CLEARING_SURSKIT    0x26E 
+#define FLAG_LITTLEROOT_CLEARING_CHESPIN    0x26E 
 #define FLAG_LITTLEROOT_CLEARING_MORGREM    0x26F 
 #define FLAG_LITTLEROOT_CLEARING_GOOMY      0x270
 #define FLAG_LITTLEROOT_CLEARING_A_SHROODLE 0x271
@@ -1571,7 +1571,7 @@
 #define FLAG_UNUSED_0x91F                           (SYSTEM_FLAGS + 0xBF) // Unused Flag
 
 #define FLAG_ITEM_LITTLEROOT_TOWN_MIRACLE_SEED      (SYSTEM_FLAGS + 0xC0)
-#define FLAG_NEW_FLAG2                              (SYSTEM_FLAGS + 0xC1) // Unused Flag
+#define FLAG_ITEM_LITTLEROOT_CLEARING_POTION        (SYSTEM_FLAGS + 0xC1) // Unused Flag
 #define FLAG_NEW_FLAG3                              (SYSTEM_FLAGS + 0xC2) // Unused Flag
 #define FLAG_NEW_FLAG4                              (SYSTEM_FLAGS + 0xC3) // Unused Flag
 #define FLAG_NEW_FLAG5                              (SYSTEM_FLAGS + 0xC4) // Unused Flag

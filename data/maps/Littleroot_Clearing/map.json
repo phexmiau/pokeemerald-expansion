@@ -21,7 +21,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SEEDOT)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHESPIN)",
       "x": 11,
       "y": 19,
       "elevation": 3,
@@ -30,8 +30,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Littleroot_Clearing_EventScript_Seedot",
-      "flag": "FLAG_LITTLEROOT_CLEARING_SEEDOT"
+      "script": "Littleroot_Clearing_EventScript_Chespin",
+      "flag": "FLAG_LITTLEROOT_CLEARING_CHESPIN"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(VULPIX)",
@@ -47,7 +47,7 @@
       "flag": "FLAG_LITTLEROOT_CLEARING_VULPIX"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SURSKIT)",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SEEDOT)",
       "x": 24,
       "y": 18,
       "elevation": 3,
@@ -56,8 +56,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Littleroot_Clearing_EventScript_Surskit",
-      "flag": "FLAG_LITTLEROOT_CLEARING_SURSKIT"
+      "script": "Littleroot_Clearing_EventScript_Seedot",
+      "flag": "FLAG_LITTLEROOT_CLEARING_SEEDOT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ODDISH)",
@@ -162,6 +162,19 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Littleroot_Clearing_EventScript_Primus",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 25,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_LITTLEROOT_CLEARING_POTION"
     }
   ],
   "warp_events": [

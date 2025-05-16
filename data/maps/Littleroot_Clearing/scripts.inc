@@ -19,7 +19,7 @@ Littleroot_Clearing_OnTransition:
 # 10 "data/maps/Littleroot_Clearing/scripts.pory"
     clearflag FLAG_LITTLEROOT_CLEARING_SEEDOT
 # 11 "data/maps/Littleroot_Clearing/scripts.pory"
-    clearflag FLAG_LITTLEROOT_CLEARING_SURSKIT
+    clearflag FLAG_LITTLEROOT_CLEARING_CHESPIN
 # 12 "data/maps/Littleroot_Clearing/scripts.pory"
 	getcaughtmon SPECIES_WO_CHIEN
 # 13 "data/maps/Littleroot_Clearing/scripts.pory"
@@ -101,7 +101,7 @@ Littleroot_Clearing_EventScript_Seedot::
 # 55 "data/maps/Littleroot_Clearing/scripts.pory"
 	setflag FLAG_LITTLEROOT_CLEARING_SEEDOT
 # 56 "data/maps/Littleroot_Clearing/scripts.pory"
-	doobjectemotion 1, FOLLOWER_EMOTION_UPSET
+	doobjectemotion 3, FOLLOWER_EMOTION_UPSET
 # 57 "data/maps/Littleroot_Clearing/scripts.pory"
 	playmoncry SPECIES_SEEDOT, CRY_MODE_ENCOUNTER
 # 58 "data/maps/Littleroot_Clearing/scripts.pory"
@@ -113,7 +113,7 @@ Littleroot_Clearing_EventScript_Seedot::
 # 61 "data/maps/Littleroot_Clearing/scripts.pory"
 	fadescreen FADE_TO_BLACK
 # 62 "data/maps/Littleroot_Clearing/scripts.pory"
-	removeobject 1
+	removeobject 3
 # 63 "data/maps/Littleroot_Clearing/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 # 64 "data/maps/Littleroot_Clearing/scripts.pory"
@@ -123,27 +123,27 @@ Littleroot_Clearing_EventScript_Seedot::
 	return
 
 
-Littleroot_Clearing_EventScript_Surskit::
+Littleroot_Clearing_EventScript_Chespin::
 # 69 "data/maps/Littleroot_Clearing/scripts.pory"
 	lock
 # 70 "data/maps/Littleroot_Clearing/scripts.pory"
 	faceplayer
 # 71 "data/maps/Littleroot_Clearing/scripts.pory"
-	setflag FLAG_LITTLEROOT_CLEARING_SURSKIT
+	setflag FLAG_LITTLEROOT_CLEARING_CHESPIN
 # 72 "data/maps/Littleroot_Clearing/scripts.pory"
-	doobjectemotion 3, FOLLOWER_EMOTION_UPSET
+	doobjectemotion 1, FOLLOWER_EMOTION_UPSET
 # 73 "data/maps/Littleroot_Clearing/scripts.pory"
-	playmoncry SPECIES_SURSKIT, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CHESPIN, CRY_MODE_ENCOUNTER
 # 74 "data/maps/Littleroot_Clearing/scripts.pory"
 	waitmoncry
 # 75 "data/maps/Littleroot_Clearing/scripts.pory"
-	setwildbattle SPECIES_SURSKIT, 6, ITEM_NONE
+	setwildbattle SPECIES_CHESPIN, 6, ITEM_NONE
 # 76 "data/maps/Littleroot_Clearing/scripts.pory"
 	dowildbattle
 # 77 "data/maps/Littleroot_Clearing/scripts.pory"
 	fadescreen FADE_TO_BLACK
 # 78 "data/maps/Littleroot_Clearing/scripts.pory"
-	removeobject 3
+	removeobject 1
 # 79 "data/maps/Littleroot_Clearing/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 # 80 "data/maps/Littleroot_Clearing/scripts.pory"
