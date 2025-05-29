@@ -19,17 +19,17 @@ DOUBLE_BATTLE_TEST("Follow Me redirects single target moves used by opponents to
         OPPONENT(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WYNAUT);
     } WHEN {
-        TURN { MOVE(playerLeft, MOVE_TACKLE, target: moveUser);
-               MOVE(playerRight, MOVE_TACKLE, target: partner);
+        TURN { MOVE(playerLeft, MOVE_SCRATCH, target: moveUser);
+               MOVE(playerRight, MOVE_SCRATCH, target: partner);
                MOVE(moveUser, MOVE_FOLLOW_ME);
-               MOVE(partner, MOVE_TACKLE, target: playerLeft); }
+               MOVE(partner, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOLLOW_ME, moveUser);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, playerLeft);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(moveUser);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, playerRight);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
         HP_BAR(moveUser);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, partner);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, partner);
         HP_BAR(playerLeft);
     }
 }
