@@ -1712,7 +1712,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_LITTLEROOT_CLEARING",
+      "id": "MAPSEC_LITTLEROOT_CLEARING",
       "name": "FOREST CLEARING",
       "x": 0,
       "y": 0,
