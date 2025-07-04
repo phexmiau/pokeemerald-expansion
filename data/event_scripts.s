@@ -1158,3 +1158,21 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/Route3/scripts.inc"
+
+	.include "data/maps/Route4/scripts.inc"
+
+	.include "data/maps/Route5/scripts.inc"
+
+	.include "data/maps/VolcanoOfTruth/scripts.inc"
+
+	.include "data/maps/CrystalCave/scripts.inc"
+
+	.include "data/maps/BoringRoad/scripts.inc"
+
+	.include "data/maps/TeardropForest/scripts.inc"
