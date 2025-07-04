@@ -80,7 +80,22 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 6,
+      "y": 24,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 24,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE1",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
