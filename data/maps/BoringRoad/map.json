@@ -3,7 +3,7 @@
   "name": "BoringRoad",
   "layout": "LAYOUT_BORING_ROAD",
   "music": "MUS_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_BORING_ROAD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
