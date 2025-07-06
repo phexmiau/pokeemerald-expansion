@@ -62,22 +62,22 @@
       "x": 4,
       "y": 1,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE1",
-      "dest_warp_id": "WARP_IP_ROUTE1_INTRO"
+      "dest_map": "MAP_AFTER_TRUCK",
+      "dest_warp_id": "WAR_IP_AFTERTRUCK_INTRO"
     },
     {
       "x": 4,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE1",
-      "dest_warp_id": "WARP_IP_ROUTE1_INTRO"
+      "dest_map": "MAP_AFTER_TRUCK",
+      "dest_warp_id": "WAR_IP_AFTERTRUCK_INTRO"
     },
     {
       "x": 4,
       "y": 3,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE1",
-      "dest_warp_id": "WARP_IP_ROUTE1_INTRO"
+      "dest_map": "MAP_AFTER_TRUCK",
+      "dest_warp_id": "WAR_IP_AFTERTRUCK_INTRO"
     }
   ],
   "coord_events": [

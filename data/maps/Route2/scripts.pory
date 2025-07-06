@@ -1,0 +1,12 @@
+raw `
+Route2_MapScripts::
+	.byte 0
+
+`
+
+script Route2_EventScript_Teleport {
+    lockall
+    msgbox(format("You take the boat to the next route."))
+    warp(MAP_ROUTE3, 10, 18)
+    releaseall
+}

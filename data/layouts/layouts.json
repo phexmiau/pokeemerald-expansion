@@ -4500,6 +4500,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/TeardropForest/border.bin",
       "blockdata_filepath": "data/layouts/TeardropForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_AFTER_TRUCK",
+      "name": "AfterTruck_Layout",
+      "width": 24,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/AfterTruck/border.bin",
+      "blockdata_filepath": "data/layouts/AfterTruck/map.bin"
     }
   ]
 }

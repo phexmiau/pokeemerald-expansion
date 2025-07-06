@@ -1,0 +1,10 @@
+raw `
+BoringRoad_MapScripts::
+	.byte 0
+`
+
+script BoringRoad_EventScript_Sign {
+    lockall
+    msgbox("BEWARE:\nSilly Pokemon around!")
+    releaseall
+}
