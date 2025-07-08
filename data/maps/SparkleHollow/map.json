@@ -1,0 +1,56 @@
+{
+  "id": "MAP_SPARKLE_HOLLOW",
+  "name": "SparkleHollow",
+  "layout": "LAYOUT_SPARKLE_HOLLOW",
+  "music": "MUS_C_VS_LEGEND_BEAST",
+  "region_map_section": "MAPSEC_SPARKLE_HOLLOW",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DIANCIE)",
+      "x": 9,
+      "y": 2,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SparkleHollow_EventScript_GetDiancie",
+      "flag": "FLAG_GOT_DIANCIE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES_SHINY(SCREAM_TAIL)",
+      "x": 11,
+      "y": 8,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SparkleHollow_EventScript_GetScreamTail",
+      "flag": "FLAG_GOT_SCREAMTAIL"
+    }
+  ],
+  "warp_events": [
+    {
+      "warp_id": "WARP_IP_SPARKLE_INTRO",
+      "x": 7,
+      "y": 14,
+      "elevation": 3,
+      "dest_map": "MAP_REGIONAL_SITE",
+      "dest_warp_id": "WARP_IP_REGIONAL_CAVE"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

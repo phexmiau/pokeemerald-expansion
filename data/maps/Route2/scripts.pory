@@ -5,8 +5,15 @@ Route2_MapScripts::
 `
 
 script Route2_EventScript_Teleport {
-    lockall
-    msgbox(format("You take the boat to the next route."))
-    warp(MAP_ROUTE3, 10, 18)
-    releaseall
+    lock
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("You take the boat to the next route."))
+        warp(MAP_ROUTE3, 10, 18)
+    } else {
+        applymovement(LOCALID_PLAYER, moves(walk_down))
+        waitmovement(0)
+    }
+    release
 }

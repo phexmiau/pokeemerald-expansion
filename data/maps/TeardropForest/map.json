@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_GOT_KYOGRE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(LUNALA)",
@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "TeardropForest_EventScript_Lunala",
+      "flag": "FLAG_GOT_LUANALA"
     }
   ],
   "warp_events": [
@@ -67,6 +67,34 @@
       "dest_warp_id": "WARP_IP_ROUTE1_INTRO"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 4,
+      "elevation": 3,
+      "var": "VAR_TEARDROP_FOREST_STATE",
+      "var_value": "1",
+      "script": "TeardropForest_EventScript_Leave"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 14,
+      "elevation": 3,
+      "var": "VAR_TEARDROP_FOREST_STATE",
+      "var_value": "0",
+      "script": "TeardropForest_EventScript_SeeLegendaries"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_TEARDROP_FOREST_STATE",
+      "var_value": "1",
+      "script": "TeardropForest_EventScript_Kyogre"
+    }
+  ],
   "bg_events": []
 }

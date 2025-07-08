@@ -1,0 +1,52 @@
+raw `
+CrystalCave_MapScripts::
+	.byte 0
+`
+
+script CrystalCave_EventScript_Terapagos {
+    lock
+    msgbox(format("Do you want to join up with TERAPAGOS?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_CRYSTAL_CAVE_STATE, 2)
+        closemessage
+        playmoncry(SPECIES_TERAPAGOS, CRY_MODE_ENCOUNTER)
+        applymovement(1, moves(walk_in_place_fast_down * 8))
+        waitmovement(0)
+        waitmoncry
+        givemon(SPECIES_TERAPAGOS, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("TERAPAGOS joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        fadescreen(FADE_FROM_BLACK)
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script CrystalCave_EventScript_Leave {
+    msgbox("You can't just leave yet!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+}
+
+script CrystalCave_EventScript_SeeLegendaries {
+    lockall
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 6 walk_right))
+    waitmovement(0)
+    msgbox(format("You see TERAPAGOS chilling in the crystal pool."), MSGBOX_AUTOCLOSE)
+    playmoncry(SPECIES_TERAPAGOS, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setvar(VAR_CRYSTAL_CAVE_STATE, 1)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down * 6 walk_left))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    msgbox(format("You should say hi!"),MSGBOX_AUTOCLOSE)
+    releaseall
+}

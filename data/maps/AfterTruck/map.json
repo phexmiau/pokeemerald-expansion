@@ -95,5 +95,38 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 5,
+      "elevation": 3,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AfterTruck_EventScript_SignVolcano"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 5,
+      "elevation": 3,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AfterTruck_EventScript_SignCrystal"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 5,
+      "elevation": 3,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AfterTruck_EventScript_SignBoring"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 5,
+      "elevation": 3,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AfterTruck_EventScript_SignTeardrop"
+    }
+  ]
 }

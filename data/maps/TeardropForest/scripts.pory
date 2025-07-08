@@ -1,0 +1,84 @@
+raw `
+TeardropForest_MapScripts::
+	.byte 0
+
+`
+
+script TeardropForest_EventScript_Lunala {
+    lock
+    msgbox(format("Do you want to join up with LUNALA?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_TEARDROP_FOREST_STATE, 2)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_LUNALA, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_LUNALA, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("LUNALA joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("KYOGRE swam away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script TeardropForest_EventScript_Kyogre {
+    lock
+    msgbox(format("Do you want to join up with KYOGRE?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_TEARDROP_FOREST_STATE, 2)
+        closemessage
+        playmoncry(SPECIES_KYOGRE, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_KYOGRE, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("KYOGRE joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("LUNALA flew away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script TeardropForest_EventScript_SeeLegendaries {
+    lock
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2 walk_left * 4))
+    waitmovement(0)
+    playmoncry(SPECIES_LUNALA, CRY_MODE_ENCOUNTER)
+    msgbox(format("You see LUNALA resting in a clearing ahead of you."), MSGBOX_AUTOCLOSE)
+    waitmoncry
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_right * 4 walk_up * 3 walk_right * 4))
+    waitmovement(0)
+    playmoncry(SPECIES_KYOGRE, CRY_MODE_ENCOUNTER)
+    msgbox(format("KYOGRE is swimming in the nearby lake."), MSGBOX_AUTOCLOSE)
+    waitmoncry
+    setvar(VAR_TEARDROP_FOREST_STATE, 1)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_left * 4 walk_down * 5))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    msgbox(format("It seems like either wants to join you!"),MSGBOX_AUTOCLOSE)
+    release
+}
+
+script TeardropForest_EventScript_Leave {
+    msgbox("You can't just leave yet!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_right))
+}

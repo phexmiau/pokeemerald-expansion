@@ -1,0 +1,85 @@
+raw `
+RegionalSite_MapScripts::
+	.byte 0
+`
+
+script RegionalSite_EventScript_GetSnail {
+    lock
+    faceplayer
+    playmoncry(SPECIES_GASTRODON, CRY_MODE_ENCOUNTER)
+    msgbox(format("GASTRODON wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+		givemon(SPECIES_GASTRODON_WEST, 50)
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got GASTRODON!")
+			call(NicknamePartyMon)
+		}
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got GASTRODON!")
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GASTRODON_WEST)
+			call(NicknameBoxMon)
+		}
+        closemessage
+	    fadescreen(FADE_TO_BLACK)
+	    removeobject(2)
+	    fadescreen(FADE_FROM_BLACK)
+        setflag(FLAG_GOT_SNAIL)
+	}
+    release
+}
+
+script RegionalSite_EventScript_GetTinka {
+    lock
+    faceplayer
+    playmoncry(SPECIES_TINKATON, CRY_MODE_ENCOUNTER)
+    msgbox(format("TINKATON wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+		givemon(SPECIES_TINKATON, 50)
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got TINKATON!")
+			call(NicknamePartyMon)
+		}
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got TINKATON!")
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TINKATON)
+			call(NicknameBoxMon)
+		}
+        closemessage
+	    fadescreen(FADE_TO_BLACK)
+	    removeobject(1)
+	    fadescreen(FADE_FROM_BLACK)
+        setflag(FLAG_GOT_TINKA)
+	}
+    release
+}
+
+script RegionalSite_EventScript_GetMesprit {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MESPRIT, CRY_MODE_ENCOUNTER)
+    msgbox(format("MESPRIT wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+		givemon(SPECIES_MESPRIT, 50)
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got MESPRIT!")
+			call(NicknamePartyMon)
+		}
+		if(var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+			playfanfare(MUS_OBTAIN_ITEM)
+			msgbox("You got MESPRIT!")
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MESPRIT)
+			call(NicknameBoxMon)
+		}
+        closemessage
+	    fadescreen(FADE_TO_BLACK)
+	    removeobject(3)
+	    fadescreen(FADE_FROM_BLACK)
+        setflag(FLAG_GOT_MESPRIT)
+	}
+    release
+}

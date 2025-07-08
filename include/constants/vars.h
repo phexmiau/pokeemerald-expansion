@@ -114,17 +114,17 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_EVER_GRANDE_CITY_STATE                       0x405F // Unused Var
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
+#define VAR_VOLCANO_OF_TRUTH_STATE                               0x4061 // Unused Var
+#define VAR_CRYSTAL_CAVE_STATE                               0x4062 // Unused Var
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
-#define VAR_ROUTE107_STATE                               0x4066 // Unused Var
-#define VAR_ROUTE108_STATE                               0x4067 // Unused Var
-#define VAR_ROUTE109_STATE                               0x4068 // Unused Var
+#define VAR_BORING_ROAD_STATE                               0x4064 // Unused Var
+#define VAR_TEARDROP_FOREST_STATE                               0x4065 // Unused Var
+#define VAR_ROUTE1_STATE                               0x4066 // Unused Var
+#define VAR_ROUTE2_STATE                               0x4067 // Unused Var
+#define VAR_ROUTE3_STATE                               0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                               0x4069
-#define VAR_ROUTE111_STATE                               0x406A // Unused Var
-#define VAR_ROUTE112_STATE                               0x406B // Unused Var
+#define VAR_ROUTE4_STATE                               0x406A // Unused Var
+#define VAR_ROUTE5_STATE                               0x406B // Unused Var
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var

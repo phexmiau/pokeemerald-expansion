@@ -5,6 +5,127 @@ BoringRoad_MapScripts::
 
 script BoringRoad_EventScript_Sign {
     lockall
-    msgbox("BEWARE:\nSilly Pokemon around!")
+    msgbox("BEWARE:\nSilly Pokemon around!\pFeel free to grab one!")
     releaseall
+}
+
+script BoringRoad_EventScript_Leave {
+    msgbox("You can't just leave yet!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+}
+
+script BoringRoad_EventScript_Miraidon {
+    lock
+    msgbox(format("Do you want to join up with MIRAIDON?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_BORING_ROAD_STATE, 1)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_MIRAIDON, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_MIRAIDON, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("MIRAIDON joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        removeobject(3)
+        removeobject(4)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("The others hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script BoringRoad_EventScript_Koraidon {
+    lock
+    msgbox(format("Do you want to join up with KORAIDON?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_BORING_ROAD_STATE, 1)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_KORAIDON, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_KORAIDON, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("KORAIDON joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        removeobject(3)
+        removeobject(4)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("The others hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script BoringRoad_EventScript_CIR {
+    lock
+    msgbox(format("Do you want to join up with CALYREX ICE RIDER?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_BORING_ROAD_STATE, 1)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_CALYREX_ICE, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_CALYREX_ICE, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("CALYREX ICE RIDER joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        removeobject(3)
+        removeobject(4)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("The others hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script BoringRoad_EventScript_CSR {
+    lock
+    msgbox(format("Do you want to join up with CALYREX SHADOW RIDER?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_BORING_ROAD_STATE, 1)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_CALYREX_SHADOW, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_CALYREX_SHADOW, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("CALYREX SHADOW RIDER joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        removeobject(3)
+        removeobject(4)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("The others hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
 }

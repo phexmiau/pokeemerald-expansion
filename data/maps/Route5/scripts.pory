@@ -1,0 +1,24 @@
+raw `
+Route5_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, Route5_OnResume
+	.byte 0
+
+Route5_OnResume:
+	setstepcallback STEP_CB_ASH
+	end
+`
+
+script Route5_EventScript_Leave {
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        applymovement(LOCALID_PLAYER, moves(walk_up))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, moves(walk_up))
+        setvar(VAR_ROUTE5_STATE, 1)
+        warp(MAP_REGIONAL_SITE, 16, 18)
+    } else {
+        applymovement(LOCALID_PLAYER, moves(walk_down))
+    }
+    closemessage
+}

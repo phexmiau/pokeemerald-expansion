@@ -972,11 +972,14 @@ void FishingWildEncounter(u8 rod)
         headerId = GetCurrentMapWildMonHeaderId();
         timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_FISHING);
         species = GenerateFishingWildMon(gWildMonHeaders[headerId].encounterTypes[timeOfDay].fishingMonsInfo, rod);
+        struct Pokemon mon1 = gEnemyParty[0];
+        GenerateFishingWildMon(gWildMonHeaders[headerId].encounterTypes[timeOfDay].fishingMonsInfo, rod);
+        gEnemyParty[1] = mon1;
     }
 
     IncrementGameStat(GAME_STAT_FISHING_ENCOUNTERS);
     SetPokemonAnglerSpecies(species);
-    BattleSetup_StartWildBattle();
+    BattleSetup_StartDoubleWildBattle();
 }
 
 u16 GetLocalWildMon(bool8 *isWaterMon)

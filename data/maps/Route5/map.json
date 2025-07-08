@@ -153,8 +153,41 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE5",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "elevation": 3,
+      "dest_map": "MAP_REGIONAL_SITE",
+      "dest_warp_id": "WARP_IP_REGIONALSITE_INTRO"
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "elevation": 3,
+      "dest_map": "MAP_REGIONAL_SITE",
+      "dest_warp_id": "WARP_IP_REGIONALSITE_INTRO"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_ROUTE5_STATE",
+      "var_value": "0",
+      "script": "Route5_EventScript_Leave"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_ROUTE5_STATE",
+      "var_value": "0",
+      "script": "Route5_EventScript_Leave"
+    }
+  ],
   "bg_events": []
 }

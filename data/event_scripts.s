@@ -1178,3 +1178,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TeardropForest/scripts.inc"
 
 	.include "data/maps/AfterTruck/scripts.inc"
+
+	.include "data/maps/RegionalSite/scripts.inc"
+
+	.include "data/maps/SparkleHollow/scripts.inc"

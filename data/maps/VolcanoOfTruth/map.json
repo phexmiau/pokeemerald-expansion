@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_GOT_GROUDON"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(RESHIRAM)",
@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "VolcanoOfTruth_EventScript_Reshiram",
+      "flag": "FLAG_GOT_RESHIRAM"
     }
   ],
   "warp_events": [
@@ -55,10 +55,38 @@
       "x": 10,
       "y": 1,
       "elevation": 3,
-      "dest_map": "MAP_CRYSTAL_CAVE",
-      "dest_warp_id": "WARP_IP_CRYSTAL_INTRO"
+      "dest_map": "MAP_ROUTE1",
+      "dest_warp_id": "WARP_IP_ROUTE1_INTRO"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 2,
+      "elevation": 3,
+      "var": "VAR_VOLCANO_OF_TRUTH_STATE",
+      "var_value": "1",
+      "script": "VolcanoOfTruth_EventScript_Leave"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_VOLCANO_OF_TRUTH_STATE",
+      "var_value": "1",
+      "script": "VolcanoOfTruth_EventScript_Groudon"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 15,
+      "elevation": 3,
+      "var": "VAR_VOLCANO_OF_TRUTH_STATE",
+      "var_value": "0",
+      "script": "VolcanoOfTruth_EventScript_SeeLegendaries"
+    }
+  ],
   "bg_events": []
 }

@@ -4510,6 +4510,26 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/AfterTruck/border.bin",
       "blockdata_filepath": "data/layouts/AfterTruck/map.bin"
+    },
+    {
+      "id": "LAYOUT_REGIONAL_SITE",
+      "name": "RegionalSite_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/RegionalSite/border.bin",
+      "blockdata_filepath": "data/layouts/RegionalSite/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPARKLE_HOLLOW",
+      "name": "SparkleHollow_Layout",
+      "width": 16,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SparkleHollow/border.bin",
+      "blockdata_filepath": "data/layouts/SparkleHollow/map.bin"
     }
   ]
 }

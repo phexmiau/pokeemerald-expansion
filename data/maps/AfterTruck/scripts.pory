@@ -1,0 +1,28 @@
+raw `
+AfterTruck_MapScripts::
+	.byte 0
+`
+
+script AfterTruck_EventScript_SignVolcano {
+    lockall
+    msgbox("Ahead: Volcano of Truth")
+    releaseall
+}
+
+script AfterTruck_EventScript_SignCrystal {
+    lockall
+    msgbox("Ahead: Crystal Cave")
+    releaseall
+}
+
+script AfterTruck_EventScript_SignBoring {
+    lockall
+    msgbox("Ahead: Boring Road")
+    releaseall
+}
+
+script AfterTruck_EventScript_SignTeardrop {
+    lockall
+    msgbox("Ahead: Teardrop Forest")
+    releaseall
+}

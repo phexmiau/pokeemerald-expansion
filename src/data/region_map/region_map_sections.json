@@ -1782,6 +1782,22 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_REGIONAL_SITE",
+      "name": "Regional Site",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SPARKLE_HOLLOW",
+      "name": "Sparkle Hollow",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

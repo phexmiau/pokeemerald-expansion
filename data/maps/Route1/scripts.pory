@@ -1,0 +1,35 @@
+raw `
+Route1_MapScripts::
+	.byte 0
+`
+
+script Route1_EventScript_Leave {
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        applymovement(LOCALID_PLAYER, moves(walk_up))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, moves(walk_up))
+        setvar(VAR_ROUTE1_STATE, 2)
+        warp(MAP_ROUTE2, 7, 26)
+    } else {
+        applymovement(LOCALID_PLAYER, moves(walk_down))
+    }
+    closemessage
+}
+
+script Route1_EventScript_DidBag {
+    msgbox(format("You should check that bag before going further!"), MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+}
+
+script Route1_EventScript_Bag {
+    msgbox(format("You take a look through the bag..."), MSGBOX_AUTOCLOSE)
+    delay(60)
+    msgbox(format("You found a bunch of useful items!"), MSGBOX_AUTOCLOSE)
+    giveitem(ITEM_MASTER_BALL, 5)
+    giveitem(ITEM_FULL_RESTORE, 5)
+    giveitem(ITEM_SUPER_ROD)
+    msgbox(format("With these you can still catch a team in time for the regional!"), MSGBOX_AUTOCLOSE)
+    setvar(VAR_ROUTE1_STATE, 1)
+}

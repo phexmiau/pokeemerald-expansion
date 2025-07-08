@@ -1,0 +1,103 @@
+raw `
+VolcanoOfTruth_MapScripts::
+	.byte 0
+`
+
+script VolcanoOfTruth_EventScript_Reshiram {
+    lock
+    msgbox(format("Do you want to join up with RESHIRAM?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_VOLCANO_OF_TRUTH_STATE, 2)
+        closemessage
+        faceplayer
+        playmoncry(SPECIES_RESHIRAM, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_RESHIRAM, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("RESHIRAM joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("GROUDON hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script VolcanoOfTruth_EventScript_Groudon {
+    lock
+    applymovement(LOCALID_PLAYER, moves(face_left))
+    msgbox(format("Do you want to join up with GROUDON?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+    	setflag(FLAG_SYS_POKEMON_GET)
+        setvar(VAR_VOLCANO_OF_TRUTH_STATE, 2)
+        closemessage
+        playmoncry(SPECIES_GROUDON, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        givemon(SPECIES_GROUDON, 50)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox(format("GROUDON joins you!"))
+        call(NicknamePartyMon)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(1)
+        removeobject(2)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(format("RESHIRAM hurried away!"))
+        waitmessage
+    }
+    closemessage
+    release
+}
+
+script VolcanoOfTruth_EventScript_SeeLegendaries {
+    lock
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 6))
+    waitmovement(0)
+    msgbox(format("You see RESHIRAM and GROUDON in a stalemate before you."), MSGBOX_AUTOCLOSE)
+    //waitmessage
+    //applymovement(2, moves (walk_in_place_fast_left * 8))
+    playmoncry(SPECIES_RESHIRAM, CRY_MODE_ENCOUNTER)
+    //waitmovement(0)
+    waitmoncry
+    //applymovement(1, moves (walk_in_place_fast_right * 8))
+    playmoncry(SPECIES_GROUDON, CRY_MODE_ENCOUNTER)
+    //waitmovement(0)
+    waitmoncry
+    setvar(VAR_VOLCANO_OF_TRUTH_STATE, 1)
+    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down * 6))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    msgbox(format("You have to decide on one of them to help!"),MSGBOX_AUTOCLOSE)
+    release
+}
+
+script VolcanoOfTruth_EventScript_Leave {
+    msgbox("You can't just leave yet!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+}
+
+script NicknamePartyMon{
+	msgbox("Give it a nickname?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+script NicknameBoxMon{
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    call(Common_EventScript_TransferredToPC)
+}
