@@ -188,9 +188,6 @@ script BattleArena_EventScript_Start_Battle {
         applymovement(LOCALID_PLAYER, moves(face_up))
         msgbox(format("Do you want to start the battle?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES) {
-            special(SpawnCameraObject)
-            applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 6))
-            waitmovement(0)
             msgbox(format("Let's end this quickly just as Mewtwo foresaw."))
             waitmessage
             trainerbattle_double(TRAINER_YUKI, battleIntro, battleOutro, battleNE)

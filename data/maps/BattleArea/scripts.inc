@@ -319,49 +319,51 @@ BattleArena_EventScript_Start_Battle::
 # 186 "data/maps/BattleArea/scripts.pory"
 	lock
 # 187 "data/maps/BattleArea/scripts.pory"
+	special SpawnCameraObject
+# 188 "data/maps/BattleArea/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, BattleArena_EventScript_Start_Battle_Movement_0
+# 189 "data/maps/BattleArea/scripts.pory"
+	waitmovement 0
+# 190 "data/maps/BattleArea/scripts.pory"
+	special RemoveCameraObject
+# 191 "data/maps/BattleArea/scripts.pory"
 	compare VAR_CAN_REGIONAL_BATTLE, 1
 	goto_if_eq BattleArena_EventScript_Start_Battle_2
 BattleArena_EventScript_Start_Battle_1:
-# 207 "data/maps/BattleArea/scripts.pory"
+# 208 "data/maps/BattleArea/scripts.pory"
 	release
 	return
 
 BattleArena_EventScript_Start_Battle_2:
-# 188 "data/maps/BattleArea/scripts.pory"
+# 192 "data/maps/BattleArea/scripts.pory"
 	applymovement LOCALID_PLAYER, BattleArea_EventScript_OldWoman_Movement_0
-# 189 "data/maps/BattleArea/scripts.pory"
+# 193 "data/maps/BattleArea/scripts.pory"
 	msgbox BattleArena_EventScript_Start_Battle_Text_0, MSGBOX_YESNO
-# 190 "data/maps/BattleArea/scripts.pory"
+# 194 "data/maps/BattleArea/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq BattleArena_EventScript_Start_Battle_4
-# 203 "data/maps/BattleArea/scripts.pory"
-	applymovement LOCALID_PLAYER, BattleArena_EventScript_Start_Battle_Movement_1
 # 204 "data/maps/BattleArea/scripts.pory"
+	applymovement LOCALID_PLAYER, BattleArena_EventScript_Start_Battle_Movement_1
+# 205 "data/maps/BattleArea/scripts.pory"
 	waitmovement
 	goto BattleArena_EventScript_Start_Battle_1
 
 BattleArena_EventScript_Start_Battle_4:
-# 191 "data/maps/BattleArea/scripts.pory"
-	special SpawnCameraObject
-# 192 "data/maps/BattleArea/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, BattleArena_EventScript_Start_Battle_Movement_0
-# 193 "data/maps/BattleArea/scripts.pory"
-	waitmovement 0
-# 194 "data/maps/BattleArea/scripts.pory"
-	msgbox BattleArena_EventScript_Start_Battle_Text_1
 # 195 "data/maps/BattleArea/scripts.pory"
-	waitmessage
+	msgbox BattleArena_EventScript_Start_Battle_Text_1
 # 196 "data/maps/BattleArea/scripts.pory"
-	trainerbattle_double TRAINER_YUKI, battleIntro, battleOutro, battleNE
+	waitmessage
 # 197 "data/maps/BattleArea/scripts.pory"
-	setflag FLAG_ROUND_1
+	trainerbattle_double TRAINER_YUKI, battleIntro, battleOutro, battleNE
 # 198 "data/maps/BattleArea/scripts.pory"
-	setvar VAR_CAN_REGIONAL_BATTLE, 0
+	setflag FLAG_ROUND_1
 # 199 "data/maps/BattleArea/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	setvar VAR_CAN_REGIONAL_BATTLE, 0
 # 200 "data/maps/BattleArea/scripts.pory"
-	removeobject LOCALID_ROUND1
+	fadescreen FADE_TO_BLACK
 # 201 "data/maps/BattleArea/scripts.pory"
+	removeobject LOCALID_ROUND1
+# 202 "data/maps/BattleArea/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 	goto BattleArena_EventScript_Start_Battle_1
 
@@ -396,25 +398,27 @@ BattleArea_EventScript_Round1_Movement_0:
 	face_down
 	step_end
 
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 BattleArena_EventScript_Start_Battle_Movement_0:
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
-# 192 "data/maps/BattleArea/scripts.pory"
+# 188 "data/maps/BattleArea/scripts.pory"
 	walk_up
+# 188 "data/maps/BattleArea/scripts.pory"
+	walk_right
 	step_end
 
-# 203 "data/maps/BattleArea/scripts.pory"
+# 204 "data/maps/BattleArea/scripts.pory"
 BattleArena_EventScript_Start_Battle_Movement_1:
-# 203 "data/maps/BattleArea/scripts.pory"
+# 204 "data/maps/BattleArea/scripts.pory"
 	walk_down
 	step_end
 
@@ -519,22 +523,22 @@ BattleArea_EventScript_Round1_Text_0:
 	.string "Please get into position to battle.$"
 
 BattleArena_EventScript_Start_Battle_Text_0:
-# 189 "data/maps/BattleArea/scripts.pory"
+# 193 "data/maps/BattleArea/scripts.pory"
 	.string "Do you want to start the battle?$"
 
 BattleArena_EventScript_Start_Battle_Text_1:
-# 194 "data/maps/BattleArea/scripts.pory"
+# 195 "data/maps/BattleArea/scripts.pory"
 	.string "Let's end this quickly just as Mewtwo\n"
 	.string "foresaw.$"
 
 battleIntro::
-# 210 "data/maps/BattleArea/scripts.pory"
+# 211 "data/maps/BattleArea/scripts.pory"
 	.string "test1$"
 
 battleOutro::
-# 214 "data/maps/BattleArea/scripts.pory"
+# 215 "data/maps/BattleArea/scripts.pory"
 	.string "test2$"
 
 battleNE::
-# 218 "data/maps/BattleArea/scripts.pory"
+# 219 "data/maps/BattleArea/scripts.pory"
 	.string "nuh uh$"
