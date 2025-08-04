@@ -1,0 +1,217 @@
+raw `
+BattleArea_MapScripts::
+	.byte 0
+
+`
+
+// script BattleArea_EventScript_Lass {
+//     lock
+//     msgbox(format("What the fuck."), MSGBOX_AUTOCLOSE)
+//     waitmessage
+//     release
+// }
+
+script BattleArea_EventScript_Deoxys {
+    lock
+    faceplayer
+    playmoncry(SPECIES_DEOXYS, CRY_MODE_ENCOUNTER)
+    msgbox(format("(Hello Human.)\l(Surprised you can understand me?)\p(I've come to spectate these games. Please make it worth my time.)"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(6, moves(face_right))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Judge {
+    lock
+    faceplayer
+    msgbox(format("Please don't interrupt me right now!\NI am the judge for this ongoing match."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(8, moves(face_left))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Maid {
+    lock
+    msgbox(format("MAGICAL LEAF MAGICAL LEAF MAGICAL LEAF MAGICAL LEAF!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_OldWoman {
+    lock
+    faceplayer
+    msgbox(format("It's nice to see the youth go all out like this..."))
+    waitmessage
+    applymovement(9, moves(face_up))
+    waitmovement
+    msgbox(format("But I didn't collect these spirits for nothing!!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script BattleArea_EventScript_Sidney {
+    lock
+    faceplayer
+    msgbox(format("I still don't fully get why this is called Regulation R...\NI heard it stands for something like Romhack Limitations?\NBUT WHAT DOES THAT EVEN MEAN?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(7, moves(face_right))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Phoebe {
+    lock
+    msgbox(format("Woah this match is getting so close!!!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script BattleArea_EventScript_Anabel {
+    lock
+    msgbox(format("Honey, it's still a 5 vs 2..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script BattleArea_EventScript_Greta {
+    lock
+    faceplayer
+    msgbox(format("Having matches both accessible in person and on these screens is soooooooo faboulos... fabolus... fabulus...\p(Developer's Note: HOW THE FUCK DO YOU WRITE THIS WORD)"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(1, moves(face_up))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Spenser {
+    lock
+    faceplayer
+    msgbox(format("Watching battles like this really brings me back.\NYou might not believe it looking at this old bag of bones, but I used to be the champion myself back in my glory days..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(3, moves(face_left))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Brandon {
+    lock
+    faceplayer
+    msgbox(format("Don't mind my grampa.\NHe loves telling his stories while forgetting to mention he has only ever competed in a 5 person co-worker league..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(2, moves(face_left))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Zoroark {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZOROARK, CRY_MODE_ENCOUNTER)
+    msgbox(format("Zoroaaa"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(13, moves(face_right))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Roserade {
+    lock
+    playmoncry(SPECIES_ROSERADE, CRY_MODE_ENCOUNTER)
+    msgbox(format("Raaaadeee"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script BattleArea_EventScript_Spiritomb {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    msgbox(format("COLLECT MY SPIRITS"))
+    waitmessage
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    msgbox(format("COLLECT MY SPIRITS"))
+    waitmessage
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    msgbox(format("COLLECT MY SPIRITS"))
+    waitmessage
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    msgbox(format("COLLECT MY SPIRITS"))
+    waitmessage
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    msgbox(format("COLLECT MY SPIRITS"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(14, moves(walk_in_place_faster_up))
+    waitmovement
+    delay(30)
+    msgbox(format("What the fuck was that."), MSGBOX_AUTOCLOSE)
+    release
+}
+
+script BattleArea_EventScript_UmbreonEspeon {
+    lock
+    playmoncry(SPECIES_UMBREON, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    playmoncry(SPECIES_ESPEON, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox(format("Umbreon and Espeon are too distracted with each other to notice you.\pThis too is yuri."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script BattleArea_EventScript_Rapidash {
+    lock
+    faceplayer
+    playmoncry(SPECIES_RAPIDASH_GALAR, CRY_MODE_ENCOUNTER)
+    msgbox(format("Raaaaaapi"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(12, moves(face_up))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round1 {
+    lock
+    faceplayer
+    msgbox(format("There is no point in talking... I have already seen my victory in the future.\pPlease get into position to battle."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(17, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArena_EventScript_Start_Battle {
+    lock
+    if(var(VAR_CAN_REGIONAL_BATTLE) == 1) {
+        applymovement(LOCALID_PLAYER, moves(face_up))
+        msgbox(format("Do you want to start the battle?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            msgbox(format("Let's end this quickly just as Mewtwo foresaw."))
+            waitmessage
+            trainerbattle_double(TRAINER_YUKI, battleIntro, battleOutro, battleNE)
+            setflag(FLAG_ROUND_1)
+            setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+            fadescreen(FADE_TO_BLACK)
+            removeobject(LOCALID_ROUND1)
+            fadescreen(FADE_FROM_BLACK)
+        } else {
+            applymovement(LOCALID_PLAYER, moves(walk_down))
+            waitmovement
+        }
+    }
+    release
+}
+
+text battleIntro {
+    "test1"
+}
+
+text battleOutro {
+    "test2"
+}
+
+text battleNE {
+    "nuh uh"
+}

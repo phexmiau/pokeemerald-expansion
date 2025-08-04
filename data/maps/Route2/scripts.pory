@@ -1,13 +1,19 @@
 raw `
 Route2_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Route2_OnTransition
 	.byte 0
 
+Route2_OnTransition:
+	setrespawn HEAL_LOCATION_ROUTE2
+	end
+
 `
+
 
 script Route2_EventScript_Teleport {
     lock
     applymovement(LOCALID_PLAYER, moves(face_up))
-    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    msgbox(format("Are you sure you want to move on?\pYou won't be able to return to this route."), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
         msgbox(format("You take the boat to the next route."))
         warp(MAP_ROUTE3, 10, 18)

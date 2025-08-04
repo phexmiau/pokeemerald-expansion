@@ -1182,3 +1182,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/RegionalSite/scripts.inc"
 
 	.include "data/maps/SparkleHollow/scripts.inc"
+
+	.include "data/maps/RegionalVenue/scripts.inc"
+
+	.include "data/maps/BattleArea/scripts.inc"

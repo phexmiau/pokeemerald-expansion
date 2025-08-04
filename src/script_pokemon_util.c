@@ -558,7 +558,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     u8 dmaxLevel      = PARSE_FLAG(24, 0);
 
     u8 evs[NUM_STATS]        = {hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv};
-    u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
+    u8 ivs[NUM_STATS]        = {31, 31, 31, 31, 31, 31};
     u16 moves[MAX_MON_MOVES] = {move1, move2, move3, move4};
 
     if (side == 0)

@@ -7341,7 +7341,6 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .levelUpLearnset = sShayminLandLevelUpLearnset,
         .teachableLearnset = sShayminLandTeachableLearnset,
         .formSpeciesIdTable = sShayminFormSpeciesIdTable,
-        .formChangeTable = sShayminFormChangeTable,
     },
 
     [SPECIES_SHAYMIN_SKY] =
@@ -7420,7 +7419,6 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .levelUpLearnset = sShayminSkyLevelUpLearnset,
         .teachableLearnset = sShayminSkyTeachableLearnset,
         .formSpeciesIdTable = sShayminFormSpeciesIdTable,
-        .formChangeTable = sShayminFormChangeTable,
     },
 #endif //P_FAMILY_SHAYMIN
 

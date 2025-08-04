@@ -11551,7 +11551,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_GASTRODON_WEST"
+                "species": "SPECIES_MAGEARNA"
               },
               {
                 "min_level": 50,
@@ -11685,7 +11685,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_PACHIRISU"
+                "species": "SPECIES_MELOETTA"
               },
               {
                 "min_level": 50,
@@ -11700,7 +11700,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_EEVEE"
+                "species": "SPECIES_KELDEO"
               },
               {
                 "min_level": 50,
@@ -11775,7 +11775,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_PELIPPER"
+                "species": "SPECIES_MILOTIC"
               },
               {
                 "min_level": 50,
@@ -11834,7 +11834,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ENTEI"
+                "species": "SPECIES_PACHIRISU"
               },
               {
                 "min_level": 50,
@@ -11849,7 +11849,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_SCORBUNNY"
+                "species": "SPECIES_SHAYMIN_SKY"
               },
               {
                 "min_level": 50,
@@ -11948,7 +11948,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_SCREAM_TAIL"
+                "species": "SPECIES_ZOROARK_HISUI"
               },
               {
                 "min_level": 50,
@@ -11963,7 +11963,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_TINKATON"
+                "species": "SPECIES_CINDERACE"
               },
               {
                 "min_level": 50,
@@ -11983,12 +11983,12 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_IRON_BOULDER"
+                "species": "SPECIES_SABLEYE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ARCHEOPS"
+                "species": "SPECIES_VICTINI"
               }
             ]
           },
@@ -12058,7 +12058,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_BASCULEGION_M"
+                "species": "SPECIES_IRON_BOULDER"
               },
               {
                 "min_level": 50,
@@ -12068,12 +12068,12 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_POLITOED"
+                "species": "SPECIES_BASCULEGION_M"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_MILOTIC"
+                "species": "SPECIES_VOLCANION"
               }
             ]
           }
@@ -12142,7 +12142,7 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ZOROARK_HISUI"
+                "species": "SPECIES_DARKRAI"
               }
             ]
           },

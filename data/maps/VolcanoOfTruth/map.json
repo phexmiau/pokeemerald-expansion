@@ -86,6 +86,15 @@
       "var": "VAR_VOLCANO_OF_TRUTH_STATE",
       "var_value": "0",
       "script": "VolcanoOfTruth_EventScript_SeeLegendaries"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_VOLCANO_OF_TRUTH_STATE",
+      "var_value": "1",
+      "script": "VolcanoOfTruth_EventScript_Groudon"
     }
   ],
   "bg_events": []

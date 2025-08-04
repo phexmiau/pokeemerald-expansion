@@ -840,6 +840,30 @@ void ItemUseOutOfBattle_Mint(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_Shard(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Shard;
+    SetUpItemUseCallback(taskId);
+}
+
+void ItemUseOutOfBattle_Anti_Bottlecap_One_Stat(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Anti_Bottlecap_One_Stat;
+    SetUpItemUseCallback(taskId);
+}
+
+void ItemUseOutOfBattle_P1_Bottlecap_One_Stat(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_P1_Bottlecap_One_Stat;
+    SetUpItemUseCallback(taskId);
+}
+
+void ItemUseOutOfBattle_Gold_Bottlecap_One_Stat(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Gold_Bottlecap_One_Stat;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_ResetEVs(u8 taskId)
 {
     gItemUseCB = ItemUseCB_ResetEVs;

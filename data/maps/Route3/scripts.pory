@@ -1,11 +1,16 @@
 raw `
 Route3_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Route3_OnTransition
 	.byte 0
+
+Route3_OnTransition:
+	setrespawn HEAL_LOCATION_ROUTE3
+	end
 `
 
 script Route3_EventScript_Leave {
     applymovement(LOCALID_PLAYER, moves(face_up))
-    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    msgbox(format("Are you sure you want to move on?\pYou won't be able to return to this route."), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
         applymovement(LOCALID_PLAYER, moves(walk_up))
         waitmovement(0)

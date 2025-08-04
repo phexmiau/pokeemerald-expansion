@@ -338,6 +338,7 @@ const u16 gItemIconPalette_MaxMushrooms[] = INCBIN_U16("graphics/items/icon_pale
 const u32 gItemIcon_BottleCap[] = INCBIN_U32("graphics/items/icons/bottle_cap.4bpp.smol");
 const u16 gItemIconPalette_BottleCap[] = INCBIN_U16("graphics/items/icon_palettes/bottle_cap.gbapal");
 const u16 gItemIconPalette_GoldBottleCap[] = INCBIN_U16("graphics/items/icon_palettes/gold_bottle_cap.gbapal");
+const u16 gItemIconPalette_AntiBottleCap[] = INCBIN_U16("graphics/items/icon_palettes/anti_bottle_cap.gbapal");
 
 const u32 gItemIcon_Nugget[] = INCBIN_U32("graphics/items/icons/nugget.4bpp.smol");
 const u16 gItemIconPalette_Nugget[] = INCBIN_U16("graphics/items/icon_palettes/nugget.gbapal");

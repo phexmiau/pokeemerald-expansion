@@ -45,6 +45,20 @@ AfterTruck_EventScript_SignTeardrop::
 	return
 
 
+AfterTruck_EventScript_IntroTrigger::
+# 31 "data/maps/AfterTruck/scripts.pory"
+	lock
+# 32 "data/maps/AfterTruck/scripts.pory"
+	msgbox AfterTruck_EventScript_IntroTrigger_Text_0, MSGBOX_AUTOCLOSE
+# 33 "data/maps/AfterTruck/scripts.pory"
+	waitmessage
+# 34 "data/maps/AfterTruck/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 35 "data/maps/AfterTruck/scripts.pory"
+	release
+	return
+
+
 AfterTruck_EventScript_SignVolcano_Text_0:
 # 8 "data/maps/AfterTruck/scripts.pory"
 	.string "Ahead: Volcano of Truth$"
@@ -60,3 +74,10 @@ AfterTruck_EventScript_SignBoring_Text_0:
 AfterTruck_EventScript_SignTeardrop_Text_0:
 # 26 "data/maps/AfterTruck/scripts.pory"
 	.string "Ahead: Teardrop Forest$"
+
+AfterTruck_EventScript_IntroTrigger_Text_0:
+# 32 "data/maps/AfterTruck/scripts.pory"
+	.string "The truck parked with quite a way left\n"
+	.string "to the venue!\p"
+	.string "It looks like you need to decide on one\n"
+	.string "path to finish the rest of the way.$"

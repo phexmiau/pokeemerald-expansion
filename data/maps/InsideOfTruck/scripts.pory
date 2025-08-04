@@ -16,9 +16,35 @@ InsideOfTruck_OnResume:
 
 InsideOfTruck_EventScript_SetIntroFlags::
 	lockall
+	msgbox InsideOfTruck_Text_IntroText, MSGBOX_AUTOCLOSE
+	waitmessage
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	setflag FLAG_FORCED_DOUBLES
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE05_GET
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_BADGE07_GET
+	setflag FLAG_BADGE08_GET
+	setflag FLAG_ROUND_2
+	setflag FLAG_ROUND_3
+	setflag FLAG_ROUND_4
+	setflag FLAG_ROUND_5
+	setflag FLAG_ROUND_6
+	setflag FLAG_ROUND_7
+	setflag FLAG_ROUND_8
+	setflag FLAG_ROUND_9
+	setflag FLAG_ROUND_10
+	setflag FLAG_ROUND_11
+	setflag FLAG_ROUND_12
+	setflag FLAG_ROUND_13
+	setflag FLAG_ROUND_14
+	setflag FLAG_SYS_B_DASH
 	setvar VAR_LVL_CAP 50
+	setvar VAR_REGIONAL_STATE 0
+	setvar VAR_CAN_REGIONAL_BATTLE 1
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, InsideOfTruck_EventScript_SetIntroFlagsMale
 	goto_if_eq VAR_RESULT, FEMALE, InsideOfTruck_EventScript_SetIntroFlagsFemale
@@ -68,4 +94,8 @@ script InsideOfTruck_EventScript_Teleport {
     applymovement(LOCALID_PLAYER, moves(face_up))
     waitmovement(LOCALID_PLAYER)
     releaseall
+}
+
+text InsideOfTruck_Text_IntroText {
+	format("You're on your way to the first regional of the newly announced Regulation R.\NWhile you'd love to play yourself, you unfortunately did not manage to get a team prepared for it in time, so you're just planning on spectating today.\pIt seems like the truck has stopped, so you should probably head outside...")
 }

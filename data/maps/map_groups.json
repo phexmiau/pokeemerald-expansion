@@ -104,7 +104,9 @@
     "TeardropForest",
     "AfterTruck",
     "RegionalSite",
-    "SparkleHollow"
+    "SparkleHollow",
+    "RegionalVenue",
+    "BattleArea"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

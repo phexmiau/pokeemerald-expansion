@@ -1,11 +1,17 @@
 raw `
 Route1_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, Route1_OnTransition
 	.byte 0
+
+Route1_OnTransition:
+	setrespawn HEAL_LOCATION_ROUTE1
+	end
+
 `
 
 script Route1_EventScript_Leave {
     applymovement(LOCALID_PLAYER, moves(face_up))
-    msgbox("Are you sure you want to move on?", MSGBOX_YESNO)
+    msgbox(format("Are you sure you want to move on?\pYou won't be able to return to this route."), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
         applymovement(LOCALID_PLAYER, moves(walk_up))
         waitmovement(0)
@@ -24,12 +30,21 @@ script Route1_EventScript_DidBag {
 }
 
 script Route1_EventScript_Bag {
-    msgbox(format("You take a look through the bag..."), MSGBOX_AUTOCLOSE)
-    delay(60)
-    msgbox(format("You found a bunch of useful items!"), MSGBOX_AUTOCLOSE)
-    giveitem(ITEM_MASTER_BALL, 5)
-    giveitem(ITEM_FULL_RESTORE, 5)
-    giveitem(ITEM_SUPER_ROD)
-    msgbox(format("With these you can still catch a team in time for the regional!"), MSGBOX_AUTOCLOSE)
-    setvar(VAR_ROUTE1_STATE, 1)
+    switch (var(VAR_ROUTE1_STATE)) {
+        case 0:
+            msgbox(format("You take a look through the bag..."))
+            delay(60)
+            msgbox(format("You found a bunch of useful items!"))
+            giveitem(ITEM_MASTER_BALL, 5)
+            giveitem(ITEM_INFINITE_FULL_RESTORE)
+            giveitem(ITEM_SUPER_ROD)
+            msgbox(format("With these you can still catch a team in time for the regional!"))
+            waitmessage
+            msgbox(format("(Developer's Note: By interacting with the bag again you can get more Pokéballs as essentially a sandbox mode for catching your ideal team.\pYou will later on get access to full mon customization regardless, so you don't need to worry about catching certain natures etc.)"), MSGBOX_AUTOCLOSE)
+            setvar(VAR_ROUTE1_STATE, 1)
+        case 1:
+            giveitem(ITEM_MASTER_BALL, 200)
+            waitmessage
+            closemessage
+    }
 }

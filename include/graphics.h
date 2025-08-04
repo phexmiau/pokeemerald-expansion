@@ -574,6 +574,7 @@ extern const u16 gItemIconPalette_MaxMushrooms[];
 extern const u32 gItemIcon_BottleCap[];
 extern const u16 gItemIconPalette_BottleCap[];
 extern const u16 gItemIconPalette_GoldBottleCap[];
+extern const u16 gItemIconPalette_AntiBottleCap[];
 extern const u32 gItemIcon_Nugget[];
 extern const u16 gItemIconPalette_Nugget[];
 extern const u32 gItemIcon_BigNugget[];

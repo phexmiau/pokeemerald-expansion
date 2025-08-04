@@ -94,7 +94,35 @@
       "dest_warp_id": "WARP_IP_TEARDROP_INTRO"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 6,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "AfterTruck_EventScript_IntroTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "AfterTruck_EventScript_IntroTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "AfterTruck_EventScript_IntroTrigger"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

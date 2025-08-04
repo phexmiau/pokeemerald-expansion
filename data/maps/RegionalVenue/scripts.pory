@@ -1,0 +1,532 @@
+raw `
+RegionalVenue_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, RegionalVenue_OnTransition
+	.byte 0
+
+RegionalVenue_OnTransition:
+	setrespawn HEAL_LOCATION_REGIONAL_VENUE
+	end
+
+RegionalVenue_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_VENUE_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+`
+
+script RegionalVenue_EventScript_Clerk_Common {
+    lock
+    msgbox(format("You can buy COMMONLY HELD items here!"))
+    waitmessage
+    pokemart(CommonMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_Uncommon {
+    lock
+    msgbox(format("You can buy UNCOMMONLY HELD items here!"))
+    waitmessage
+    pokemart(UncommonMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_Typeboost {
+    lock
+    msgbox(format("You can buy TYPE-BOOSTING items here!"))
+    waitmessage
+    pokemart(TypeMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_Berries {
+    lock
+    msgbox(format("You can buy BERRIES here!"))
+    waitmessage
+    pokemart(BerryMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_Mints {
+    lock
+    msgbox(format("You can buy MINTS here!"))
+    waitmessage
+    pokemart(MintMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_EVIVAbility {
+    lock
+    msgbox(format("You can buy STAT ITEMS here!"))
+    waitmessage
+    pokemart(StatMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Clerk_Tera {
+    lock
+    msgbox(format("You can buy TERA SHARDS here!"))
+    waitmessage
+    pokemart(TeraMart)
+    msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Kartana {
+    lock
+    faceplayer
+    playmoncry(SPECIES_KARTANA, CRY_MODE_ENCOUNTER)
+    msgbox("Tana-tana!", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(14, moves(face_down))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Mismagius {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MISMAGIUS, CRY_MODE_ENCOUNTER)
+    msgbox("Magius...", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(11, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Altaria {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ALTARIA, CRY_MODE_ENCOUNTER)
+    msgbox("Laaaaa!", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(16, moves(face_right))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Palafin {
+    lock
+    faceplayer
+    playmoncry(SPECIES_PALAFIN_HERO, CRY_MODE_ENCOUNTER)
+    msgbox("Pala.", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(18, moves(face_right))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Charizard {
+    lock
+    faceplayer
+    playmoncry(SPECIES_CHARIZARD, CRY_MODE_ENCOUNTER)
+    msgbox("Zrrrrd...", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(10, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Meganium {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MEGANIUM, CRY_MODE_ENCOUNTER)
+    msgbox("Mgaaa!", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(15, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Scolipede {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SCOLIPEDE, CRY_MODE_ENCOUNTER)
+    msgbox("Scoliiii...", MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
+}
+
+script RegionalVenue_EventScript_Beedrill {
+    lock
+    faceplayer
+    playmoncry(SPECIES_BEEDRILL, CRY_MODE_ENCOUNTER)
+    msgbox("Bzzzzzz.", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(12, moves(face_down))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Turtonator {
+    lock
+    faceplayer
+    playmoncry(SPECIES_TURTONATOR, CRY_MODE_ENCOUNTER)
+    msgbox("Naatrrr...", MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(13, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Painter {
+    lock
+    faceplayer
+    msgbox(format("I've traveled to distant dimensions to search for the best competitive team...\NAnd then I learned some Ultra Beast just resides on the routes before this venue???"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(19, moves(face_down))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Tucker {
+    lock
+    faceplayer
+    msgbox(format("Hehehe I'm such a mysterious person..."))
+    waitmessage
+    pokemart(SpecialMart)
+    msgbox(format("Bet you didn't expect me to own all of these >:)"))
+    applymovement(21, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Green {
+    lock
+    faceplayer
+    msgbox(format("Altaria and I flew here all the way from Hoenn.\pWe have won a bunch of Pokémon contests back home, but this is our first VGC regional!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(20, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Grunt {
+    lock
+    faceplayer
+    msgbox(format("Argh... I thought this Charizard would be easy pickings with my type advantage, but it just pulled out a Thunder Punch!?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(23, moves(face_right))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Red {
+    lock
+    faceplayer
+    msgbox(format("..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(22, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Beauty {
+    lock
+    faceplayer
+    msgbox(format("Meganium is such a kind Pokémon, that it's more focused on the flowers here than getting ready for battle.\NIt kind of reminds me of a fairy in that way..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(26, moves(face_down))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Bugcatcher {
+    lock
+    faceplayer
+    msgbox(format("I'm so excited to compete here with my Beedrill!\pI met it as a Weedle back when I was a child, and it's been my best friend since."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(24, moves(face_up))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Lucy {
+    lock
+    faceplayer
+    msgbox(format("Phew... barely made it here in time for the regional's start time.\NMe and Scolipede got caught up setting fire to police cars on the way here."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(25, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Noland {
+    lock
+    faceplayer
+    msgbox(format("Yawnnnnnnnn. Not a single strong trainer in sight here, this is gonna be so easy for a pro like me!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    msgbox(format("(Developer's Note: He is about to exit 0-2)"), MSGBOX_AUTOCLOSE)
+    applymovement(27, moves(face_left))
+    waitmovement
+    release
+}
+
+script RegionalVenue_EventScript_Kate {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SPRIGATITO, CRY_MODE_ENCOUNTER)
+    switch (var(VAR_REGIONAL_STATE)) {
+        case 0:
+            msgbox(format("KATE: omg hiiiiiiiiiiiii!!!\NI'm so glad you made it here :3\pIf it's taffel playing ily ily ily, if it's someone else just ignore this :P\pThe regional is about to start tho!!! You should probably prepare your team using the items you can get from the shops here.\NI've heard the guy with the Mismagius on the other side of this room also has some interesting stuff to offer...\pWith all that said... starting now, whenever you talk to me I'm gonna give you some advice on your next tourney matchup :3\pGood luck in the regional !!!"))
+            waitmessage
+            setvar(VAR_REGIONAL_STATE, 1)
+        case 1:
+            msgbox(format("KATE: Okok so I looked at the first round draw and it seems your opponent is running a... MEWTWO???"))
+            showmonpic(SPECIES_MEWTWO, 10, 3)
+            msgbox(format("You're definitely going to have to be on the lookout for a bit of Psyspam it seems..."), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic 
+    }
+    applymovement(28, moves(face_up))
+    waitmovement
+    release
+}
+
+mart CommonMart {
+    ITEM_ABILITY_SHIELD
+    ITEM_ASSAULT_VEST
+    ITEM_BOOSTER_ENERGY
+    ITEM_CHOICE_BAND
+    ITEM_CHOICE_SCARF
+    ITEM_CHOICE_SPECS
+    ITEM_CLEAR_AMULET
+    ITEM_COVERT_CLOAK
+    ITEM_ELECTRIC_SEED
+    ITEM_EVIOLITE
+    ITEM_EXPERT_BELT
+    ITEM_FLAME_ORB
+    ITEM_FOCUS_SASH
+    ITEM_GRASSY_SEED
+    ITEM_HEAVY_DUTY_BOOTS
+    ITEM_LEFTOVERS
+    ITEM_LIFE_ORB
+    ITEM_LIGHT_CLAY
+    ITEM_LOADED_DICE
+    ITEM_MENTAL_HERB
+    ITEM_POWER_HERB
+    ITEM_ROCKY_HELMET
+    ITEM_SAFETY_GOGGLES
+    ITEM_WEAKNESS_POLICY
+    ITEM_WIDE_LENS
+}
+
+mart UncommonMart {
+    ITEM_ABSORB_BULB
+    ITEM_AIR_BALLOON
+    ITEM_ADRENALINE_ORB
+    ITEM_BIG_ROOT
+    ITEM_BINDING_BAND
+    ITEM_BLACK_SLUDGE
+    ITEM_BLUNDER_POLICY
+    ITEM_BRIGHT_POWDER
+    ITEM_CELL_BATTERY
+    ITEM_DAMP_ROCK
+    ITEM_EJECT_BUTTON
+    ITEM_EJECT_PACK
+    ITEM_FOCUS_BAND
+    ITEM_GRIP_CLAW
+    ITEM_HEAT_ROCK
+    ITEM_ICY_ROCK
+    ITEM_IRON_BALL
+    ITEM_KINGS_ROCK
+    ITEM_LAGGING_TAIL
+    ITEM_LUMINOUS_MOSS
+    ITEM_METRONOME
+    ITEM_MIRROR_HERB
+    ITEM_MISTY_SEED
+    ITEM_MUSCLE_BAND
+    ITEM_PROTECTIVE_PADS
+    ITEM_PSYCHIC_SEED
+    ITEM_PUNCHING_GLOVE
+    ITEM_QUICK_CLAW
+    ITEM_RED_CARD
+    ITEM_RING_TARGET
+    ITEM_ROOM_SERVICE
+    ITEM_SCOPE_LENS
+    ITEM_SHELL_BELL
+    ITEM_SMOOTH_ROCK
+    ITEM_SNOWBALL
+    ITEM_STICKY_BARB
+    ITEM_TERRAIN_EXTENDER
+    ITEM_THROAT_SPRAY
+    ITEM_TOXIC_ORB
+    ITEM_UTILITY_UMBRELLA
+    ITEM_WHITE_HERB
+    ITEM_WISE_GLASSES
+    ITEM_ZOOM_LENS
+}
+
+mart TypeMart {
+    ITEM_SILK_SCARF
+    ITEM_CHARCOAL
+    ITEM_MYSTIC_WATER
+    ITEM_MAGNET
+    ITEM_MIRACLE_SEED
+    ITEM_NEVER_MELT_ICE
+    ITEM_BLACK_BELT
+    ITEM_POISON_BARB
+    ITEM_SOFT_SAND
+    ITEM_SHARP_BEAK
+    ITEM_TWISTED_SPOON
+    ITEM_SILVER_POWDER
+    ITEM_HARD_STONE
+    ITEM_SPELL_TAG
+    ITEM_DRAGON_FANG
+    ITEM_BLACK_GLASSES
+    ITEM_METAL_COAT
+    ITEM_FAIRY_FEATHER
+}
+
+mart BerryMart {
+    ITEM_SITRUS_BERRY
+    ITEM_LUM_BERRY
+    ITEM_CHERI_BERRY
+    ITEM_CHESTO_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_PERSIM_BERRY
+    ITEM_FIGY_BERRY
+    ITEM_WIKI_BERRY
+    ITEM_MAGO_BERRY
+    ITEM_AGUAV_BERRY
+    ITEM_IAPAPA_BERRY
+    ITEM_CHILAN_BERRY
+    ITEM_OCCA_BERRY
+    ITEM_PASSHO_BERRY
+    ITEM_WACAN_BERRY
+    ITEM_RINDO_BERRY
+    ITEM_YACHE_BERRY
+    ITEM_CHOPLE_BERRY
+    ITEM_KEBIA_BERRY
+    ITEM_SHUCA_BERRY
+    ITEM_COBA_BERRY
+    ITEM_PAYAPA_BERRY
+    ITEM_TANGA_BERRY
+    ITEM_CHARTI_BERRY
+    ITEM_KASIB_BERRY
+    ITEM_HABAN_BERRY
+    ITEM_COLBUR_BERRY
+    ITEM_BABIRI_BERRY
+    ITEM_ROSELI_BERRY
+    ITEM_ENIGMA_BERRY
+    ITEM_CUSTAP_BERRY
+    ITEM_LIECHI_BERRY
+    ITEM_GANLON_BERRY
+    ITEM_SALAC_BERRY
+    ITEM_PETAYA_BERRY
+    ITEM_APICOT_BERRY
+    ITEM_LANSAT_BERRY
+    ITEM_STARF_BERRY
+    ITEM_MICLE_BERRY
+    ITEM_POMEG_BERRY
+    ITEM_KELPSY_BERRY
+    ITEM_QUALOT_BERRY
+    ITEM_HONDEW_BERRY
+    ITEM_GREPA_BERRY
+    ITEM_TAMATO_BERRY
+}
+
+mart MintMart {
+    ITEM_LONELY_MINT
+    ITEM_ADAMANT_MINT
+    ITEM_NAUGHTY_MINT
+    ITEM_BRAVE_MINT
+    ITEM_BOLD_MINT
+    ITEM_IMPISH_MINT
+    ITEM_LAX_MINT
+    ITEM_RELAXED_MINT
+    ITEM_MODEST_MINT
+    ITEM_MILD_MINT
+    ITEM_RASH_MINT
+    ITEM_QUIET_MINT
+    ITEM_CALM_MINT
+    ITEM_GENTLE_MINT
+    ITEM_CAREFUL_MINT
+    ITEM_SASSY_MINT
+    ITEM_TIMID_MINT
+    ITEM_HASTY_MINT
+    ITEM_JOLLY_MINT
+    ITEM_NAIVE_MINT
+    ITEM_SERIOUS_MINT
+}
+
+mart StatMart {
+    ITEM_ABILITY_CAPSULE
+    ITEM_ABILITY_PATCH
+    ITEM_PP_MAX
+    ITEM_HEALTH_FEATHER
+    ITEM_MUSCLE_FEATHER
+    ITEM_RESIST_FEATHER
+    ITEM_GENIUS_FEATHER
+    ITEM_CLEVER_FEATHER
+    ITEM_SWIFT_FEATHER
+    ITEM_HP_UP
+    ITEM_PROTEIN
+    ITEM_IRON
+    ITEM_CALCIUM
+    ITEM_ZINC
+    ITEM_CARBOS
+    ITEM_HP_MAX
+    ITEM_ATK_MAX
+    ITEM_DEF_MAX
+    ITEM_SPATK_MAX
+    ITEM_SPDEF_MAX
+    ITEM_SPEED_MAX
+    ITEM_FRESH_START_MOCHI
+    ITEM_GOLD_BOTTLE_CAP
+    ITEM_0_HP_BOTTLE_CAP
+    ITEM_0_ATK_BOTTLE_CAP
+    ITEM_0_DEF_BOTTLE_CAP
+    ITEM_0_SPATK_BOTTLE_CAP
+    ITEM_0_SPDEF_BOTTLE_CAP
+    ITEM_0_SPEED_BOTTLE_CAP
+    ITEM_P1_HP_BOTTLE_CAP
+    ITEM_P1_ATK_BOTTLE_CAP
+    ITEM_P1_DEF_BOTTLE_CAP
+    ITEM_P1_SPATK_BOTTLE_CAP
+    ITEM_P1_SPDEF_BOTTLE_CAP
+    ITEM_P1_SPEED_BOTTLE_CAP
+}
+
+mart TeraMart {
+    ITEM_BUG_TERA_SHARD
+    ITEM_DARK_TERA_SHARD
+    ITEM_DRAGON_TERA_SHARD
+    ITEM_ELECTRIC_TERA_SHARD
+    ITEM_FAIRY_TERA_SHARD
+    ITEM_FIGHTING_TERA_SHARD
+    ITEM_FIRE_TERA_SHARD
+    ITEM_FLYING_TERA_SHARD
+    ITEM_GHOST_TERA_SHARD
+    ITEM_GRASS_TERA_SHARD
+    ITEM_GROUND_TERA_SHARD
+    ITEM_ICE_TERA_SHARD
+    ITEM_NORMAL_TERA_SHARD
+    ITEM_POISON_TERA_SHARD
+    ITEM_PSYCHIC_TERA_SHARD
+    ITEM_ROCK_TERA_SHARD
+    ITEM_STEEL_TERA_SHARD
+    ITEM_WATER_TERA_SHARD
+    ITEM_STELLAR_TERA_SHARD
+}
+
+mart SpecialMart {
+    ITEM_MEGA_RING
+    ITEM_SCROLL_OF_DARKNESS
+    ITEM_SCROLL_OF_WATERS
+    ITEM_METAL_POWDER
+    ITEM_QUICK_POWDER
+    ITEM_CORNERSTONE_MASK
+    ITEM_HEARTHFLAME_MASK
+    ITEM_WELLSPRING_MASK
+    ITEM_REVEAL_GLASS
+}

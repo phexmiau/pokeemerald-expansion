@@ -70,6 +70,14 @@
       "elevation": 3,
       "dest_map": "MAP_SPARKLE_HOLLOW",
       "dest_warp_id": "WARP_IP_SPARKLE_INTRO"
+    },
+    {
+      "warp_id": "WARP_IP_REGIONALSITE_VENUE",
+      "x": 26,
+      "y": 7,
+      "elevation": 3,
+      "dest_map": "MAP_REGIONAL_VENUE",
+      "dest_warp_id": "WARP_IP_VENUE_INTRO_1"
     }
   ],
   "coord_events": [],

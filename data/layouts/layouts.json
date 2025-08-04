@@ -4530,6 +4530,26 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SparkleHollow/border.bin",
       "blockdata_filepath": "data/layouts/SparkleHollow/map.bin"
+    },
+    {
+      "id": "LAYOUT_REGIONAL_VENUE",
+      "name": "RegionalVenue_Layout",
+      "width": 40,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/RegionalVenue/border.bin",
+      "blockdata_filepath": "data/layouts/RegionalVenue/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_AREA",
+      "name": "BattleArea_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/BattleArea/border.bin",
+      "blockdata_filepath": "data/layouts/BattleArea/map.bin"
     }
   ]
 }

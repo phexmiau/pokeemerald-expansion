@@ -191,7 +191,37 @@
       "id": "HEAL_LOCATION_ROUTE1",
       "map": "MAP_ROUTE1",
       "x": 6,
-      "y": 20
+      "y": 24
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE2",
+      "map": "MAP_ROUTE2",
+      "x": 7,
+      "y": 26
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE3",
+      "map": "MAP_ROUTE3",
+      "x": 10,
+      "y": 18
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE4",
+      "map": "MAP_ROUTE4",
+      "x": 16,
+      "y": 18
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE5",
+      "map": "MAP_ROUTE5",
+      "x": 9,
+      "y": 18
+    },
+    {
+      "id": "HEAL_LOCATION_REGIONAL_VENUE",
+      "map": "MAP_REGIONAL_VENUE",
+      "x": 3,
+      "y": 4
     }
   ]
 }
