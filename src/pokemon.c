@@ -5273,8 +5273,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 return;
             if (!(opponentTrainerClass == TRAINER_CLASS_LEADER
-                || opponentTrainerClass == TRAINER_CLASS_ELITE_FOUR
-                || opponentTrainerClass == TRAINER_CLASS_CHAMPION))
+                || opponentTrainerClass == TRAINER_CLASS_ELITE_FOUR))
                 return;
         }
 

@@ -25,7 +25,7 @@ script BattleArea_EventScript_Deoxys {
 script BattleArea_EventScript_Judge {
     lock
     faceplayer
-    msgbox(format("Please don't interrupt me right now!\NI am the judge for this ongoing match."), MSGBOX_AUTOCLOSE)
+    msgbox(format("Please don't interrupt me right now.\NI am the judge for this ongoing match."), MSGBOX_AUTOCLOSE)
     waitmessage
     applymovement(8, moves(face_left))
     waitmovement
@@ -34,7 +34,7 @@ script BattleArea_EventScript_Judge {
 
 script BattleArea_EventScript_Maid {
     lock
-    msgbox(format("MAGICAL LEAF MAGICAL LEAF MAGICAL LEAF MAGICAL LEAF!"), MSGBOX_AUTOCLOSE)
+    msgbox(format("ROSERADE!\lUSE MAGICAL LEAF OVER AND OVER!"), MSGBOX_AUTOCLOSE)
     waitmessage
     waitmovement
     release
@@ -47,7 +47,7 @@ script BattleArea_EventScript_OldWoman {
     waitmessage
     applymovement(9, moves(face_up))
     waitmovement
-    msgbox(format("But I didn't collect these spirits for nothing!!"), MSGBOX_AUTOCLOSE)
+    msgbox(format("But I didn't collect these spirits for nothing! Go Spiritomb!"), MSGBOX_AUTOCLOSE)
     waitmessage
     release
 }
@@ -115,6 +115,16 @@ script BattleArea_EventScript_Zoroark {
     applymovement(13, moves(face_right))
     waitmovement
     release
+
+}script BattleArea_EventScript_Stonjourner {
+    lock
+    faceplayer
+    playmoncry(SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER)
+    msgbox(format("Stooooone"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(18, moves(face_down))
+    waitmovement
+    release
 }
 
 script BattleArea_EventScript_Roserade {
@@ -129,24 +139,86 @@ script BattleArea_EventScript_Spiritomb {
     lock
     faceplayer
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
-    msgbox(format("COLLECT MY SPIRITS"))
+    message("COLLECT MY SPIRITS COLLECT MY SPIRITS COLLECT MY SPIRITS COLLECT MY SPIÖI  Ä  S COL CT lMY SPäR   IcTS  COLLöCT  l  ÄS     MY  IlRI S")
+    delay(35)
+    fadeoutbgm(0)
+    delay(15)
+    playbgm(MUS_WEATHER_GROUDON, FALSE)
     waitmessage
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
-    msgbox(format("COLLECT MY SPIRITS"))
+    fadescreen(FADE_TO_BLACK)
+    removeobject(7)
+    removeobject(13)
+    fadescreen(FADE_FROM_BLACK)
+    message("COLLeClMY SPIrÄTS COzL CTl MY SPiR T oLSL S   ScÄR  SPIäIlTs CSL t l   SPI lS ClOLL CsT MY SPs S")
     waitmessage
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
-    msgbox(format("COLLECT MY SPIRITS"))
+    fadescreen(FADE_TO_BLACK)
+    removeobject(4)
+    removeobject(5)
+    removeobject(10)
+    removeobject(11)
+    fadescreen(FADE_FROM_BLACK)
+    message("COLLECT MY SPIRITS")
     waitmessage
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
-    msgbox(format("COLLECT MY SPIRITS"))
+    fadescreen(FADE_TO_BLACK)    
+    removeobject(18)
+    removeobject(8)
+    applymovement(6, moves(face_left))
+    fadescreen(FADE_FROM_BLACK)
+    message("COLLECT MY SPIRITS")
     waitmessage
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
-    msgbox(format("COLLECT MY SPIRITS"), MSGBOX_AUTOCLOSE)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(16)
+    removeobject(15)
+    fadescreen(FADE_FROM_BLACK)
+    message("COLLECT MY SPIRITS")
     waitmessage
+    playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    fadescreen(FADE_TO_BLACK)
+    closemessage
+    removeobject(9)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("COLLECT MY SPIRITS")
+    msgbox("COLLECT MY SPIRITS")
+    msgbox("COLLECT MY SPIRITS", MSGBOX_AUTOCLOSE)
+    waitmessage
+    delay(90)
+    fadeoutbgm(0)
+    // playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    // msgbox(format("COLLECT MY SPIRITS"))
+    // waitmessage
+    // playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    // msgbox(format("COLLECT MY SPIRITS"))
+    // waitmessage
+    // playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    // msgbox(format("COLLECT MY SPIRITS"))
+    // waitmessage
+    // playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
+    // msgbox(format("COLLECT MY SPIRITS"), MSGBOX_AUTOCLOSE)
+    // waitmessage
     applymovement(14, moves(walk_in_place_faster_up))
     waitmovement
-    delay(30)
-    msgbox(format("What the fuck was that."), MSGBOX_AUTOCLOSE)
+    fadescreen(FADE_TO_BLACK)
+    addobject(7)
+    addobject(13)
+    addobject(4)
+    addobject(5)
+    addobject(10)
+    addobject(11)
+    addobject(8)
+    addobject(18)
+    addobject(16)
+    addobject(15)
+    addobject(9)
+    applymovement(6, moves(face_right))
+    fadescreen(FADE_FROM_BLACK)
+    playbgm(MUS_VICTORY_ROAD, FALSE)
+    delay(90)
+    fadeinbgm(1)
+    msgbox(format("COLLECT MY SPIRITS :)"), MSGBOX_AUTOCLOSE)
     release
 }
 
@@ -177,41 +249,454 @@ script BattleArea_EventScript_Round1 {
     faceplayer
     msgbox(format("There is no point in talking... I have already seen my victory in the future.\pPlease get into position to battle."), MSGBOX_AUTOCLOSE)
     waitmessage
-    applymovement(17, moves(face_down))
+    applymovement(LOCALID_ROUND1, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round2 {
+    lock
+    faceplayer
+    msgbox(format("I would wish you the best of luck, but luck is meaningless compared to the wonder of sciene!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND2, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round3 {
+    lock
+    faceplayer
+    msgbox(format("Do you believe in ghosts?\pIf not, how do you explain that white hand on your shoulder?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND3, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round4 {
+    lock
+    faceplayer
+    msgbox(format("I got beaten up on my way here for some reason...\pBut I've finally managed to settle in at this regional."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND4, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round5 {
+    lock
+    faceplayer
+    msgbox(format("I've always loved rainbows, and now I will win alongside the Rainbow Pokemon!\pAlso I'm gay."))
+    msgbox(format("(Developer's Note: I do not actually know the sexuality of the player this team is based on.\pI think it originally wasn't even a woman."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND5, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round6 {
+    lock
+    faceplayer
+    msgbox(format("Being this old comes with benefits...\NMainly meeting overpowered ghost horses."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND6, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round7 {
+    lock
+    faceplayer
+    msgbox(format("I found this CRAZY fish while out on vacation in Hoenn, and omg I just couldn't wait to use it competitively."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND7, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round8 {
+    lock
+    faceplayer
+    msgbox(format("I'm gonna throw you a bone here......\NAnd laugh as my dog lunges at you!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND8, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round9 {
+    lock
+    faceplayer
+    msgbox(format("Can you believe they didn't have any rules about bikes in this building?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND9, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round10 {
+    lock
+    faceplayer
+    msgbox(format("This place is...\Nso much more lively than Laqua...\pOh I'm sorry, I was lost in thoughts a bit there.\pGood luck and may we play a great game!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND10, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round11 {
+    lock
+    faceplayer
+    msgbox(format("Apparently I am the youngest player to ever play in this division?\pThese Regulation R rules really don't make much sense to me..."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND11, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round12 {
+    lock
+    faceplayer
+    msgbox(format("Lunala... I'm going to take you all the way!"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND12, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round13 {
+    lock
+    faceplayer
+    msgbox(format("What a great day to be nonbinary and peak at Pokémon, I sure hope no perish trapping world champion is attending this tourney :)"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND13, moves(face_down))
+    waitmovement
+    release
+}
+
+script BattleArea_EventScript_Round14 {
+    lock
+    faceplayer
+    msgbox(format("Watashi wa kono neko ga kiraidesu.\pOh I'm sorry, I forgot to switch back from my secret japanese practice persona!\pGood luck."), MSGBOX_AUTOCLOSE)
+    waitmessage
+    applymovement(LOCALID_ROUND14, moves(face_down))
     waitmovement
     release
 }
 
 script BattleArena_EventScript_Start_Battle {
-    lock
+    lockall
     if(var(VAR_CAN_REGIONAL_BATTLE) == 1) {
         applymovement(LOCALID_PLAYER, moves(face_up))
         msgbox(format("Do you want to start the battle?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES) {
-            msgbox(format("Let's end this quickly just as Mewtwo foresaw."))
-            waitmessage
-            trainerbattle_double(TRAINER_YUKI, battleIntro, battleOutro, battleNE)
-            setflag(FLAG_ROUND_1)
-            setvar(VAR_CAN_REGIONAL_BATTLE, 0)
-            fadescreen(FADE_TO_BLACK)
-            removeobject(LOCALID_ROUND1)
-            fadescreen(FADE_FROM_BLACK)
+            switch(var(VAR_REGIONAL_STATE)) {
+                case 0:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Let's end this quickly just as Mewtwo foresaw."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_YUKI, battleOutroR1)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 2 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_1)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 2)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND1)
+                    fadescreen(FADE_FROM_BLACK)
+                case 1:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Let's end this quickly just as Mewtwo foresaw."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_YUKI, battleOutroR1)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 2 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_1)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 2)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND1)
+                    fadescreen(FADE_FROM_BLACK)
+                case 2:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("I've already calculated your probability of winning the second the matchups got announced:\l01.0593%"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_ZAC, battleOutroR2)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 3 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_2)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 3)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND2)
+                    fadescreen(FADE_FROM_BLACK)
+                case 3:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Hehehe... I hear the shadows calling for you..."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_JASMINE, battleOutroR3)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 4 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_3)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 4)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND3)
+                    fadescreen(FADE_FROM_BLACK)
+                case 4:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("I'm a player from Israel and this is my team:"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_FREAK, battleOutroR4)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 5 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_4)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 5)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND4)
+                    fadescreen(FADE_FROM_BLACK)
+                case 5:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("HAPPY PRIDE MONTH!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_NIKITA, battleOutroR5)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 6 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_5)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 6)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND5)
+                    fadescreen(FADE_FROM_BLACK)
+                case 6:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Neigh!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_THOMAS_R, battleOutroR6)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 7 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_6)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 7)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND6)
+                    fadescreen(FADE_FROM_BLACK)
+                case 7:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Prepare to drown.\p...sorry, not really.\lI just wanted to sound cool."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_JORGE, battleOutroR7)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 8 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_7)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 8)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND7)
+                    fadescreen(FADE_FROM_BLACK)
+                case 8:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("My team is all bark and all bite!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_TYLER, battleOutroR8)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for round 9 of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_8)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 9)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND8)
+                    fadescreen(FADE_FROM_BLACK)
+                case 9:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Let's hope the budget option is good enough..."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_DANIE, battleOutroR9)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for the last round of Swiss."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_9)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 10)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND9)
+                    fadescreen(FADE_FROM_BLACK)         
+                case 10:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("For Lucius!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_NOREDIA, battleOutroR10)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for Top Cut."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_10)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 11)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND10)
+                    fadescreen(FADE_FROM_BLACK)
+                case 11:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("I hope you're excited to meet Mr. Snuggles..."))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_ENRIQUE, battleOutroR11)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for the Top 8 match."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_11)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 12)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND11)
+                    fadescreen(FADE_FROM_BLACK)
+                case 12:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("Giant Bat Attack!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_BEHZAD, battleOutroR12)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for the Semifinals match."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_12)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 13)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND12)
+                    fadescreen(FADE_FROM_BLACK)
+                case 13:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format(":3"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_DYL, battleOutroR13)
+                    msgbox(format("THE WINNER IS {PLAYER}{KUN}!\pPlease head back into the main hall to prepare for the Grand Finals match."), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_13)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 14)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND13)
+                    fadescreen(FADE_FROM_BLACK)
+                case 14:
+                    special(SpawnCameraObject)
+                    applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_up * 2))
+                    waitmovement(0)
+                    msgbox(format("You've made it quite far...\pBUT IT'S NOT GONNA BE ENOUGH!"))
+                    waitmessage
+                    special(RemoveCameraObject)
+                    trainerbattle_no_intro(TRAINER_WOLFEY, battleOutroR14)
+                    msgbox(format("THE WINNER OF THE GRAND FINALS IS {PLAYER}{KUN}!"), MSGBOX_AUTOCLOSE)
+                    waitmessage
+                    setflag(FLAG_ROUND_14)
+                    setvar(VAR_CAN_REGIONAL_BATTLE, 0)
+                    setvar(VAR_REGIONAL_STATE, 15)
+                    fadescreen(FADE_TO_BLACK)
+                    removeobject(LOCALID_ROUND14)
+                    fadescreen(FADE_FROM_BLACK)
+            }
+            special(SpawnCameraObject)
+            applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_down * 2))
+            waitmovement(0)
+            special(RemoveCameraObject)
         } else {
             applymovement(LOCALID_PLAYER, moves(walk_down))
             waitmovement
         }
     }
-    release
+    releaseall
 }
 
-text battleIntro {
-    "test1"
+text battleOutroR1 {
+    "This wasn't meant to happen!"
 }
 
-text battleOutro {
-    "test2"
+text battleOutroR2 {
+    "Result unexpected."
 }
 
-text battleNE {
-    "nuh uh"
+text battleOutroR3 {
+    "Shriek!"
+}
+
+text battleOutroR4 {
+    format("PLEASE RESPECT MY RIGHT TO SELF DEFENSE.")
+}
+
+text battleOutroR5 {
+    format("Fly high...")
+}
+
+text battleOutroR6 {
+    format("Hold your horses... my horses...? Damnit.")
+}
+
+text battleOutroR7 {
+    format("I knew I should have used Magikarp instead...")
+}
+
+text battleOutroR8 {
+    format("Bad dog! Bad dog!!!")
+}
+
+text battleOutroR9 {
+    format("I knew it was cooked when I couldn't catch Miraidon or Koraidon in time for this :(")
+}
+
+text battleOutroR10 {
+    format("Thank you for your service, Pagogo.")
+}
+
+text battleOutroR11 {
+    format("My bear is so scary...\pI should make a horror game about this!")
+}
+
+text battleOutroR12 {
+    format("Maybe Lunala just wasn't meant to win a regional in this format...")
+}
+
+text battleOutroR13 {
+    format("At least it wasn't perish trap this time.")
+}
+
+text battleOutroR14 {
+    format("It... it was enough?")
 }

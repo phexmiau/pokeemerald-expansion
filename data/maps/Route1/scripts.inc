@@ -57,7 +57,7 @@ Route1_EventScript_Bag::
 	switch VAR_ROUTE1_STATE
 # 34 "data/maps/Route1/scripts.pory"
 	case 0, Route1_EventScript_Bag_2
-# 45 "data/maps/Route1/scripts.pory"
+# 46 "data/maps/Route1/scripts.pory"
 	case 1, Route1_EventScript_Bag_3
 	return
 
@@ -75,21 +75,23 @@ Route1_EventScript_Bag_2:
 # 40 "data/maps/Route1/scripts.pory"
 	giveitem ITEM_SUPER_ROD
 # 41 "data/maps/Route1/scripts.pory"
-	msgbox Route1_EventScript_Bag_Text_2
+	giveitem ITEM_TERA_ORB
 # 42 "data/maps/Route1/scripts.pory"
-	waitmessage
+	msgbox Route1_EventScript_Bag_Text_2
 # 43 "data/maps/Route1/scripts.pory"
-	msgbox Route1_EventScript_Bag_Text_3, MSGBOX_AUTOCLOSE
+	waitmessage
 # 44 "data/maps/Route1/scripts.pory"
+	msgbox Route1_EventScript_Bag_Text_3, MSGBOX_AUTOCLOSE
+# 45 "data/maps/Route1/scripts.pory"
 	setvar VAR_ROUTE1_STATE, 1
 	return
 
 Route1_EventScript_Bag_3:
-# 46 "data/maps/Route1/scripts.pory"
-	giveitem ITEM_MASTER_BALL, 200
 # 47 "data/maps/Route1/scripts.pory"
-	waitmessage
+	giveitem ITEM_MASTER_BALL, 200
 # 48 "data/maps/Route1/scripts.pory"
+	waitmessage
+# 49 "data/maps/Route1/scripts.pory"
 	closemessage
 	return
 
@@ -132,12 +134,12 @@ Route1_EventScript_Bag_Text_1:
 	.string "You found a bunch of useful items!$"
 
 Route1_EventScript_Bag_Text_2:
-# 41 "data/maps/Route1/scripts.pory"
+# 42 "data/maps/Route1/scripts.pory"
 	.string "With these you can still catch a team in\n"
 	.string "time for the regional!$"
 
 Route1_EventScript_Bag_Text_3:
-# 43 "data/maps/Route1/scripts.pory"
+# 44 "data/maps/Route1/scripts.pory"
 	.string "(Developer's Note: By interacting with\n"
 	.string "the bag again you can get more\l"
 	.string "Pokéballs as essentially a sandbox\l"

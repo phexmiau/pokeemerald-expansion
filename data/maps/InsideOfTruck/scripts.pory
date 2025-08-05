@@ -97,5 +97,5 @@ script InsideOfTruck_EventScript_Teleport {
 }
 
 text InsideOfTruck_Text_IntroText {
-	format("You're on your way to the first regional of the newly announced Regulation R.\NWhile you'd love to play yourself, you unfortunately did not manage to get a team prepared for it in time, so you're just planning on spectating today.\pIt seems like the truck has stopped, so you should probably head outside...")
+	format("You're on your way to the first regional of the newly announced Regulation R.\NWhile you'd love to play yourself, you unfortunately did not manage to get a team prepared for it in time, so you're just planning on spectating today.\pThe truck has stopped, so you should probably head outside...")
 }

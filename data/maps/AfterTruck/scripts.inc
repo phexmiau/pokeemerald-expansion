@@ -78,6 +78,6 @@ AfterTruck_EventScript_SignTeardrop_Text_0:
 AfterTruck_EventScript_IntroTrigger_Text_0:
 # 32 "data/maps/AfterTruck/scripts.pory"
 	.string "The truck parked with quite a way left\n"
-	.string "to the venue!\p"
+	.string "to the venue.\p"
 	.string "It looks like you need to decide on one\n"
-	.string "path to finish the rest of the way.$"
+	.string "path to go the rest of the way.$"

@@ -29,7 +29,7 @@ script AfterTruck_EventScript_SignTeardrop {
 
 script AfterTruck_EventScript_IntroTrigger {
     lock
-    msgbox(format("The truck parked with quite a way left to the venue!\pIt looks like you need to decide on one path to finish the rest of the way."), MSGBOX_AUTOCLOSE)
+    msgbox(format("The truck parked with quite a way left to the venue.\pIt looks like you need to decide on one path to go the rest of the way."), MSGBOX_AUTOCLOSE)
     waitmessage
     setvar(VAR_TEMP_0, 1)
     release

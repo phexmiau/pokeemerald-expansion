@@ -201,5 +201,5 @@ InsideOfTruck_Text_IntroText::
 	.string "unfortunately did not manage to get a\l"
 	.string "team prepared for it in time, so you're\l"
 	.string "just planning on spectating today.\p"
-	.string "It seems like the truck has stopped, so\n"
-	.string "you should probably head outside...$"
+	.string "The truck has stopped, so you should\n"
+	.string "probably head outside...$"

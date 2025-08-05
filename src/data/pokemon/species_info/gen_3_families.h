@@ -2015,7 +2015,6 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .expYield = 181,
     #endif
         .evYield_SpDefense = 3,
-        .itemRare = ITEM_MENTAL_HERB,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
@@ -2590,7 +2589,6 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .expYield = 164,
     #endif
         .evYield_Defense = 2,
-        .itemCommon = ITEM_PRETTY_FEATHER,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -6095,7 +6093,6 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .expYield = 204,
     #endif
         .evYield_SpAttack = 3,
-        .itemRare = ITEM_POISON_BARB,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -6971,7 +6968,6 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .catchRate = 90,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 165 : 161,
         .evYield_Defense = 2,
-        .itemRare = ITEM_CHARCOAL,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,

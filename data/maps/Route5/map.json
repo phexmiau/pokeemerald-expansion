@@ -156,14 +156,14 @@
     },
     {
       "x": 9,
-      "y": 2,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_REGIONAL_SITE",
       "dest_warp_id": "WARP_IP_REGIONALSITE_INTRO"
     },
     {
       "x": 10,
-      "y": 2,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_REGIONAL_SITE",
       "dest_warp_id": "WARP_IP_REGIONALSITE_INTRO"
@@ -173,7 +173,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 3,
+      "y": 2,
       "elevation": 3,
       "var": "VAR_ROUTE5_STATE",
       "var_value": "0",
@@ -182,7 +182,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 3,
+      "y": 2,
       "elevation": 3,
       "var": "VAR_ROUTE5_STATE",
       "var_value": "0",

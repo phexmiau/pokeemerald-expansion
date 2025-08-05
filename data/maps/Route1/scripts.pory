@@ -38,6 +38,7 @@ script Route1_EventScript_Bag {
             giveitem(ITEM_MASTER_BALL, 5)
             giveitem(ITEM_INFINITE_FULL_RESTORE)
             giveitem(ITEM_SUPER_ROD)
+            giveitem(ITEM_TERA_ORB)
             msgbox(format("With these you can still catch a team in time for the regional!"))
             waitmessage
             msgbox(format("(Developer's Note: By interacting with the bag again you can get more Pokéballs as essentially a sandbox mode for catching your ideal team.\pYou will later on get access to full mon customization regardless, so you don't need to worry about catching certain natures etc.)"), MSGBOX_AUTOCLOSE)

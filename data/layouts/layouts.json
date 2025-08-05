@@ -4544,7 +4544,7 @@
     {
       "id": "LAYOUT_BATTLE_AREA",
       "name": "BattleArea_Layout",
-      "width": 20,
+      "width": 22,
       "height": 16,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",

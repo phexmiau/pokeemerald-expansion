@@ -69,8 +69,8 @@
       "x": 4,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_SPARKLE_HOLLOW",
-      "dest_warp_id": "WARP_IP_SPARKLE_INTRO"
+      "dest_map": "MAP_AFTER_TRUCK",
+      "dest_warp_id": "WAR_IP_AFTERTRUCK_INTRO"
     },
     {
       "x": 4,

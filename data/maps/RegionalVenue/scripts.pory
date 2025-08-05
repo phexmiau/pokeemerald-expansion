@@ -5,6 +5,7 @@ RegionalVenue_MapScripts::
 
 RegionalVenue_OnTransition:
 	setrespawn HEAL_LOCATION_REGIONAL_VENUE
+    call RegionalVenue_EventSCript_ReadyMatchup
 	end
 
 RegionalVenue_EventScript_Nurse::
@@ -76,6 +77,27 @@ script RegionalVenue_EventScript_Clerk_Tera {
     waitmessage
     pokemart(TeraMart)
     msgbox("Come again soon.")
+    release
+}
+
+script RegionalVenue_EventScript_Stonjourner {
+    lock
+    faceplayer
+    playmoncry(SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER)
+    msgbox("Do you want to start the regional?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        applymovement(9, moves(walk_up))
+        waitmovement
+        applymovement(9, moves(walk_up))
+        removeobject(9)
+        setflag(FLAG_STARTED_REGIONAL)
+        msgbox(format("ANNOUNCER: The regional is officially starting!\pPlease make your way to your first game!\pAs a reminder we are in the new Regulation R, which means you are going to play a BO1 with all 6 Pokémon, including 1 restricted.\pBest of luck to all the participants!"), MSGBOX_AUTOCLOSE)
+        waitmessage
+    }
+    if(var(VAR_RESULT) == NO) {
+        applymovement(9, moves(face_down))
+    }
+    waitmovement
     release
 }
 
@@ -284,10 +306,156 @@ script RegionalVenue_EventScript_Kate {
             msgbox(format("You're definitely going to have to be on the lookout for a bit of Psyspam it seems..."), MSGBOX_AUTOCLOSE)
             waitmessage
             hidemonpic 
+        case 2:
+            msgbox(format("KATE: Great work out there!\pIt's not gonna get any more standard with your next round tho...\NJust look at this."))
+            showmonpic(SPECIES_SOLGALEO, 10, 3)
+            msgbox(format("Besides the odd restricted choice, the only notable thing about your opponent seems to be a love for setting up screens!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 3:
+            msgbox(format("KATE: Next round, next strange restricted.\pThis almost feels like... early round difficulty progression?\NStrange...\pAnyslay! One powercrept gen 4 legendary coming up:"))
+            showmonpic(SPECIES_GIRATINA_ORIGIN, 10, 3)
+            msgbox(format("A good half of the team overall looks similarly out-powercrept, so you should have this!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 4:
+            msgbox(format("KATE: Finally a real restricted!!!\NAt least one gen ago..."))
+            showmonpic(SPECIES_ZACIAN_CROWNED, 10, 3)
+            msgbox(format("This opponent seems quite disgusting, both in regards to their team and personality.\pPlease send them home."), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 5:
+            msgbox(format("KATE: Good shit on ridding this regional from that freak!\pUnrelated thought but I hate when woke developers overtly put their political stances in their games.\NANYWAYS.\pRainbow bird."))
+            showmonpic(SPECIES_HO_OH, 10, 3)
+            msgbox(format("A bit of an unconventional team all around.\pI love what they've done for their electric and bug types tho!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 6:
+            msgbox(format("KATE: I JUST saw your next matchup and oh wow this is quite a jump in restricted choices.\pI'll just show you:"))
+            showmonpic(SPECIES_CALYREX_SHADOW, 10, 3)
+            msgbox(format("Besides that you might want to watch out for weather in this one, their team likes it quite sunny."), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 7:
+            msgbox(format("KATE: ...\pSorry I was spaced out there for a sec, your next opponent is quite bizarre.\NI'm not quite sure how they are like... alive?\pYou'll get it when you see them.\lTheir restricted matches them well tho!"))
+            showmonpic(SPECIES_KYOGRE, 10, 3)
+            msgbox(format("Not much else to say, they are running a fairly standard team for the most part.\pTornado Warning!!! I guess."), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 8:
+            msgbox(format("KATE: I. Really. Don't. Like. This. One.\pMeow.\p( meows very scared-ly :( )"))
+            showmonpic(SPECIES_ZAMAZENTA_CROWNED, 10, 3)
+            msgbox(format("(She appears to be in too much of a panic to give more information.)"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 9:
+            msgbox(format("KATE: Thank you so much for saving me.\pIf you're taffel please dm me right now so I can flirt in gratitude.\pTo the next match tho!\NThis guy didn't quite get the restricted he wanted, but it's not like he can really complain with this..."))
+            showmonpic(SPECIES_CALYREX_ICE, 10, 3)
+            msgbox(format("Once again I can give a weather warning more than anything...\pYou better bring an umbrella!\p'ella\p'ella\p'ella\peh\p...am I being cringefail."), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 10:
+            msgbox(format("KATE: CALM MIND.\pLEFTOVERS.\pTERA STARSTORM."))
+            showmonpic(SPECIES_TERAPAGOS, 10, 3)
+            msgbox(format("Quite the nice team honestly, but all the other dialoge about this fight is just references to the Pokémon anime, so I don't really want to break that trend...\pLEAFAGE LEAFAGE LEAFAGE LEAFAGE LEAFAGE LEAFAGE LEAFAGE LEAFAGE"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 11:
+            msgbox(format("KATE: Congrats on making top cut :3\pI'd say the battles only get more serious now...\p...but this next opponent is more silly than anything."))
+            showmonpic(SPECIES_GROUDON, 10, 3)
+            msgbox(format("Who let the pensioner into top 16 :sob:"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 12:
+            msgbox(format("KATE: NOW things are getting more serious.\pEnter Nebby:"))
+            showmonpic(SPECIES_LUNALA, 10, 3)
+            msgbox(format("I'm sure you will quickly recognize this as a regional winning team.\pThe biggest advantage you have is probably that everyone here is kinda playing like... AI?\pSo complex speed control between Trick Room and Tailwind might be difficult for them to manage!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 13:
+            msgbox(format("KATE: Let's go!!!\pNot gonna celebrate too soon tho, let's get started on the prep instead!"))
+            showmonpic(SPECIES_MIRAIDON, 10, 3)
+            msgbox(format("The trend of teams with proven strong tourney performance is keeping up I fear.\pThis may well be the most difficult battle of the regional with how the trainers have been playing today...\pYou're gonna see what I mean once you are in finals.\pSo get there!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic      
+        case 14:
+            msgbox(format("KATE: One. More. Game.\pYou can probably guess this already based on what restricted you haven't fought yet, but here it is..."))
+            showmonpic(SPECIES_KORAIDON, 10, 3)
+            msgbox(format("I'd love to give more advice here but...\NI think you should go into this without spoilers :P\pGood luck :3"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            hidemonpic
+        case 15:
+            msgbox(format("KATE: OMG YOU WON :33333333\p\p\phi mathea :3\pI'm breaking the fourth wall here, it's like fully me out of the game speaking now fire emoji.\pI hope you didn't think there'd be this entire game, especially as a birthday present, without some sappy yapping involved tee hee...\pBut first you have to defeat me in battle meowwwwwwwww!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+            trainerbattle_no_intro(TRAINER_KATE, battleOutroKate)
+            msgbox(format("KATE: waow you are so cool...\pblushes deeply\pmeows adoringly\pANYSLAY."))
+            msgbox(format("Actually typing this out right now feels a bit surreal.\pIt's been over a month atp that I originally started the plans for this present, including the whole emotional yap at the end here.\pWe obviously weren't back to dating yet at the time, so I was slightly worried about how sappy I could be LOL\pI'm very glad that is no longer a concern.\pI love you :3"))
+            msgbox(format("It's been a bit over a year now of us being close and like... wow. I have never met anyone who I vibe with this much; who I care about this deeply; who I am this comfortable around.\pWhose presence in my life makes me this happy :3\pI want to say that I hope there are many many more years to come that we get to experience together, but a world in which that isn't the case feels so unimaginable to me to begin with, that it's hard to even consider the possibility"))
+            msgbox(format("We've become a tad inseparable, dare I say :3\pI wouldn't have it any other way <3\pI have so many thoughts right now that I'm struggling to really express.\pThe most important one is, that I adore you so much. Love you so much.\pIt's why I'm always being so flirty :P\pI'm overflowing with affection for you, and need to express it.\pI want to make you happy, and I want you to always know that you are loved and cared for so deeply :3"))
+            msgbox(format("Life can be so scary and difficult sometimes, I'm sure you don't need me to tell you that.\pBut I want to face that scariness with you by my side :3\pAnd I want to always stand by yours just the same, in whatever shape or form you need me to.\pMy thoughts are getting a bit less coherent, I suppose writing this in the middle of the fluffing night will have that effect..."))
+            msgbox(format("I kinda just want to express more how much I just love having you in my life.\pYou kinda just make everything better, it's so crazy.\pEverything good becomes even better when I get to share it with you, and everything bad gets more bearable with your support.\pIt makes me so fluffing happy.\pIt's what I want to have for the rest of my life.\pI want you for the rest of my life :P"))
+            msgbox(format("Sometimes it's almost scary, to feel this strongly about someone.\pBut like I said before, I want to face that scariness with you by my side :3\pYou make my life so much better just by being in it, and I want to experience it all with you, both the highs and the lows.\pI'm kinda just repeating myself at this point but like aaaaaaaaaa\pAs a sappy yearner, how could I not keep rambling about you..."))
+            msgbox(format("About this incredible girl that came into my life a year ago, who is the coolest and most adorable person in the world, who makes everything in my life better by being a part of it, who I want to spend my entire life with <3\pMaybe I can express all this more coherently when I'm less tired and not writing it in Pokemon dialoge :sob:"))
+            msgbox(format("I definitely want to, because I want to tell you how much you mean to me and how much you are worth to me over and over and over and over and over and over again :3\pI think that was enough yap for like... this very moment of writing.\pWhenever you read this message me tho, I'll gladly take more opportunities to share my love for you :P\pHappy (very) late birthday again at this point btw. :3\pI'm really glad I made this rom hack."))
+            msgbox(format("As much as it's a present for you, it also turned into a huge passion project of mine myself, that I loved working on.\pAnd I suppose in that way it is like so much else...\pA part of my life that I enjoy even more because I got to share it with you <3\pI love you so much, my princess :3"),MSGBOX_AUTOCLOSE)
+            waitmessage
     }
     applymovement(28, moves(face_up))
     waitmovement
     release
+}
+
+text battleOutroKate {
+    "I love you :3"
+}
+
+script RegionalVenue_EventSCript_ReadyMatchup {
+    if(flag(FLAG_ROUND_1) && flag(FLAG_ROUND_2) && flag(FLAG_ROUND_3) && flag(FLAG_ROUND_4) && flag(FLAG_ROUND_5) && flag(FLAG_ROUND_6) && flag(FLAG_ROUND_7) && flag(FLAG_ROUND_8) && flag(FLAG_ROUND_9) && flag(FLAG_ROUND_10) && flag(FLAG_ROUND_11) && flag(FLAG_ROUND_12) && flag(FLAG_ROUND_13) && flag(FLAG_ROUND_14))
+    {
+        switch(var(VAR_REGIONAL_STATE)) {
+            case 0:
+            case 1:
+            case 2:
+                clearflag(FLAG_ROUND_2)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 3:
+                clearflag(FLAG_ROUND_3)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 4:
+                clearflag(FLAG_ROUND_4)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 5:
+                clearflag(FLAG_ROUND_5)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 6:
+                clearflag(FLAG_ROUND_6)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 7:
+                clearflag(FLAG_ROUND_7)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 8:
+                clearflag(FLAG_ROUND_8)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 9:
+                clearflag(FLAG_ROUND_9)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 10:
+                clearflag(FLAG_ROUND_10)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 11:
+                clearflag(FLAG_ROUND_11)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 12:
+                clearflag(FLAG_ROUND_12)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 13:
+                clearflag(FLAG_ROUND_13)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+            case 14:
+                clearflag(FLAG_ROUND_14)
+                setvar(VAR_CAN_REGIONAL_BATTLE, 1)
+        }
+    }
 }
 
 mart CommonMart {
