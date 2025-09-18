@@ -1955,7 +1955,7 @@ static void ItemMenu_Give(u8 taskId)
     {
         DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
     }
-    else if (!GetItemImportance(gSpecialVar_ItemId))
+    else
     {
         if (CalculatePlayerPartyCount() == 0)
         {
@@ -1966,10 +1966,6 @@ static void ItemMenu_Give(u8 taskId)
             gBagMenu->newScreenCallback = CB2_ChooseMonToGiveItem;
             Task_FadeAndCloseBagMenu(taskId);
         }
-    }
-    else
-    {
-        PrintItemCantBeHeld(taskId);
     }
 }
 
@@ -2045,7 +2041,7 @@ static void Task_ItemContext_GiveToParty(u8 taskId)
         StringExpandPlaceholders(gStringVar4, sText_Var1CantBeHeldHere);
         DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, HandleErrorMessage);
     }
-    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != POCKET_KEY_ITEMS)
     {
         Task_FadeAndCloseBagMenu(taskId);
     }
@@ -2060,7 +2056,7 @@ static void Task_ItemContext_GiveToPC(u8 taskId)
 {
     if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
         DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
-    else if (gBagPosition.pocket != POCKET_KEY_ITEMS && !GetItemImportance(gSpecialVar_ItemId))
+    else if (gBagPosition.pocket != POCKET_KEY_ITEMS)
         gTasks[taskId].func = Task_FadeAndCloseBagMenu;
     else
         PrintItemCantBeHeld(taskId);

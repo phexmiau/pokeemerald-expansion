@@ -14449,4 +14449,52 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_LargePotion,
         .iconPalette = gItemIconPalette_FullRestore,
     },
+
+    [ITEM_INFINITE_REVIVE] =
+    {
+        .name = _("Infinite Revive"),
+        .price = 0,
+        .importance = 1,
+        .description = sMaxReviveDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .effect = gItemEffect_MaxRevive,
+        .flingPower = 30,
+        .iconPic = gItemIcon_MaxRevive,
+        .iconPalette = gItemIconPalette_Revive,
+    },
+
+    [ITEM_INFINITE_ELIXIR] =
+    {
+        .name = _("Infinite Elixir"),
+        .price = 0,
+        .importance = 1,
+        .description = COMPOUND_STRING(
+            "Fully restores the\n"
+            "PP of a Pokémon's\n"
+            "moves."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
+        .effect = gItemEffect_MaxElixir,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Ether,
+        .iconPalette = gItemIconPalette_MaxElixir,
+    },
+
+    [ITEM_HRT] =
+    {
+        .name = _("HRT"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Transes the gender\n"
+            "of your  Pokémon."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_HRT,
+        .flingPower = 30,
+        .iconPic = gItemIcon_AuxPowerguard,
+        .iconPalette = gItemIconPalette_AuxPowerguard,
+    },
 };

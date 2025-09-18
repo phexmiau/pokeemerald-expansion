@@ -1,6 +1,11 @@
 raw `
 AfterTruck_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, AfterTruck_OnTransition
 	.byte 0
+
+AfterTruck_OnTransition:
+    setflag FLAG_TEMP_2
+	end
 `
 
 script AfterTruck_EventScript_SignVolcano {
@@ -27,10 +32,32 @@ script AfterTruck_EventScript_SignTeardrop {
     releaseall
 }
 
+script AfterTruck_EventScript_SignTruck {
+    lockall
+    msgbox("Truck Stop")
+    releaseall
+}
+
 script AfterTruck_EventScript_IntroTrigger {
     lock
-    msgbox(format("The truck parked with quite a way left to the venue.\pIt looks like you need to decide on one path to go the rest of the way."), MSGBOX_AUTOCLOSE)
+    //msgbox(format("The truck parked with quite a way left to the venue.\pIt looks like you need to decide on one path to go the rest of the way."), MSGBOX_AUTOCLOSE)
+    //waitmessage
+    addobject(2)
+    applymovement(2, moves (walk_down walk_right))
+    waitmovement
+    applymovement(LOCALID_PLAYER, moves (face_left))
+    waitmovement
+    msgbox(format("Welp, that's the furthest I can get you!\pIf you want to make it to the regional venue from here, you'll have to take one of those four paths ahead.\pSuch a bummer still that you didn't manage to get a team ready in time to participate yourself...\pHope spectating will be still be a blast tho!"), MSGBOX_AUTOCLOSE)
     waitmessage
     setvar(VAR_TEMP_0, 1)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    release
+}
+
+script AfterTruck_EventScript_Driver {
+    lock
+    faceplayer
+    msgbox(format("You won't have time to return here once you make a choice, unless you want to be late for the regional...\pBut I still believe you should think this through carefully.\pThis odd feeling won't leave me, saying that your decision will have legendary ramifications..."),MSGBOX_AUTOCLOSE)
+    waitmessage
     release
 }

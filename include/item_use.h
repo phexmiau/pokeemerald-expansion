@@ -16,6 +16,7 @@ void ItemUseOutOfBattle_AbilityCapsule(u8 taskId);
 void ItemUseOutOfBattle_AbilityPatch(u8 taskId);
 void ItemUseOutOfBattle_Mint(u8 taskId);
 void ItemUseOutOfBattle_Shard(u8 taskId);
+void ItemUseOutOfBattle_HRT(u8 taskId);
 void ItemUseOutOfBattle_Anti_Bottlecap_One_Stat(u8 taskId);
 void ItemUseOutOfBattle_P1_Bottlecap_One_Stat(u8 taskId);
 void ItemUseOutOfBattle_Gold_Bottlecap_One_Stat(u8 taskId);

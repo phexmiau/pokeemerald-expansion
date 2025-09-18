@@ -5,6 +5,7 @@ Route1_MapScripts::
 
 Route1_OnTransition:
 	setrespawn HEAL_LOCATION_ROUTE1
+    special HealPlayerParty
 	end
 
 `
@@ -37,8 +38,11 @@ script Route1_EventScript_Bag {
             msgbox(format("You found a bunch of useful items!"))
             giveitem(ITEM_MASTER_BALL, 5)
             giveitem(ITEM_INFINITE_FULL_RESTORE)
+            giveitem(ITEM_INFINITE_ELIXIR)
+            giveitem(ITEM_INFINITE_REVIVE)
             giveitem(ITEM_SUPER_ROD)
             giveitem(ITEM_TERA_ORB)
+            special(HealPlayerParty)
             msgbox(format("With these you can still catch a team in time for the regional!"))
             waitmessage
             msgbox(format("(Developer's Note: By interacting with the bag again you can get more Pokéballs as essentially a sandbox mode for catching your ideal team.\pYou will later on get access to full mon customization regardless, so you don't need to worry about catching certain natures etc.)"), MSGBOX_AUTOCLOSE)
@@ -48,4 +52,12 @@ script Route1_EventScript_Bag {
             waitmessage
             closemessage
     }
+}
+
+script Route1_EventScript_BugCatcher {
+    lock
+    faceplayer
+    msgbox(format("I came up with this crazy challenge idea the other day.\pThere are 5 routes that you need to pass to get to the site of the VGC regional...\Nso what if someone were to play using only their first encounter on each route?\pIs that even possible!?"),MSGBOX_AUTOCLOSE)
+    waitmessage
+    release
 }

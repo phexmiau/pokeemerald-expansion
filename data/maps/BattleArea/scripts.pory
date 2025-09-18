@@ -79,7 +79,7 @@ script BattleArea_EventScript_Anabel {
 script BattleArea_EventScript_Greta {
     lock
     faceplayer
-    msgbox(format("Having matches both accessible in person and on these screens is soooooooo faboulos... fabolus... fabulus...\p(Developer's Note: HOW THE FUCK DO YOU WRITE THIS WORD)"), MSGBOX_AUTOCLOSE)
+    msgbox(format("Having matches both accessible in person and on these screens is soooooooo faboulos... fabolus... fabulus...\p(Developer's Note: HOW THE FUCK DO YOU SPELL THIS WORD)"), MSGBOX_AUTOCLOSE)
     waitmessage
     applymovement(1, moves(face_up))
     waitmovement
@@ -110,19 +110,9 @@ script BattleArea_EventScript_Zoroark {
     lock
     faceplayer
     playmoncry(SPECIES_ZOROARK, CRY_MODE_ENCOUNTER)
-    msgbox(format("Zoroaaa"), MSGBOX_AUTOCLOSE)
+    msgbox(format("Zoroaaa..."), MSGBOX_AUTOCLOSE)
     waitmessage
     applymovement(13, moves(face_right))
-    waitmovement
-    release
-
-}script BattleArea_EventScript_Stonjourner {
-    lock
-    faceplayer
-    playmoncry(SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER)
-    msgbox(format("Stooooone"), MSGBOX_AUTOCLOSE)
-    waitmessage
-    applymovement(18, moves(face_down))
     waitmovement
     release
 }
@@ -130,7 +120,7 @@ script BattleArea_EventScript_Zoroark {
 script BattleArea_EventScript_Roserade {
     lock
     playmoncry(SPECIES_ROSERADE, CRY_MODE_ENCOUNTER)
-    msgbox(format("Raaaadeee"), MSGBOX_AUTOCLOSE)
+    msgbox(format("Raaaadeee."), MSGBOX_AUTOCLOSE)
     waitmessage
     release
 }
@@ -163,7 +153,6 @@ script BattleArea_EventScript_Spiritomb {
     waitmessage
     playmoncry(SPECIES_SPIRITOMB, CRY_MODE_ENCOUNTER)
     fadescreen(FADE_TO_BLACK)    
-    removeobject(18)
     removeobject(8)
     applymovement(6, moves(face_left))
     fadescreen(FADE_FROM_BLACK)
@@ -209,7 +198,6 @@ script BattleArea_EventScript_Spiritomb {
     addobject(10)
     addobject(11)
     addobject(8)
-    addobject(18)
     addobject(16)
     addobject(15)
     addobject(9)
@@ -237,7 +225,7 @@ script BattleArea_EventScript_Rapidash {
     lock
     faceplayer
     playmoncry(SPECIES_RAPIDASH_GALAR, CRY_MODE_ENCOUNTER)
-    msgbox(format("Raaaaaapi"), MSGBOX_AUTOCLOSE)
+    msgbox(format("Raaaaaapi!"), MSGBOX_AUTOCLOSE)
     waitmessage
     applymovement(12, moves(face_up))
     waitmovement
@@ -391,6 +379,7 @@ script BattleArena_EventScript_Start_Battle {
         applymovement(LOCALID_PLAYER, moves(face_up))
         msgbox(format("Do you want to start the battle?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES) {
+            special(HealPlayerParty)
             switch(var(VAR_REGIONAL_STATE)) {
                 case 0:
                     special(SpawnCameraObject)

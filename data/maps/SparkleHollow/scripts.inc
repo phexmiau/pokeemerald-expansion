@@ -24,7 +24,7 @@ SparkleHollow_EventScript_GetScreamTail_1:
 
 SparkleHollow_EventScript_GetScreamTail_2:
 # 12 "data/maps/SparkleHollow/scripts.pory"
-	givemon SPECIES_SCREAM_TAIL, 50
+	givemon SPECIES_SCREAM_TAIL, 50, isShiny = TRUE
 # 13 "data/maps/SparkleHollow/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq SparkleHollow_EventScript_GetScreamTail_5
@@ -85,7 +85,7 @@ SparkleHollow_EventScript_GetDiancie_1:
 
 SparkleHollow_EventScript_GetDiancie_2:
 # 39 "data/maps/SparkleHollow/scripts.pory"
-	givemon SPECIES_DIANCIE, 50
+	givemon SPECIES_DIANCIE, 50, item = ITEM_DIANCITE
 # 40 "data/maps/SparkleHollow/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq SparkleHollow_EventScript_GetDiancie_5

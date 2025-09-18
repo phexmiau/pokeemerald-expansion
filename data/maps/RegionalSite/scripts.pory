@@ -83,3 +83,15 @@ script RegionalSite_EventScript_GetMesprit {
 	}
     release
 }
+
+script RegionalSite_EventScript_LakeSign {
+	lockall
+	msgbox("Mini Lake of Verity", MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script RegionalSite_EventScript_RegionalSiteSign {
+	lockall
+	msgbox("Regional Venue", MSGBOX_AUTOCLOSE)
+	releaseall
+}

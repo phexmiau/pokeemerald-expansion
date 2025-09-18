@@ -16880,6 +16880,14 @@ Class: Psychic
 Pic: Psychic M
 Gender: Male
 Music: Elite Four
+AI: Smart Trainer / Prediction / Powerful Status
+
+=== TRAINER_YUKI ===
+Name: YUKI
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Music: Elite Four
 Double Battle: Yes
 AI: Smart Trainer / Prediction / Powerful Status
 
@@ -16945,6 +16953,7 @@ IVs: 0 Atk
 - Draco Meteor  
 - Dragon Pulse  
 - Protect
+
 
 === TRAINER_ZAC ===
 Name: ZAC
@@ -17438,8 +17447,11 @@ Adamant Nature
 - Protect
 
 Amoonguss @ Mental Herb  
-Ability: Regenerator  
-IVs: 0 Atk  
+Ability: Regenerator
+Level: 50
+EVs: 244 HP / 156 Def / 68 SpA / 40 SpD  
+IVs: 0 Atk
+Calm Nature
 - Rage Powder  
 - Pollen Puff  
 - Spore  
@@ -17893,6 +17905,17 @@ Music: Elite Four
 Double Battle: Yes
 AI: Smart Trainer / Prediction / Powerful Status
 
+Altaria @ Altarianite  
+Ability: Cloud Nine  
+Level: 50  
+Happiness: 252
+EVs: 164 HP / 92 Atk / 252 Spe  
+Adamant Nature  
+- Dragon Dance  
+- Return  
+- Dragon Claw  
+- Protect
+
 Galvantula @ Focus Sash  
 Ability: Compound Eyes  
 Level: 50  
@@ -17904,15 +17927,15 @@ IVs: 0 Atk
 - Bug Buzz  
 - Thunder Wave
 
-Altaria @ Altarianite  
-Ability: Cloud Nine  
+Meowscarada @ Life Orb  
+Ability: Protean  
 Level: 50  
-EVs: 164 HP / 92 Atk / 252 Spe  
+EVs: 84 HP / 252 Atk / 52 Def / 52 SpD / 68 Spe  
 Adamant Nature  
-- Dragon Dance  
-- Return  
-- Dragon Claw  
-- Protect
+- Flower Trick  
+- Knock Off  
+- Protect  
+- U-turn
 
 Volcarona @ Rocky Helmet  
 Ability: Flame Body  
@@ -17924,16 +17947,6 @@ IVs: 0 Atk
 - Quiver Dance  
 - Fiery Dance  
 - Giga Drain
-
-Meowscarada @ Life Orb  
-Ability: Protean  
-Level: 50  
-EVs: 84 HP / 252 Atk / 52 Def / 52 SpD / 68 Spe  
-Adamant Nature  
-- Flower Trick  
-- Knock Off  
-- Protect  
-- U-turn
 
 Aegislash @ Leftovers  
 Ability: Stance Change  

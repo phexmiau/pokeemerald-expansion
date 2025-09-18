@@ -188,6 +188,26 @@ RegionalSite_EventScript_GetMesprit_8:
 	goto RegionalSite_EventScript_GetMesprit_7
 
 
+RegionalSite_EventScript_LakeSign::
+# 88 "data/maps/RegionalSite/scripts.pory"
+	lockall
+# 89 "data/maps/RegionalSite/scripts.pory"
+	msgbox RegionalSite_EventScript_LakeSign_Text_0, MSGBOX_AUTOCLOSE
+# 90 "data/maps/RegionalSite/scripts.pory"
+	releaseall
+	return
+
+
+RegionalSite_EventScript_RegionalSiteSign::
+# 94 "data/maps/RegionalSite/scripts.pory"
+	lockall
+# 95 "data/maps/RegionalSite/scripts.pory"
+	msgbox RegionalSite_EventScript_RegionalSiteSign_Text_0, MSGBOX_AUTOCLOSE
+# 96 "data/maps/RegionalSite/scripts.pory"
+	releaseall
+	return
+
+
 RegionalSite_EventScript_GetSnail_Text_0:
 # 10 "data/maps/RegionalSite/scripts.pory"
 	.string "GASTRODON wants to join you!\p"
@@ -214,3 +234,11 @@ RegionalSite_EventScript_GetMesprit_Text_0:
 RegionalSite_EventScript_GetMesprit_Text_1:
 # 69 "data/maps/RegionalSite/scripts.pory"
 	.string "You got MESPRIT!$"
+
+RegionalSite_EventScript_LakeSign_Text_0:
+# 89 "data/maps/RegionalSite/scripts.pory"
+	.string "Mini Lake of Verity$"
+
+RegionalSite_EventScript_RegionalSiteSign_Text_0:
+# 95 "data/maps/RegionalSite/scripts.pory"
+	.string "Regional Venue$"

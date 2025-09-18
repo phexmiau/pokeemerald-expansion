@@ -6,6 +6,7 @@ RegionalVenue_MapScripts::
 RegionalVenue_OnTransition:
 	setrespawn HEAL_LOCATION_REGIONAL_VENUE
     call RegionalVenue_EventSCript_ReadyMatchup
+    call RegionalVenue_EventScript_MoveStonjourner
 	end
 
 RegionalVenue_EventScript_Nurse::
@@ -84,21 +85,49 @@ script RegionalVenue_EventScript_Stonjourner {
     lock
     faceplayer
     playmoncry(SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER)
-    msgbox("Do you want to start the regional?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == YES) {
-        applymovement(9, moves(walk_up))
-        waitmovement
-        applymovement(9, moves(walk_up))
-        removeobject(9)
-        setflag(FLAG_STARTED_REGIONAL)
-        msgbox(format("ANNOUNCER: The regional is officially starting!\pPlease make your way to your first game!\pAs a reminder we are in the new Regulation R, which means you are going to play a BO1 with all 6 Pokémon, including 1 restricted.\pBest of luck to all the participants!"), MSGBOX_AUTOCLOSE)
-        waitmessage
+    if(flag(FLAG_STARTED_REGIONAL) == FALSE) {
+        msgbox("Do you want to start the regional?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            closemessage
+            applymovement(9, moves(walk_left * 3))
+            waitmovement
+            applymovement(9, moves(face_down))
+            setflag(FLAG_STARTED_REGIONAL)
+            setflag(FLAG_DISABLED_TEAM_CHANGES)
+            setobjectxyperm(9, 6, 2)
+            msgbox(format("ANNOUNCER: The regional is officially starting!\pPlease make your way to your first game!\pAs a reminder we are in the new Regulation R, which means you are going to play a BO1 with all 6 Pokémon, including 1 restricted.\pBest of luck to all the participants!"), MSGBOX_AUTOCLOSE)
+            waitmessage
+        }
+        if(var(VAR_RESULT) == NO) {
+            applymovement(9, moves(face_down))
+            waitmovement
+        } 
+    } else {
+        msgbox("Stooooone...")
+        msgbox(format("Do you want to enable team customization again?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            clearflag(FLAG_DISABLED_TEAM_CHANGES)
+            setflag(FLAG_STONE_DEAD)
+            playmoncry(SPECIES_STONJOURNER, CRY_MODE_ENCOUNTER)
+            applymovement(9, moves(walk_in_place_right walk_in_place_up walk_in_place_left walk_in_place_down))
+            waitmovement
+            applymovement(9, moves(walk_in_place_faster_right walk_in_place_faster_up walk_in_place_faster_left walk_in_place_faster_down))
+            waitmovement
+            removeobject(9)
+        }
+        if(var(VAR_RESULT) == NO) {
+            applymovement(9, moves(face_down))
+            waitmovement
+        } 
     }
-    if(var(VAR_RESULT) == NO) {
-        applymovement(9, moves(face_down))
-    }
-    waitmovement
     release
+}
+
+script RegionalVenue_EventScript_MoveStonjourner {
+    if(flag(FLAG_STARTED_REGIONAL) == TRUE) {
+        setobjectxyperm(9, 6, 2)
+        setobjectxy(9, 6, 2)
+    }
 }
 
 script RegionalVenue_EventScript_Kartana {
@@ -243,7 +272,7 @@ script RegionalVenue_EventScript_Grunt {
 script RegionalVenue_EventScript_Red {
     lock
     faceplayer
-    msgbox(format("..."), MSGBOX_AUTOCLOSE)
+    msgbox(format("I love catching my opponents off guard with uncommon move choices.\pHaving a built-in move reminder when checking my Pokémon's status is so convenient!"), MSGBOX_AUTOCLOSE)
     waitmessage
     applymovement(22, moves(face_left))
     waitmovement
@@ -387,6 +416,7 @@ script RegionalVenue_EventScript_Kate {
         case 15:
             msgbox(format("KATE: OMG YOU WON :33333333\p\p\phi mathea :3\pI'm breaking the fourth wall here, it's like fully me out of the game speaking now fire emoji.\pI hope you didn't think there'd be this entire game, especially as a birthday present, without some sappy yapping involved tee hee...\pBut first you have to defeat me in battle meowwwwwwwww!"), MSGBOX_AUTOCLOSE)
             waitmessage
+            special(HealPlayerParty)
             trainerbattle_no_intro(TRAINER_KATE, battleOutroKate)
             msgbox(format("KATE: waow you are so cool...\pblushes deeply\pmeows adoringly\pANYSLAY."))
             msgbox(format("Actually typing this out right now feels a bit surreal.\pIt's been over a month atp that I originally started the plans for this present, including the whole emotional yap at the end here.\pWe obviously weren't back to dating yet at the time, so I was slightly worried about how sappy I could be LOL\pI'm very glad that is no longer a concern.\pI love you :3"))
@@ -399,6 +429,12 @@ script RegionalVenue_EventScript_Kate {
             msgbox(format("I definitely want to, because I want to tell you how much you mean to me and how much you are worth to me over and over and over and over and over and over again :3\pI think that was enough yap for like... this very moment of writing.\pWhenever you read this message me tho, I'll gladly take more opportunities to share my love for you :P\pHappy (very) late birthday again at this point btw. :3\pI'm really glad I made this rom hack."))
             msgbox(format("As much as it's a present for you, it also turned into a huge passion project of mine myself, that I loved working on.\pAnd I suppose in that way it is like so much else...\pA part of my life that I enjoy even more because I got to share it with you <3\pI love you so much, my princess :3"),MSGBOX_AUTOCLOSE)
             waitmessage
+            // msgbox(format("KATE: Secret postgame battle attack gogogogogogogo!!!"), MSGBOX_AUTOCLOSE)
+            // waitmessage
+            // special(HealPlayerParty)
+            // trainerbattle_no_intro(TRAINER_KATE, battleOutroKate)
+            // msgbox(format("KATE: IM TOO LAZY TO CODE IN A FAILSAFE SO IF YOU TALK TO ME AGAIN YOU WILL BE DRAGGED INTO THE FIGHT AGAIN"), MSGBOX_AUTOCLOSE)
+            // waitmessage
     }
     applymovement(28, moves(face_up))
     waitmovement
@@ -407,6 +443,7 @@ script RegionalVenue_EventScript_Kate {
 
 text battleOutroKate {
     "I love you :3"
+    //"Thank you for playing :3"
 }
 
 script RegionalVenue_EventSCript_ReadyMatchup {
@@ -595,12 +632,6 @@ mart BerryMart {
     ITEM_LANSAT_BERRY
     ITEM_STARF_BERRY
     ITEM_MICLE_BERRY
-    ITEM_POMEG_BERRY
-    ITEM_KELPSY_BERRY
-    ITEM_QUALOT_BERRY
-    ITEM_HONDEW_BERRY
-    ITEM_GREPA_BERRY
-    ITEM_TAMATO_BERRY
 }
 
 mart MintMart {
@@ -649,6 +680,12 @@ mart StatMart {
     ITEM_SPATK_MAX
     ITEM_SPDEF_MAX
     ITEM_SPEED_MAX
+    ITEM_POMEG_BERRY
+    ITEM_KELPSY_BERRY
+    ITEM_QUALOT_BERRY
+    ITEM_HONDEW_BERRY
+    ITEM_GREPA_BERRY
+    ITEM_TAMATO_BERRY
     ITEM_FRESH_START_MOCHI
     ITEM_GOLD_BOTTLE_CAP
     ITEM_0_HP_BOTTLE_CAP
@@ -688,6 +725,7 @@ mart TeraMart {
 }
 
 mart SpecialMart {
+    ITEM_HRT
     ITEM_MEGA_RING
     ITEM_SCROLL_OF_DARKNESS
     ITEM_SCROLL_OF_WATERS

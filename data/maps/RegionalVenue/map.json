@@ -130,7 +130,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RegionalVenue_EventScript_Stonjourner",
-      "flag": "FLAG_STARTED_REGIONAL"
+      "flag": "FLAG_STONE_DEAD"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHARIZARD)",

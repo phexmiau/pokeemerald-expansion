@@ -59,6 +59,7 @@ void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task);
 void ItemUseCB_Mint(u8 taskId, TaskFunc task);
 void ItemUseCB_Shard(u8 taskId, TaskFunc task);
+void ItemUseCB_HRT(u8 taskId, TaskFunc task);
 void ItemUseCB_Anti_Bottlecap_One_Stat(u8 taskId, TaskFunc task);
 void ItemUseCB_P1_Bottlecap_One_Stat(u8 taskId, TaskFunc task);
 void ItemUseCB_Gold_Bottlecap_One_Stat(u8 taskId, TaskFunc task);

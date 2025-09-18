@@ -3316,14 +3316,18 @@ static void CursorCb_Cancel1(u8 taskId)
 
 static void CursorCb_Item(u8 taskId)
 {
-    PlaySE(SE_SELECT);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_ITEM);
-    DisplaySelectionWindow(SELECTWINDOW_ITEM);
-    DisplayPartyMenuStdMessage(PARTY_MSG_DO_WHAT_WITH_ITEM);
-    gTasks[taskId].data[0] = 0xFF;
-    gTasks[taskId].func = Task_HandleSelectionMenuInput;
+    if(FlagGet(FLAG_DISABLED_TEAM_CHANGES)) {
+        PlaySE(SE_FAILURE);
+    } else {
+        PlaySE(SE_SELECT);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_ITEM);
+        DisplaySelectionWindow(SELECTWINDOW_ITEM);
+        DisplayPartyMenuStdMessage(PARTY_MSG_DO_WHAT_WITH_ITEM);
+        gTasks[taskId].data[0] = 0xFF;
+        gTasks[taskId].func = Task_HandleSelectionMenuInput;
+    }
 }
 
 static void CursorCb_Give(u8 taskId)
@@ -4757,7 +4761,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
     else
     {
         gPartyMenuUseExitCallback = TRUE;
-        if (!IsItemFlute(item) && item != ITEM_INFINITE_FULL_RESTORE)
+        if (!IsItemFlute(item) && item != ITEM_INFINITE_FULL_RESTORE && item != ITEM_INFINITE_REVIVE)
         {
             PlaySE(SE_USE_ITEM);
             RemoveBagItem(item, 1);
@@ -5175,6 +5179,125 @@ void ItemUseCB_Shard(u8 taskId, TaskFunc task)
 #undef tMonId
 #undef tOldTera
 #undef tNewTera
+#undef tOldFunc
+
+#define tState      data[0]
+#define tMonId      data[1]
+#define tOldFunc    4
+
+void Task_HRT(u8 taskId)
+{
+    static const u8 askText[] = _("This may affect {STR_VAR_1}'s gender.\nAre you sure you want to use it?");
+    static const u8 doneText[] = _("{STR_VAR_1}'s gender type may have changed\n due to the effects of the {STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
+    s16 *data = gTasks[taskId].data;
+
+    struct Pokemon *mon = &gPlayerParty[tMonId];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    bool8 isShiny = IsMonShiny(mon);
+    u8 nature = GetNature(mon);
+    u32 newPersonality;
+
+    u8 oldGender = GetMonGender(mon);
+    u8 newGender = oldGender;
+    u8 genderRatio = gSpeciesInfo[species].genderRatio;
+
+    if(oldGender == MON_MALE && genderRatio != MON_MALE) {
+        newGender = MON_FEMALE;
+    }
+    if(oldGender == MON_FEMALE && genderRatio != MON_FEMALE) {
+        newGender = MON_MALE;
+    }
+
+    switch (tState)
+    {
+    case 0:
+        // Can't use.
+        if (oldGender == newGender)
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+        gPartyMenuUseExitCallback = TRUE;
+        GetMonNickname(&gPlayerParty[tMonId], gStringVar1);
+        CopyItemName(gSpecialVar_ItemId, gStringVar2);
+        StringExpandPlaceholders(gStringVar4, askText);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayYesNoMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChoose())
+        {
+        case 0:
+            tState++;
+            break;
+        case 1:
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            // Don't exit party selections screen, return to choosing a mon.
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }
+        break;
+    case 3:
+        PlaySE(SE_USE_ITEM);
+        StringExpandPlaceholders(gStringVar4, doneText);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 4:
+        if (!IsPartyMenuTextPrinterActive())
+            tState++;
+        break;
+    case 5:
+        do
+        {
+            newPersonality = Random32();
+        }
+        while ((GetNatureFromPersonality(newPersonality) != nature) ||
+               (GetGenderFromSpeciesAndPersonality(species, newPersonality) != newGender));
+        UpdateMonPersonality(&mon->box, newPersonality);
+        SetMonData(&gPlayerParty[tMonId], MON_DATA_IS_SHINY, &isShiny);
+        CalculateMonStats(&gPlayerParty[tMonId]);
+
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        gTasks[taskId].func = Task_ClosePartyMenu;
+        break;
+    }
+}
+
+void ItemUseCB_HRT(u8 taskId, TaskFunc task)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tState = 0;
+    tMonId = gPartyMenu.slotId;
+    SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
+    gTasks[taskId].func = Task_HRT;
+}
+
+#undef tState
+#undef tMonId
+#undef tOldGender
+#undef tNewGender
 #undef tOldFunc
 
 #define tState      data[0]
@@ -5731,7 +5854,6 @@ static void TryUseItemOnMove(u8 taskId)
         {
             gPartyMenuUseExitCallback = TRUE;
             PlaySE(SE_USE_ITEM);
-            RemoveBagItem(item, 1);
             move = GetMonData(mon, MON_DATA_MOVE1 + *moveSlot);
             StringCopy(gStringVar1, GetMoveName(move));
             GetMedicineItemEffectMessage(item, 0);

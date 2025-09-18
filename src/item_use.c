@@ -840,6 +840,12 @@ void ItemUseOutOfBattle_Mint(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_HRT(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_HRT;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_Shard(u8 taskId)
 {
     gItemUseCB = ItemUseCB_Shard;

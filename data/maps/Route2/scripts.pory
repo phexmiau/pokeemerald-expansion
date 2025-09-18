@@ -5,6 +5,7 @@ Route2_MapScripts::
 
 Route2_OnTransition:
 	setrespawn HEAL_LOCATION_ROUTE2
+    special HealPlayerParty
 	end
 
 `

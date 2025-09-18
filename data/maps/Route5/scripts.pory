@@ -10,6 +10,7 @@ Route5_OnResume:
 
 Route5_OnTransition:
 	setrespawn HEAL_LOCATION_ROUTE5
+    special HealPlayerParty
 	end
 `
 

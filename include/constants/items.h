@@ -1015,13 +1015,17 @@
 #define ITEM_SPEED_MAX 846
 
 #define ITEM_INFINITE_FULL_RESTORE 847
+#define ITEM_INFINITE_REVIVE 848
+#define ITEM_INFINITE_ELIXIR 849
+
+#define ITEM_HRT 850
 
 
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 848
+#define ITEMS_COUNT 851
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

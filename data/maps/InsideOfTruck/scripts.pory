@@ -16,7 +16,6 @@ InsideOfTruck_OnResume:
 
 InsideOfTruck_EventScript_SetIntroFlags::
 	lockall
-	msgbox InsideOfTruck_Text_IntroText, MSGBOX_AUTOCLOSE
 	waitmessage
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	setflag FLAG_FORCED_DOUBLES

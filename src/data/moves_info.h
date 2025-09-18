@@ -12001,7 +12001,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
-        .battleAnimScript = gBattleAnimMove_MagmaStorm,
+        .battleAnimScript = gBattleAnimMove_Eruption,
     },
 
     [MOVE_DARK_VOID] =
@@ -15764,7 +15764,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = { .recoilPercentage = 50 },
         .metronomeBanned = TRUE,
-        .battleAnimScript = gBattleAnimMove_LightOfRuin,
+        .battleAnimScript = gBattleAnimMove_HyperBeam,
     },
 
     [MOVE_ORIGIN_PULSE] =
@@ -16819,7 +16819,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_CUTE,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_FleurCannon,
+        .battleAnimScript = gBattleAnimMove_SteelBeam,
     },
 
     [MOVE_PSYCHIC_FANGS] =
@@ -17034,7 +17034,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_MoongeistBeam,
+        .battleAnimScript = gBattleAnimMove_TechnoBlast,
     },
 
     [MOVE_TEARFUL_LOOK] =
@@ -17576,7 +17576,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_DynamaxCannon,
+        .battleAnimScript = gBattleAnimMove_FlashCannon,
     },
 
     [MOVE_SNIPE_SHOT] =
@@ -18397,7 +18397,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_Eternabeam,
+        .battleAnimScript = gBattleAnimMove_PrismaticLaser,
     },
 
     [MOVE_STEEL_BEAM] =
@@ -19812,7 +19812,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .makesContact = TRUE,
         .punchingMove = TRUE,
         .metronomeBanned = TRUE,
-        .battleAnimScript = gBattleAnimMove_JetPunch,
+        .battleAnimScript = gBattleAnimMove_MachPunch,
     },
 
     [MOVE_SPICY_EXTRACT] =
@@ -21140,7 +21140,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .chance = 50,
             .sheerForceBoost = SHEER_FORCE_BOOST,
         }),
-        .battleAnimScript = gBattleAnimMove_MalignantChain,
+        .battleAnimScript = gBattleAnimMove_SpiritShackle,
     },
 
     // Z-Moves

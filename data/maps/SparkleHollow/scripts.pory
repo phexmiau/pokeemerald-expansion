@@ -9,7 +9,7 @@ script SparkleHollow_EventScript_GetScreamTail {
     playmoncry(SPECIES_SCREAM_TAIL, CRY_MODE_ENCOUNTER)
     msgbox(format("SCREAM TAIL wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
-		givemon(SPECIES_SCREAM_TAIL, 50)
+		givemon(SPECIES_SCREAM_TAIL, 50, isShiny=TRUE)
 		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 			playfanfare(MUS_OBTAIN_ITEM)
 			msgbox("You got SCREAM TAIL!")
@@ -36,7 +36,7 @@ script SparkleHollow_EventScript_GetDiancie {
     playmoncry(SPECIES_DIANCIE, CRY_MODE_ENCOUNTER)
     msgbox(format("DIANCIE wants to join you!\pDo you want to take it with you?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
-		givemon(SPECIES_DIANCIE, 50)
+		givemon(SPECIES_DIANCIE, 50, item=ITEM_DIANCITE)
 		if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 			playfanfare(MUS_OBTAIN_ITEM)
 			msgbox("You got DIANCIE!")
